@@ -1,0 +1,4295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ingeniería Económica | Unidad I</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--green:#176b3a;
+-dark:#104b2b;
+--gold:#d5a62e;
+--light:#f2f8f2;
+ --ink:#26352c;
+--muted:#68786d;
+ --line:#dce8dd;
+--white:#fff;
+--bg:#f4f7f2;
+
+}
+
+.imagen-universidad {
+ width: 180px;
+ height: 180px;
+object-fit: cover;
+object-position: center;
+ border-radius: 50%;
+ display: block;
+margin: 15px auto;
+
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+font-family:'Inter',Arial,sans-serif;
+background:var(--bg);
+color:var(--ink);
+line-height:1.7;
+
+}
+
+header{
+background:#176b3a;
+color:white;
+text-align:center;
+padding:25px 20px;
+position:relative;
+overflow:hidden;
+
+}
+
+header:before,header:after{
+content:"";
+position:absolute;
+border:1px solid #ffffff20;
+border-radius:50%;
+width:260px;height:260px;
+
+}
+
+header:before{left:-100px;top:-130px}
+
+header:after{right:-100px;bottom:-180px}
+
+.header-content{position:relative;z-index:1}
+
+.logo{
+width:75px;
+height:75px;
+background:#ffffff;
+border:3px solid var(--gold);
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+margin:0 auto 12px;
+color:#000000;
+font-weight:800;
+font-size:20px;
+letter-spacing:1px;
+
+}
+
+.uni{
+font-size:13px;
+letter-spacing:1.5px;
+font-weight:800;
+color:#f5d77e;
+
+}
+
+header h1{
+font-size:clamp(27px,4vw,39px);
+margin:8px 0;
+
+}
+
+header p{margin:4px 0}
+
+.group{
+display:inline-block;
+background:var(--gold);
+color:#173b24;
+ padding:5px 18px;
+border-radius:30px;
+font-weight:800;
+margin-top:12px;
+
+}
+
+.clock-box{
+margin:17px auto 0;
+display:inline-block;
+padding:9px 20px;
+border:1px solid #ffffff50;
+border-radius:10px;
+background:#ffffff12;
+font-size:14px;
+
+}
+
+nav{
+ background:white;
+padding:13px 15px;
+ display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:10px 22px;
+position:sticky;
+top:0;
+ z-index:10;
+ box-shadow:0 3px 14px #00000012;
+
+}
+
+nav a{
+text-decoration:none;
+color:var(--dark);
+font-weight:700;
+font-size:13px;
+
+}
+
+nav a:hover{color:#bd8b12}
+
+main{
+ max-width:1150px;
+ margin:30px auto;
+padding:0 18px;
+
+}
+
+section{
+background:white;
+padding:28px;
+margin-bottom:25px;
+border-radius:15px;
+box-shadow:0 5px 20px #163c2010;
+ scroll-margin-top:85px;
+
+}
+
+h2{
+color:var(--dark);
+font-size:23px;
+ border-bottom:3px solid var(--gold);
+padding-bottom:10px;
+margin-bottom:18px;
+
+}
+
+h3{
+color:var(--green);
+font-size:18px;
+margin:19px 0 9px;
+
+}
+
+h4{color:var(--dark);margin:12px 0 7px}
+p{margin:9px 0}
+ul,ol{margin:9px 0 13px 25px}
+li{margin:5px 0}
+
+.kicker{
+color:#9a7418;
+font-size:12px;
+font-weight:800;
+ letter-spacing:1px;
+text-transform:uppercase;
+
+}
+
+.intro{
+background:var(--light);
+border-left:5px solid var(--green);
+border-radius:8px;
+padding:15px 18px;
+margin:15px 0;
+
+}
+
+.formula{
+background:#edf6ed;
+border-left:5px solid var(--green);
+border-radius:9px;
+padding:15px;
+text-align:center;
+ font-size:20px;
+font-weight:800;
+color:var(--dark);
+ margin:14px 0;
+
+}
+
+.note{
+background:#fff8e7;
+border-left:5px solid var(--gold);
+padding:14px 17px;
+border-radius:8px;
+margin:15px 0;
+
+}
+
+.grid{
+display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+ gap:13px;
+margin:15px 0;
+
+}
+
+.tile{
+border:1px solid var(--line);
+background:#f8fbf7;
+padding:16px;
+border-radius:10px;
+
+}
+
+.tile strong{
+color:var(--green);
+display:block;
+margin-bottom:5px;
+
+}
+
+.exercise{
+border:1px solid var(--line);
+border-radius:12px;
+padding:19px;
+ margin:17px 0;
+background:#fcfefb;
+
+}
+
+.exercise h3{margin-top:0}
+
+.steps{
+ background:#f0f6f0;
+padding:13px 16px;
+border-radius:8px;
+ margin:12px 0;
+
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin:14px 0;
+font-size:14px;
+
+}
+
+th,td{
+border:1px solid var(--line);
+padding:10px;
+text-align:left;
+
+}
+
+th{background:#eaf3e9;color:var(--dark)}
+
+.calc-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+gap:14px;
+margin:15px 0;
+
+}
+
+label{
+display:block;
+font-weight:700;
+font-size:13px;
+margin-bottom:6px;
+color:var(--dark);
+
+}
+
+input,select{
+width:100%;
+padding:12px;
+border:1px solid #cbd9cc;
+border-radius:8px;
+font-size:15px;
+font-family:inherit;
+background:white;
+
+}
+
+input:focus,select:focus{
+outline:none;
+border-color:var(--green);
+box-shadow:0 0 0 3px #176b3a18;
+
+}
+
+button{
+background:var(--green);
+color:white;
+border:0;
+border-radius:8px;
+padding:12px 20px;
+font-size:14px;
+font-weight:800;
+cursor:pointer;
+margin:7px 5px 7px 0;
+transition:.2s;
+
+}
+
+button:hover{background:var(--dark);transform:translateY(-1px)}
+
+.result{
+display:none;
+background:#edf8ef;
+border:1px solid #b8dfbf;
+padding:16px;
+border-radius:9px;
+margin-top:15px;
+
+}
+
+.result strong{color:var(--dark)}
+
+.result-value{
+font-size:23px;
+color:var(--green);
+font-weight:800;
+
+}
+
+.error{color:#b42318;font-weight:700;margin-top:10px}
+.small{font-size:12px;color:var(--muted)}
+
+.week-title{
+background:linear-gradient(120deg,#104b2b,#25844c);
+color:white;
+padding:22px;
+border-radius:12px;
+margin-bottom:20px;
+
+}
+
+.week-title h2{color:white;border:0;margin:0;padding:0}
+.week-title p{color:#e4f3e5}
+
+.week-label{
+display:inline-block;
+background:var(--gold);
+color:#263c25;
+font-size:12px;
+font-weight:800;
+padding:4px 12px;
+border-radius:20px;
+ margin-bottom:8px;
+
+}
+
+.timeline{
+overflow-x:auto;
+padding:20px 5px;
+
+}
+
+.timeline-line{
+min-width:520px;
+ border-top:3px solid var(--green);
+margin:45px 15px 25px;
+display:flex;
+justify-content:space-between;
+
+}
+
+.timeline-point{
+position:relative;
+text-align:center;
+width:100px;
+
+}
+
+.timeline-point:before{
+content:"";
+position:absolute;
+width:13px;height:13px;
+border-radius:50%;
+background:var(--gold);
+border:3px solid var(--green);
+top:-9px;left:42px;
+
+}
+
+.timeline-point span{
+display:block;
+font-weight:800;
+color:var(--dark);
+
+}
+
+.timeline-card{
+border:1px solid var(--line);
+background:#fbfdfb;
+border-radius:12px;
+padding:16px;
+margin:18px 0;
+
+}
+
+.cashflow-diagram{
+overflow-x:auto;
+padding:12px 2px 4px;
+
+}
+
+.cashflow-track{
+position:relative;
+min-width:760px;
+height:225px;
+margin:0 8px;
+
+}
+
+.cashflow-track:before{
+content:"";
+position:absolute;
+left:0;right:0;top:86px;
+border-top:3px solid var(--green);
+
+}
+
+.cashflow-event{
+position:absolute;
+top:0;
+width:150px;
+margin-left:-75px;
+text-align:center;
+
+}
+
+.cashflow-event .amount{
+min-height:32px;
+font-weight:800;
+color:var(--dark);
+font-size:14px;
+white-space:nowrap;
+
+}
+
+.cashflow-event .arrow{
+position:absolute;
+top:34px;left:0;right:0;
+font-size:34px;
+line-height:1;
+font-weight:800;
+color:var(--green);
+height:42px;
+
+}
+
+.cashflow-event.outflow .arrow{color:#b42318}
+
+.cashflow-event .dot{
+position:absolute;
+top:78px;left:calc(50% - 7px);
+width:14px;height:14px;
+border-radius:50%;
+background:var(--gold);
+border:3px solid var(--green);
+z-index:1;
+
+}
+
+.cashflow-event .date{
+margin-top:88px;
+font-weight:800;
+color:var(--dark);
+font-size:13px;
+
+}
+
+.cashflow-event .days{
+color:var(--muted);
+font-size:12px;
+
+}
+
+.cashflow-event .small{
+color:var(--muted);
+font-size:11px;
+
+}
+
+.cashflow-legend{
+display:flex;
+flex-wrap:wrap;
+gap:12px 22px;
+margin-top:10px;
+font-size:12px;
+color:var(--muted);
+
+}
+
+.cashflow-legend strong{color:var(--dark)}
+
+footer{
+background:var(--dark);
+color:white;
+text-align:center;
+padding:27px 15px;
+margin-top:35px;
+
+}
+
+footer p{margin:5px}
+
+@media(max-width:650px){
+section{padding:19px}
+nav{position:relative}
+nav a{font-size:12px}
+header{padding:27px 14px}
+table{font-size:12px}
+th,td{padding:7px}
+
+}
+
+.integrantes {
+margin-top: 15px;
+padding-top: 12px;
+border-top: 1px solid #d5a62e;
+
+}
+
+.integrantes p {
+margin: 5px 0;
+font-size: 13px;
+color: white;
+
+}
+
+.integrantes p:first-child {
+color: #f5d77e;
+margin-bottom: 10px;
+
+}
+
+/* Semana 4 */
+#s4semana{
+ --s4-dark:#104b2b;
+ --s4-green:#176b3a;
+ --s4-gold:#d5a62e;
+}
+#s4semana button{
+ background:var(--s4-green);
+ color:#fff;
+ transition:none;
+}
+#s4semana button:is(:hover,:focus,:active){
+ background:var(--s4-dark);
+ color:#fff;
+ transform:none;
+}
+#s4semana :is(button,.s4-flow):focus-visible{
+ outline:3px solid var(--s4-dark);
+ outline-offset:4px;
+}
+#s4semana .s4-card{
+ position:relative;
+ transition:transform .2s, box-shadow .2s, border-color .2s;
+}
+#s4semana .s4-card:is(:hover,:focus-within){
+ transform:translateY(-3px);
+ border-color:var(--s4-green);
+ box-shadow:0 8px 18px #104b2b23;
+}
+#s4semana .s4-card button{
+ background:transparent;
+ color:var(--s4-dark);
+ padding:0;
+ margin:0;
+ text-align:left;
+ font:inherit;
+ font-weight:800;
+ transform:none;
+}
+#s4semana .s4-card button::after{
+ content:"";
+ position:absolute;
+ inset:0;
+ border-radius:10px;
+}
+#s4semana .s4-card button:focus-visible{outline:none}
+#s4semana .s4-card button:focus-visible::after{
+ outline:3px solid var(--s4-dark);
+ outline-offset:3px;
+}
+#s4semana .s4-card-action{
+ display:block;
+ margin-top:10px;
+ color:var(--s4-dark);
+ text-decoration:underline;
+ font-size:.8rem;
+ font-weight:700;
+}
+#s4semana dialog{
+ position:fixed;
+ inset:0;
+ width:100%;
+ height:100%;
+ max-width:none;
+ max-height:none;
+ border:0;
+ padding:16px;
+ background:transparent;
+ color:var(--ink);
+}
+#s4semana dialog[open]{display:grid;place-items:center}
+#s4semana dialog::backdrop{background:#14291dc2}
+body:has(#s4detalle[open]){overflow:hidden}
+#s4semana .s4-dialog-panel{
+ width:min(100%,560px);
+ max-height:100%;
+ overflow:auto;
+ padding:clamp(16px,4vw,26px);
+ border-radius:15px;
+ background:#fff;
+ box-shadow:0 12px 36px #0004;
+}
+#s4semana .s4-dialog-panel h3{margin-top:0}
+#s4semana .s4-illustration{
+ display:block;
+ width:min(100%,360px);
+ margin:0 auto;
+ border-radius:10px;
+ background:#f2f8f2;
+}
+#s4semana .s4-illustration path{
+ fill:none;
+ stroke:var(--s4-green);
+ stroke-width:4;
+ stroke-linecap:round;
+ stroke-linejoin:round;
+}
+#s4semana .s4-illustration rect{fill:#b8dfbf;stroke:var(--s4-green);stroke-width:2}
+#s4semana .s4-illustration circle{fill:var(--s4-gold);stroke:var(--s4-dark);stroke-width:2}
+#s4semana .s4-illustration text{fill:var(--s4-dark);font:700 15px Inter,Arial,sans-serif;text-anchor:middle}
+#s4semana .s4-timeline{margin:18px 0 0}
+#s4semana .s4-timeline figcaption{color:var(--s4-dark)}
+#s4semana .s4-flow{
+ overflow-x:auto;
+ padding:12px 2px 8px;
+ margin-top:6px;
+}
+#s4semana .s4-track{
+ --s4-spread:clamp(0rem,calc(80vw - 24rem),22rem);
+ position:relative;
+ display:grid;
+ grid-template-columns:var(--s4-columns);
+ width:100%;
+ min-width:calc(var(--s4-count) * 8.25rem);
+ list-style:none;
+ margin:0;
+ padding:0;
+}
+#s4semana .s4-event{
+ display:grid;
+ grid-row:1 / span 3;
+ grid-template-rows:subgrid;
+ grid-template-columns:minmax(0,1fr);
+ justify-items:center;
+ text-align:center;
+ min-width:8.25rem;
+ margin:0;
+}
+#s4semana .s4-event-values{align-self:end;padding:0 6px 6px;overflow-wrap:anywhere}
+#s4semana .s4-flow-value{display:block;font-weight:700;color:var(--s4-dark);transition:background .2s}
+#s4semana .s4-event:hover .s4-flow-value{background:#dceedd;border-radius:6px}
+#s4semana .s4-flow-value.s4-outflow{color:#9d241b}
+#s4semana .s4-final .s4-flow-value{font-weight:800}
+#s4semana .s4-marker{
+ display:grid;
+ place-items:center;
+ width:100%;
+ height:16px;
+ background:linear-gradient(var(--s4-green),var(--s4-green)) center / 100% 2px no-repeat;
+}
+#s4semana .s4-event:first-child .s4-marker{background-size:50% 2px;background-position:right center}
+#s4semana .s4-final .s4-marker{background-size:50% 2px;background-position:left center}
+#s4semana .s4-event:only-child .s4-marker{background:none}
+#s4semana .s4-marker::after{
+ content:"";
+ width:10px;
+ height:10px;
+ border:2px solid var(--s4-green);
+ border-radius:50%;
+ background:#fff;
+}
+#s4semana .s4-final .s4-marker::after{width:14px;height:14px;background:var(--s4-gold)}
+#s4semana .s4-event-label{padding:4px 6px 0;align-self:start;overflow-wrap:anywhere}
+#s4semana .s4-event-label small{display:block}
+#s4semana .s4-gap{
+ align-self:end;
+ grid-row:2;
+ height:16px;
+ background:linear-gradient(var(--s4-green),var(--s4-green)) center / 100% 2px no-repeat;
+}
+#s4semana .s4-discount{color:var(--s4-dark);font-weight:700}
+#s4semana .s4-flow-summary{
+ display:inline-block;
+ background:#e5f3e8;
+ border-left:4px solid var(--s4-green);
+ padding:5px 10px;
+ border-radius:6px;
+ color:var(--s4-dark);
+ overflow-wrap:anywhere;
+}
+@media(prefers-reduced-motion:reduce){
+ #s4semana :is(.s4-card,.s4-flow-value,button){transition:none;transform:none}
+}
+#s4semana .formula{overflow-wrap:anywhere}
+#s4semana .result{overflow-wrap:anywhere}
+
+/* Semana 5 */
+#semana5{
+ --s5-dark:#104b2b;
+ --s5-green:#176b3a;
+ --s5-gold:#d5a62e;
+}
+#semana5 button{background:var(--s5-green);color:#fff;transition:none}
+#semana5 button:is(:hover,:focus,:active){background:var(--s5-dark);color:#fff;transform:none}
+#semana5 :is(button,.s5-scroll):focus-visible{outline:3px solid var(--s5-dark);outline-offset:3px}
+#semana5 .s5-card{position:relative;transition:transform .2s,box-shadow .2s,border-color .2s}
+#semana5 .s5-card:is(:hover,:focus-within){
+ transform:translateY(-3px);
+ border-color:var(--s5-green);
+ box-shadow:0 8px 18px #104b2b23;
+}
+#semana5 .s5-card button{
+ background:transparent;
+ color:var(--s5-dark);
+ padding:0;
+ margin:0;
+ text-align:left;
+ font:inherit;
+ font-weight:800;
+}
+#semana5 .s5-card button::after{content:"";position:absolute;inset:0;border-radius:10px}
+#semana5 .s5-card button:focus-visible{outline:none}
+#semana5 .s5-card button:focus-visible::after{outline:3px solid var(--s5-dark);outline-offset:3px}
+#semana5 .s5-card-action{display:block;margin-top:10px;color:var(--s5-dark);text-decoration:underline}
+#semana5 .formula,#semana5 .result{overflow-wrap:anywhere}
+#semana5 dialog{
+ position:fixed;
+ inset:0;
+ width:100%;
+ height:100%;
+ max-width:none;
+ max-height:none;
+ border:0;
+ padding:16px;
+ background:transparent;
+ color:var(--ink);
+}
+#semana5 dialog[open]{display:grid;place-items:center}
+#semana5 dialog::backdrop{background:#14291dc2}
+body:has(#s5detalle[open]){overflow:hidden}
+#semana5 .s5-dialog-panel{
+ width:min(100%,560px);
+ max-height:100%;
+ overflow:auto;
+ padding:clamp(16px,4vw,26px);
+ border-radius:15px;
+ background:#fff;
+ box-shadow:0 12px 36px #0004;
+}
+#semana5 .s5-dialog-panel h3{margin-top:0}
+#semana5 .s5-illustration{display:block;width:min(100%,360px);margin:0 auto;border-radius:10px;background:#f2f8f2}
+#semana5 .s5-illustration path{fill:none;stroke:var(--s5-green);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+#semana5 .s5-illustration circle{fill:var(--s5-gold);stroke:var(--s5-dark);stroke-width:2}
+#semana5 .s5-illustration text{fill:var(--s5-dark);font:700 14px Inter,Arial,sans-serif;text-anchor:middle}
+#semana5 .s5-timeline{margin:16px 0 0}
+#semana5 .s5-timeline figcaption{color:var(--s5-dark)}
+#semana5 .s5-scroll{overflow-x:auto;padding:8px 2px;margin:8px 0}
+#semana5 .s5-track{
+ display:grid;
+ grid-template-columns:repeat(var(--s5-count),minmax(8.75rem,1fr));
+ min-width:calc(var(--s5-count) * 8.75rem);
+ list-style:none;
+ margin:0;
+ padding:0;
+}
+#semana5 .s5-point{
+ display:grid;
+ grid-row:1 / span 3;
+ grid-template-rows:subgrid;
+ text-align:center;
+ margin:0;
+}
+#semana5 .s5-amounts{align-self:end;padding:0 5px 4px;overflow-wrap:anywhere}
+#semana5 .s5-amount{display:block;border-radius:5px;color:var(--s5-dark);font-size:.89rem;font-weight:700}
+#semana5 .s5-payment{color:#922c21}
+#semana5 .s5-plan{color:#23547c}
+#semana5 .s5-point:hover .s5-amount{background:#e1f0e4}
+#semana5 .s5-marker{display:grid;place-items:center;height:23px;background:linear-gradient(var(--s5-green),var(--s5-green)) center / 100% 2px no-repeat}
+#semana5 .s5-point:first-child .s5-marker{background-size:50% 2px;background-position:right center}
+#semana5 .s5-point:last-child .s5-marker{background-size:50% 2px;background-position:left center}
+#semana5 .s5-point:only-child .s5-marker{background:none}
+#semana5 .s5-marker::after{content:"";width:11px;height:11px;border:2px solid var(--s5-green);border-radius:50%;background:#fff}
+#semana5 .s5-focal .s5-marker::after{width:18px;height:18px;background:var(--s5-gold);box-shadow:0 0 0 3px #fbebbc}
+#semana5 .s5-time{padding:3px 5px;color:var(--s5-dark);overflow-wrap:anywhere}
+#semana5 .s5-time small{display:block;font-weight:800;color:#675014}
+#semana5 .s5-equation{background:#f0f6f0;border-left:4px solid var(--s5-green);padding:8px 10px;border-radius:6px}
+@media(prefers-reduced-motion:reduce){#semana5 .s5-card{transition:none;transform:none}}
+
+</style>
+</head>
+<body>
+<header>
+
+<div class="header-content">
+<div class="logo">UAE</div>
+<img src="universidad.jpg" alt="Universidad Agraria del Ecuador" class="imagen-universidad">
+<p class="uni">UNIVERSIDAD AGRARIA DEL ECUADOR</p>
+<p>Facultad de Ciencias Agrarias</p>
+<p>Carrera de Computación en Línea – 6SC</p>
+<h1>Ingeniería Económica</h1>
+<p><strong>UNIDAD I: FUNDAMENTOS DE INGENIERÍA ECONÓMICA</strong></p>
+<p>Interés simple y compuesto</p>
+<span class="group">GRUPO 8</span>
+<div class="clock-box">
+<div id="fecha">Cargando fecha...</div>
+<strong id="hora">Cargando hora...</strong>
+</div>
+</div>
+</header>
+
+<nav>
+<a href="#inicio">Inicio</a>
+<a href="#semana2">Unidad 1 – Fundamentos del interés simple</a>
+<a href="#semana3">Aplicaciones del interés simple</a>
+<a href="#s4semana">Semana 4 – Interés compuesto</a>
+<a href="#semana5">Semana 5 – Ecuaciones de valor equivalente</a>
+<a href="#bancoDeberes">Banco de deberes</a>
+<a href="#calculadoraGeneral">Calculadora general</a>
+<a href="#fuentes">Material de consulta</a>
+
+</nav>
+<main>
+<section id="inicio">
+<p class="kicker">Presentación del contenido</p>
+<h2>Ingeniería Económica – Unidad I</h2>
+<div class="intro">
+
+  Esta página reúne el contenido académico de las semanas 2, 3, 4 y 5 de la asignatura Ingeniería Económica. Incluye conceptos, fórmulas, ejemplos desarrollados y ejercicios interactivos cuyos valores pueden modificarse para practicar los cálculos.
+
+ </div>
+
+ <div class="grid">
+ <div class="tile">
+<strong>Semana 2</strong>
+
+   Fundamentos de Ingeniería Económica, valor del dinero en el tiempo e interés simple.
+
+  </div>
+ <div class="tile">
+
+<strong>Semana 3</strong>
+
+   Cálculos del interés simple, monto, valor presente, diagramas de tiempo y descuento simple.
+
+  </div>
+
+<div class="tile">
+<strong>Semana 4</strong>
+
+   Interés compuesto, capitalización, monto, valor presente y tasas equivalentes.
+
+</div>
+
+<div class="tile">
+<strong>Semana 5</strong>
+   Ecuaciones de valor equivalente, fecha focal y sustitución de pagos.
+</div>
+
+<div class="tile">
+<strong>Práctica interactiva</strong>
+
+   Los campos de los ejercicios permiten cambiar los datos y obtener nuevos resultados.
+
+</div>
+</div>
+</section>
+
+<!-- ================= SEMANA 2 ================= -->
+
+<section id="semana2">
+<div class="week-title">
+<span class="week-label">UNIDAD I · FUNDAMENTOS DEL INTERÉS SIMPLE</span>
+<h2>Fundamentos de Ingeniería Económica e interés simple</h2>
+<p>Conceptos fundamentales y ejercicios de interés simple.</p>
+</div>
+<h2>1. Uso de la Ingeniería Económica para la toma de decisiones</h2>
+<p>En la vida cotidiana las personas toman decisiones para elegir entre alternativas. Los ingenieros, directivos, empresas y funcionarios también toman decisiones que con frecuencia involucran dinero, llamado capital o fondos de capital, que suele existir en cantidades limitadas.</p>
+<p>La decisión de dónde y cómo invertir ese capital busca agregar valor mediante los resultados futuros esperados. La Ingeniería Económica estudia los factores económicos que intervienen en la evaluación de alternativas.</p>
+<h3>¿Qué implica la Ingeniería Económica?</h3>
+<p>Implica formular, estimar y evaluar los resultados económicos cuando existen alternativas disponibles para alcanzar un propósito. Las técnicas matemáticas facilitan esa evaluación.</p>
+ <h3>Aplicabilidad</h3>
+<p>Sus fórmulas y técnicas se aplican a asuntos monetarios en empresas privadas, instituciones de gobierno y decisiones personales. Por ejemplo: comprar un automóvil, una vivienda, muebles o equipos electrónicos a crédito.</p>
+<h2>2. Conceptos básicos y valor del dinero en el tiempo</h2>
+<p>El valor del dinero depende del momento en que se recibe o se paga. Una misma cantidad puede tener distinto valor en fechas diferentes. Por eso, la Ingeniería Económica compara alternativas en una fecha común.</p>
+
+ <div class="grid">
+<div class="tile"><strong>Capital (C o P)</strong>Dinero inicial que se invierte, presta o financia.</div>
+<div class="tile"><strong>Valor presente (VP)</strong>Equivalente hoy de una cantidad futura, según una tasa y un plazo.</div>
+<div class="tile"><strong>Valor descontado</strong>Valor presente obtenido al restar el descuento al valor futuro: VP = F − D.</div>
+<div class="tile"><strong>Ganancia o interés (I)</strong>Diferencia entre el monto acumulado y el capital: I = M − C.</div>
+<div class="tile"><strong>Monto (M)</strong>Total acumulado al final del plazo: capital más interés.</div>
+<div class="tile"><strong>Valor pagadero (F)</strong>Cantidad contractual que vence y debe pagarse en una fecha futura.</div>
+</div>
+<h3>Interés</h3>
+<p>El interés se presenta como la diferencia entre el capital y el monto final que se devuelve por el uso de un capital prestado. Depende del capital, la tasa, la duración de la operación y el riesgo del negocio, entre otros factores económicos, políticos y sociales.</p>
+<h3>Tasa de interés y tipo de interés</h3>
+<ul>
+<li><strong>Tasa de interés (i):</strong> precio del dinero por período, expresado como proporción o porcentaje. Ejemplo: 12 % anual = 0,12 por año.</li>
+<li><strong>Tipo de interés:</strong> régimen utilizado para calcularlo, que puede ser simple o compuesto. La tasa debe indicar su unidad: mensual, trimestral o anual.</li>
+</ul>
+<div class="note"><strong>Regla de unidades:</strong> si la tasa es anual, el número de períodos debe expresarse en años, salvo que se convierta la tasa a otra unidad compatible.</div>
+<h2>3. Interés simple</h2>
+<p>En el interés simple, el capital que genera el interés permanece constante durante toda la operación. El interés se calcula siempre sobre el capital inicial; los intereses de períodos anteriores no se suman a la base de cálculo.</p>
+<h3>Elementos y símbolos</h3>
+
+<table>
+<tr><th>Símbolo</th><th>Significado</th></tr>
+<tr><td>I</td><td>Interés</td></tr>
+<tr><td>C o P</td><td>Capital, principal o valor presente</td></tr>
+<tr><td>i</td><td>Tasa de interés por período</td></tr>
+<tr><td>n</td><td>Número de períodos de tiempo</td></tr>
+<tr><td>VP</td><td>Valor presente</td></tr>
+<tr><td>F o M</td><td>Valor futuro o monto</td></tr>
+<tr><td>D</td><td>Descuento</td></tr>
+
+ </table>
+<h3>Fórmula del interés simple</h3>
+<div class="formula">I = C × i × n</div>
+<h3>Fórmula del monto</h3>
+<div class="formula">M = C + I = C(1 + i × n)</div>
+<h3>Despejes principales</h3>
+<div class="grid">
+<div class="tile"><strong>Capital</strong>C = I / (i × n)</div>
+<div class="tile"><strong>Tasa</strong>i = I / (C × n)</div>
+<div class="tile"><strong>Tiempo</strong>n = I / (C × i)</div>
+</div>
+<div class="note"><strong>Atención:</strong> la tasa y el tiempo deben referirse a una misma unidad. Para convertir una tasa porcentual a decimal, se divide para 100; por ejemplo, 24 % = 0,24.</div>
+<h3>Conversión del tiempo</h3>
+
+ <ul>
+ <li>Tasa anual y tiempo de 5 años: n = 5.</li>
+<li>Tasa anual y tiempo de 7 meses: n = 7/12 años.</li>
+<li>Tasa mensual y tiempo de 2 años: n = 24 meses.</li>
+<li>Tasa trimestral y tiempo de 3 años: n = 12 trimestres.</li>
+
+ </ul>
+<p>En los ejercicios que utilizan tiempo comercial se considera un año de 360 días y meses de 30 días.</p>
+<h2>4. Ejemplos y ejercicios de la semana 2</h2>
+<div class="exercise">
+<h3>Ejercicio 1. Préstamo de 8 meses</h3>
+<p><strong>Enunciado:</strong> capital de $1.000, tasa del 12 % anual y plazo de 8 meses. Calcular el interés y el monto.</p>
+<div class="calc-grid">
+<div><label for="s2c1">Capital ($)</label><input id="s2c1" type="number" value="1000" step="any"></div>
+<div><label for="s2i1">Tasa anual (%)</label><input id="s2i1" type="number" value="12" step="any"></div>
+<div><label for="s2n1">Tiempo (meses)</label><input id="s2n1" type="number" value="8" step="any"></div>
+
+</div>
+
+<button onclick="ejercicioSimple('s2c1','s2i1','s2n1',12,'r2e1')">Resolver ejercicio 1</button>
+<div class="result" id="r2e1"></div>
+<p class="small">Resultado original: interés $80 y monto $1.080.</p>
+
+ </div>
+
+ <div class="exercise">
+
+<h3>Ejercicio 2. Inversión de $2.400</h3>
+<p><strong>Enunciado:</strong> una persona invierte $2.400 al 9 % anual simple durante 5 meses. ¿Cuánto gana en intereses y cuál es el monto al vencimiento?</p>
+<div class="calc-grid">
+<div><label for="s2c2">Capital ($)</label><input id="s2c2" type="number" value="2400" step="any"></div>
+<div><label for="s2i2">Tasa anual (%)</label><input id="s2i2" type="number" value="9" step="any"></div>
+<div><label for="s2n2">Tiempo (meses)</label><input id="s2n2" type="number" value="5" step="any"></div>
+</div>
+
+<button onclick="ejercicioSimple('s2c2','s2i2','s2n2',12,'r2e2')">Resolver ejercicio 2</button>
+<div class="result" id="r2e2"></div>
+<p class="small">Resultado original: interés $90 y monto $2.490.</p>
+
+ </div>
+<div class="exercise">
+<h3>Ejercicio 3. Comparación entre interés simple y compuesto</h3>
+ <p>Comparar un capital de $1.000, tasa anual del 10 % y plazo de 3 años.</p>
+
+<div class="calc-grid">
+<div><label for="s2c3">Capital ($)</label><input id="s2c3" type="number" value="1000" step="any"></div>
+<div><label for="s2i3">Tasa anual (%)</label><input id="s2i3" type="number" value="10" step="any"></div>
+<div><label for="s2n3">Tiempo (años)</label><input id="s2n3" type="number" value="3" step="any"></div>
+
+</div>
+<button onclick="compararIntereses()">Comparar resultados</button>
+<div class="result" id="r2e3"></div>
+<p class="small">Resultado original: simple $1.300 y compuesto $1.331.</p>
+
+ </div>
+
+ <div class="exercise">
+ <h3>Ejercicio 4. Capital de $40.000</h3>
+ <p><strong>Enunciado:</strong> ¿Qué interés produce un capital de $40.000 en 1 año, 7 meses y 21 días, al 24 % anual? Utilizar año comercial de 360 días y meses de 30 días.</p>
+<div class="calc-grid">
+<div><label for="s2c4">Capital ($)</label><input id="s2c4" type="number" value="40000" step="any"></div>
+<div><label for="s2i4">Tasa anual (%)</label><input id="s2i4" type="number" value="24" step="any"></div>
+<div><label for="s2a4">Años</label><input id="s2a4" type="number" value="1" step="any"></div>
+<div><label for="s2m4">Meses</label><input id="s2m4" type="number" value="7" step="any"></div>
+<div><label for="s2d4">Días</label><input id="s2d4" type="number" value="21" step="any"></div>
+
+</div>
+<button onclick="ejercicioDiasComerciales()">Resolver ejercicio 4</button>
+<div class="result" id="r2e4"></div>
+<p class="small">Resultado original: 591 días comerciales e interés de $15.760.</p>
+
+</div>
+
+ <div class="exercise">
+<h3>Ejercicio 5. Cálculo del capital</h3>
+<p><strong>Enunciado:</strong> ¿Qué capital con tasa de interés del 12 % anual produce intereses de $15.000 en 10 meses?</p>
+<div class="calc-grid">
+<div><label for="s2int5">Interés ($)</label><input id="s2int5" type="number" value="15000" step="any"></div>
+<div><label for="s2i5">Tasa anual (%)</label><input id="s2i5" type="number" value="12" step="any"></div>
+<div><label for="s2n5">Tiempo (meses)</label><input id="s2n5" type="number" value="10" step="any"></div>
+</div>
+
+<button onclick="calcularCapital()">Resolver ejercicio 5</button>
+<div class="result" id="r2e5"></div>
+<p class="small">Resultado original: capital de $150.000.</p>
+</div>
+
+</section>
+
+<!-- ================= SEMANA 3 ================= -->
+
+<section id="semana3">
+ <div class="week-title">
+  <span class="week-label">UNIDAD I · APLICACIONES DEL INTERÉS SIMPLE</span>
+  <h2>Aplicaciones del interés simple</h2>
+  <p>Ejercicios prácticos, diagramas de tiempo y descuento simple.</p>
+ </div>
+ 
+<h2>1. Aplicaciones del interés simple</h2>
+<p>En esta semana se estudian diferentes aplicaciones del interés simple y los procedimientos para resolver operaciones financieras.</p>
+<div class="grid">
+<div class="tile"><strong>Interés simple</strong>Cálculo del interés generado por un capital durante un plazo determinado.</div>
+<div class="tile"><strong>Diagrama de tiempo</strong>Representación gráfica de fechas, capitales, pagos y retiros.</div>
+<div class="tile"><strong>Descuento simple</strong>Cálculo de la cantidad que se descuenta de un valor futuro.</div>
+<div class="tile"><strong>Interés exacto y comercial</strong>Uso de diferentes bases de días para calcular el interés.</div>
+<div class="tile"><strong>Amortización con interés simple</strong>Aplicación de intereses simples en operaciones de pago de obligaciones.</div>
+
+ </div>
+
+ <h2>2. Fórmulas relacionadas con el interés simple</h2>
+
+ <p>El interés simple se calcula sobre el capital inicial durante todo el plazo de la operación.</p>
+
+ <div class="formula">I = C × i × n</div>
+
+ <div class="formula">M = C + I = C(1 + i × n)</div>
+
+ <div class="grid">
+
+  <div class="tile"><strong>Interés generado</strong>I = C × i × n</div>
+
+  <div class="tile"><strong>Monto acumulado</strong>M = C(1 + i × n)</div>
+
+  <div class="tile"><strong>Capital inicial</strong>C = M / (1 + i × n)</div>
+
+  <div class="tile"><strong>Tasa simple</strong>i = (M/C − 1) / n</div>
+
+  <div class="tile"><strong>Plazo</strong>n = (M/C − 1) / i</div>
+
+ </div>
+
+ <h3>Aplicación: ordenar los datos y las unidades</h3>
+
+ <ol>
+
+  <li>Identificar el capital C, el monto M, la tasa i y el plazo n.</li>
+
+  <li>Convertir el porcentaje a decimal antes de operar.</li>
+
+  <li>Expresar el plazo en la misma unidad que la tasa. Por ejemplo: 6 meses = 0,5 años si la tasa es anual.</li>
+
+  <li>Elegir la fórmula según la incógnita.</li>
+
+  <li>Comprobar que el monto sea mayor que el capital cuando la tasa y el tiempo sean positivos.</li>
+
+ </ol>
+
+ <div class="note"><strong>Ejemplo de conversión:</strong> 7,3 % = 0,073.</div>
+
+ <h2>3. Ejercicios en clases: tasa y tiempo</h2>
+
+ <div class="exercise">
+
+  <h3>Ejercicio 1. Encontrar la tasa de interés</h3>
+
+  <p><strong>Enunciado:</strong> ¿Cuál es la tasa de interés a la que ha estado invertido un capital de $110.000,00 que durante dos años y 5 meses produjo $39.875,00 de interés?</p>
+
+  <p><strong>Datos:</strong> C = $110.000; I = $39.875; n = 2 años y 5 meses.</p>
+
+  <div class="steps">
+
+   <strong>Conversión del plazo:</strong><br>
+
+   n = 2 + 5/12 = 29/12 años.
+
+  </div>
+
+  <div class="formula">i = I / (C × n)</div>
+
+  <div class="calc-grid">
+
+   <div><label for="w3c1">Capital ($)</label><input id="w3c1" type="number" value="110000" step="any"></div>
+
+   <div><label for="w3i1">Interés ($)</label><input id="w3i1" type="number" value="39875" step="any"></div>
+
+   <div><label for="w3a1">Años</label><input id="w3a1" type="number" value="2" step="any"></div>
+
+   <div><label for="w3m1">Meses</label><input id="w3m1" type="number" value="5" step="any"></div>
+
+  </div>
+
+  <button onclick="semana3Tasa()">Calcular tasa</button>
+
+  <div class="result" id="rw3e1"></div>
+
+  <p class="small">Resultado del material: 15 % anual.</p>
+
+ </div>
+
+ <div class="exercise">
+
+  <h3>Ejercicio 2. Encontrar el tiempo</h3>
+
+  <p><strong>Enunciado:</strong> ¿Qué tiempo habrá estado invertido un capital de $85.000 que produjo un interés de $35.700 a una tasa anual de 21 %?</p>
+
+  <p><strong>Datos:</strong> C = $85.000; I = $35.700; i = 0,21 anual.</p>
+
+  <div class="formula">n = I / (C × i)</div>
+
+  <div class="calc-grid">
+
+   <div><label for="w3c2">Capital ($)</label><input id="w3c2" type="number" value="85000" step="any"></div>
+
+   <div><label for="w3int2">Interés ($)</label><input id="w3int2" type="number" value="35700" step="any"></div>
+
+   <div><label for="w3i2">Tasa anual (%)</label><input id="w3i2" type="number" value="21" step="any"></div>
+
+  </div>
+
+  <button onclick="semana3Tiempo()">Calcular tiempo</button>
+
+  <div class="result" id="rw3e2"></div>
+
+  <p class="small">Resultado del material: 2 años.</p>
+
+ </div>
+
+ <h2>4. Monto o valor futuro</h2>
+
+ <p>El monto o valor futuro representa el capital inicial más los intereses generados durante el tiempo de la operación.</p>
+
+ <div class="formula">M = C + C × i × n</div>
+
+ <div class="formula">M = C(1 + i × n)</div>
+
+ <div class="grid">
+
+  <div class="tile"><strong>C</strong>Valor actual o presente.</div>
+
+  <div class="tile"><strong>M</strong>Monto o valor futuro.</div>
+
+  <div class="tile"><strong>I</strong>Interés o ganancia.</div>
+
+  <div class="tile"><strong>i</strong>Tasa de interés por período.</div>
+
+  <div class="tile"><strong>n</strong>Número de períodos de tiempo.</div>
+
+ </div>
+
+ <div class="exercise">
+
+  <h3>Calculadora de monto o valor futuro</h3>
+
+  <p>Modifica el capital, la tasa y el tiempo para calcular el monto acumulado.</p>
+
+  <div class="calc-grid">
+
+   <div><label for="w3cm">Capital ($)</label><input id="w3cm" type="number" value="1000" step="any"></div>
+
+   <div><label for="w3im">Tasa anual (%)</label><input id="w3im" type="number" value="12" step="any"></div>
+
+   <div><label for="w3nm">Tiempo (años)</label><input id="w3nm" type="number" value="2" step="any"></div>
+
+  </div>
+
+  <button onclick="calcularMontoSemana3()">Calcular monto</button>
+
+  <div class="result" id="rw3monto"></div>
+
+ </div>
+
+ <h2>5. Valor presente</h2>
+
+ <p>El valor presente de una deuda es el valor que tiene una cantidad futura en una fecha anterior a la de su vencimiento. Permite determinar cuánto representa hoy una obligación que se pagará posteriormente.</p>
+
+ <div class="formula">C = F / (1 + i × n)</div>
+
+ <p>Donde:</p>
+
+ <ul>
+
+  <li><strong>C:</strong> capital o valor presente.</li>
+
+  <li><strong>F:</strong> monto o valor futuro.</li>
+
+  <li><strong>i:</strong> tasa de interés simple.</li>
+
+  <li><strong>n:</strong> tiempo de la operación.</li>
+
+ </ul>
+
+ <div class="exercise">
+
+  <h3>Ejercicio 3. Encontrar el valor presente de $1.500</h3>
+
+  <p><strong>Enunciado:</strong> Encontrar el valor presente, al 6 % de interés simple, de $1.500 con vencimiento en 9 meses.</p>
+
+  <p><strong>Datos:</strong> F = $1.500; i = 0,06 anual; n = 9/12 años.</p>
+
+  <div class="steps">
+
+   <strong>Procedimiento:</strong><br>
+
+   C = F / (1 + i × n)<br>
+
+   C = 1.500 / (1 + 0,06 × 9/12)<br>
+
+   C = 1.500 / 1,045 = $1.435,41 aproximadamente.
+
+  </div>
+
+  <div class="calc-grid">
+
+   <div><label for="w3f3">Monto futuro ($)</label><input id="w3f3" type="number" value="1500" step="any"></div>
+
+   <div><label for="w3i3">Tasa anual (%)</label><input id="w3i3" type="number" value="6" step="any"></div>
+
+   <div><label for="w3n3">Tiempo (meses)</label><input id="w3n3" type="number" value="9" step="any"></div>
+
+  </div>
+
+  <button onclick="calcularVP()">Calcular valor presente</button>
+
+  <div class="result" id="rw3vp"></div>
+
+ </div>
+
+ <h2>6. Diagrama de tiempo</h2>
+
+ <p>Un diagrama de tiempo representa gráficamente las fechas, cantidades y plazos de una operación financiera. Permite visualizar cuándo se realizan los depósitos, retiros y pagos.</p>
+
+ <div class="intro">
+
+  <strong>Fecha inicial ───────── plazo ───────── fecha focal</strong>
+
+  <p>La fecha focal es el momento elegido para comparar los valores equivalentes de una operación.</p>
+
+ </div>
+
+ <h3>Construcción del diagrama</h3>
+
+ <ol>
+
+  <li>Anotar las fechas en orden cronológico.</li>
+
+  <li>Colocar cada capital, pago o retiro en su fecha.</li>
+
+  <li>Contar los días o períodos entre fechas consecutivas.</li>
+
+  <li>Marcar una fecha focal.</li>
+
+  <li>Trasladar cada monto a esa fecha utilizando interés simple o descuento.</li>
+
+  <li>Conservar el signo de entradas y salidas de dinero.</li>
+
+ </ol>
+
+ <div class="formula">Σ valores equivalentes en fecha focal = 0</div>
+
+ <p>Para comparar obligaciones en fechas distintas, se llevan todos los valores a una misma fecha. Una obligación futura se descuenta a la fecha focal y un depósito anterior se acumula hasta esa fecha.</p>
+
+ <h3>Ejemplo: financiar tres montos futuros</h3>
+
+ <p>Se busca invertir el 15 de febrero al 5,1 % simple anual para disponer de $7.000 el 9 de mayo, $15.500 el 20 de junio y $10.000 el 23 de diciembre. Los plazos indicados en el material son 83, 125 y 311 días.</p>
+
+ <div class="steps">
+
+  Se utiliza la fórmula: C = M / [1 + 0,051(n/360)].<br>
+
+  Capitales equivalentes indicados en la guía:<br>
+
+  $6.918,65 + $15.230,30 + $9.578,01.
+
+  <br><strong>Inversión inicial indicada: $31.726,96.</strong>
+
+ </div>
+
+ <!-- CAMPOS EDITABLES DEL EJEMPLO DE LOS TRES MONTOS -->
+
+ <div class="exercise">
+
+  <h3>Modificar los datos del ejercicio</h3>
+
+  <p>Cambia los montos futuros, los días o la tasa de interés. El sistema calculará el valor presente de cada monto y la inversión inicial total.</p>
+
+  <div class="calc-grid">
+
+   <div>
+
+    <label for="s3t4">Tasa anual (%)</label>
+
+    <input id="s3t4" type="number" value="5.1" step="any">
+
+   </div>
+
+   <div>
+
+    <label for="s3m41">Primer monto futuro ($)</label>
+
+    <input id="s3m41" type="number" value="7000" step="any">
+
+   </div>
+
+   <div>
+
+    <label for="s3d41">Días del primer monto</label>
+
+    <input id="s3d41" type="number" value="83" step="any">
+
+   </div>
+
+   <div>
+
+    <label for="s3m42">Segundo monto futuro ($)</label>
+
+    <input id="s3m42" type="number" value="15500" step="any">
+
+   </div>
+
+   <div>
+
+    <label for="s3d42">Días del segundo monto</label>
+
+    <input id="s3d42" type="number" value="125" step="any">
+
+   </div>
+
+   <div>
+
+    <label for="s3m43">Tercer monto futuro ($)</label>
+
+    <input id="s3m43" type="number" value="10000" step="any">
+
+   </div>
+
+   <div>
+
+    <label for="s3d43">Días del tercer monto</label>
+
+    <input id="s3d43" type="number" value="311" step="any">
+
+   </div>
+
+  </div>
+
+  <button onclick="s3ej4()">Calcular inversión inicial</button>
+
+  <div class="result" id="rs3ej4"></div>
+
+ <div class="timeline-card">
+
+  <h4>Diagrama de tiempo: tres montos futuros</h4>
+
+  <p class="small">Los montos y los plazos se actualizan al modificar los campos del ejercicio.</p>
+
+  <div id="diagramaTresMontos" class="cashflow-diagram" aria-live="polite"></div>
+
+ </div>
+
+ </div>
+
+ <h3>Ejemplo: depósitos y retiro en una fecha común</h3>
+
+ <p>Adriana deposita $15.000 el 15 de diciembre y $10.000 el 11 de marzo, y retira $9.500 el 28 de enero. Se valoran todos los movimientos al 9 de mayo con una tasa de 12,48 % simple anual.</p>
+
+ <div class="steps">
+
+  Depósitos acumulados: $25.958,53.<br>
+
+  Retiro previo equivalente en mayo: $9.832,63.<br>
+
+  Disponible: $25.958,53 − $9.832,63 = <strong>$16.125,90</strong>.<br>
+
+  Interés neto: <strong>$625,90</strong>.
+
+ </div>
+
+ <!-- CAMPOS EDITABLES DEL EJEMPLO DE ADRIANA -->
+
+ <div class="exercise">
+
+  <h3>Modificar los datos del ejercicio de Adriana</h3>
+
+  <p>Cambia los depósitos, el retiro, los días o la tasa. Todos los movimientos se calcularán en la fecha focal del 9 de mayo.</p>
+
+  <div class="calc-grid">
+
+   <div>
+
+    <label for="s3dep1">Primer depósito ($)</label>
+
+    <input id="s3dep1" type="number" value="15000" step="any">
+
+   </div>
+
+   <div>
+
+    <label for="s3dias1">Días del primer depósito</label>
+
+    <input id="s3dias1" type="number" value="145" step="any">
+
+   </div>
+
+   <div>
+
+    <label for="s3dep2">Segundo depósito ($)</label>
+
+    <input id="s3dep2" type="number" value="10000" step="any">
+
+   </div>
+
+   <div>
+
+    <label for="s3dias2">Días del segundo depósito</label>
+
+    <input id="s3dias2" type="number" value="59" step="any">
+
+   </div>
+
+   <div>
+
+    <label for="s3ret">Retiro ($)</label>
+
+    <input id="s3ret" type="number" value="9500" step="any">
+
+   </div>
+
+   <div>
+
+    <label for="s3dias3">Días del retiro</label>
+
+    <input id="s3dias3" type="number" value="101" step="any">
+
+   </div>
+
+   <div>
+
+    <label for="s3t5">Tasa anual (%)</label>
+
+    <input id="s3t5" type="number" value="12.48" step="any">
+
+   </div>
+
+  </div>
+
+  <button onclick="s3ej5()">Calcular saldo disponible</button>
+
+  <div class="result" id="rs3ej5"></div>
+
+ <div class="timeline-card">
+
+  <h4>Diagrama de tiempo: depósitos y retiro de Adriana</h4>
+
+  <p class="small">Las flechas hacia arriba representan depósitos; la flecha hacia abajo representa el retiro.</p>
+
+  <div id="diagramaAdriana" class="cashflow-diagram" aria-live="polite"></div>
+
+ </div>
+
+ </div>
+
+ <h2>7. Descuento simple</h2>
+
+ <p>El descuento es el costo de recibir antes el dinero prometido por un documento. El valor nominal representa la cantidad que se cobra al vencimiento y el valor comercial o líquido representa el dinero recibido al negociar el documento.</p>
+
+ <div class="formula">D = F − P</div>
+
+ <div class="formula">D = F × d × n</div>
+
+ <div class="formula">P = F − D = F(1 − d × n)</div>
+
+ <div class="grid">
+
+  <div class="tile"><strong>D</strong>Descuento simple.</div>
+
+  <div class="tile"><strong>P</strong>Capital líquido a recibir.</div>
+
+  <div class="tile"><strong>F</strong>Monto o valor nominal del préstamo.</div>
+
+  <div class="tile"><strong>d</strong>Tasa de descuento por período.</div>
+
+  <div class="tile"><strong>n</strong>Número de períodos de tiempo.</div>
+
+ </div>
+
+ <h3>Ejercicio 4. Descuento simple de $30.000</h3>
+
+ <p><strong>Enunciado:</strong> Un prestamista ofrece un préstamo de $30.000 por 8 meses y cobra una tasa de 35 % por anticipado.</p>
+
+ <p>Calcular:</p>
+
+ <ol>
+
+  <li>El descuento realizado.</li>
+
+  <li>El capital líquido a recibir.</li>
+
+ </ol>
+
+ <div class="steps">
+
+  Datos originales: F = $30.000; d = 35 %; n = 8/12 = 0,6667 años.<br>
+
+  D = F × d × n<br>
+
+  D = 30.000 × 0,35 × 0,6667 = <strong>$7.000</strong><br>
+
+  P = F − D<br>
+
+  P = 30.000 − 7.000 = <strong>$23.000</strong>.
+
+ </div>
+
+ <div class="calc-grid">
+
+  <div><label for="w3f4">Valor nominal F ($)</label><input id="w3f4" type="number" value="30000" step="any"></div>
+
+  <div><label for="w3d4">Tasa de descuento (%)</label><input id="w3d4" type="number" value="35" step="any"></div>
+
+  <div><label for="w3n4">Tiempo (meses)</label><input id="w3n4" type="number" value="8" step="any"></div>
+
+ </div>
+
+ <button onclick="calcularDescuento()">Calcular descuento y capital líquido</button>
+
+ <div class="result" id="rw3descuento"></div>
+
+ <div class="note">
+
+  <strong>Nota importante de la guía:</strong> el material señala que el cobro de intereses por anticipado está prohibido por ley y que los intereses deben cobrarse al vencimiento. El ejercicio se presenta con fines académicos para estudiar el cálculo del descuento y la tasa equivalente.
+
+ </div>
+
+ <h3>Tasa de interés real equivalente</h3>
+
+ <p>La tasa real equivalente permite comparar la tasa de descuento cobrada por anticipado con una tasa de interés calculada sobre el capital líquido recibido.</p>
+
+ <div class="formula">i = (F − P) / (P × n)</div>
+
+ <div class="formula">i = d / (1 − d × n)</div>
+
+ <p>En el ejercicio anterior, la tasa real indicada en la guía es aproximadamente 45,65 % anual.</p>
+
+ <h2>8. Ecuaciones de valor</h2>
+
+ <p>Las ecuaciones de valor se utilizan cuando resulta conveniente para un deudor cambiar el conjunto de sus obligaciones por otro conjunto. Para realizar estas operaciones, tanto el deudor como el acreedor deben estar de acuerdo con la tasa de interés que se utilizará y con la fecha en la que se llevará a cabo la operación, denominada fecha focal.</p>
+
+ <div class="intro">
+
+  <strong>Principio:</strong> todos los valores de las obligaciones deben expresarse en una misma fecha focal para poder compararlos correctamente.
+
+ </div>
+
+</section>
+
+<!-- ================= BANCO DE DEBERES ================= -->
+
+<section id="s4semana">
+ <div class="week-title">
+  <span class="week-label">UNIDAD I · SEMANA 4</span>
+  <h2>Interés compuesto y sus cálculos</h2>
+  <p>Monto, valor presente y equivalencia de tasas.</p>
+ </div>
+ <div class="intro">En el interés compuesto, los intereses se incorporan al saldo al cierre de cada período de capitalización. El período siguiente genera intereses sobre ese nuevo saldo.</div>
+ <div class="grid">
+  <div class="tile s4-card"><strong><button type="button" data-s4-topic="capitalizacion" aria-haspopup="dialog" aria-controls="s4detalle">Capitalización</button></strong><div class="formula">i = j / m<br>N = m × t</div>La tasa nominal anual j, en decimal, se divide entre las m capitalizaciones por año. El plazo t en años determina N períodos.<span class="s4-card-action" aria-hidden="true">Ver explicación</span></div>
+  <div class="tile s4-card"><strong><button type="button" data-s4-topic="monto" aria-haspopup="dialog" aria-controls="s4detalle">Monto</button></strong><div class="formula">M = C(1 + i)<sup>N</sup></div>M es el saldo final de un capital inicial C a la tasa i por período.<span class="s4-card-action" aria-hidden="true">Ver explicación</span></div>
+  <div class="tile s4-card"><strong><button type="button" data-s4-topic="presente" aria-haspopup="dialog" aria-controls="s4detalle">Valor presente</button></strong><div class="formula">C = M / (1 + i)<sup>N</sup></div>Capital que hoy equivale al monto futuro M.<span class="s4-card-action" aria-hidden="true">Ver explicación</span></div>
+  <div class="tile s4-card"><strong><button type="button" data-s4-topic="interes" aria-haspopup="dialog" aria-controls="s4detalle">Interés generado</button></strong><div class="formula">I = M − C</div>Diferencia entre el monto acumulado y el capital inicial.<span class="s4-card-action" aria-hidden="true">Ver explicación</span></div>
+  <div class="tile s4-card"><strong><button type="button" data-s4-topic="efectiva" aria-haspopup="dialog" aria-controls="s4detalle">Tasa efectiva anual</button></strong><div class="formula">i<sub>a</sub> = (1 + j/m)<sup>m</sup> − 1</div>Crecimiento real del capital en un año por efecto de la capitalización.<span class="s4-card-action" aria-hidden="true">Ver explicación</span></div>
+  <div class="tile s4-card"><strong><button type="button" data-s4-topic="equivalentes" aria-haspopup="dialog" aria-controls="s4detalle">Tasas nominales equivalentes</button></strong><div class="formula">j<sub>2</sub> = m<sub>2</sub>[(1 + j<sub>1</sub>/m<sub>1</sub>)<sup>m₁/m₂</sup> − 1]</div>Con frecuencias m₁ y m₂, ambas tasas producen el mismo monto en el mismo plazo.<span class="s4-card-action" aria-hidden="true">Ver explicación</span></div>
+ </div>
+ <p class="small">Se usan 12 meses, 24 quincenas y 52 semanas por año. El ejercicio de capitalización diaria permite elegir la base anual.</p>
+ <h3>Ejemplos resueltos</h3>
+ <div id="s4ejemplos"></div>
+ <h3>Práctica del anexo 4.2</h3>
+ <div id="s4ejercicios"></div>
+ <dialog id="s4detalle" aria-labelledby="s4detalle-titulo">
+  <div class="s4-dialog-panel">
+   <h3 id="s4detalle-titulo"></h3>
+   <div id="s4detalle-contenido"></div>
+   <button type="button" id="s4detalle-cerrar" autofocus>Cerrar</button>
+  </div>
+ </dialog>
+</section>
+
+
+<section id="semana5">
+ <div class="week-title">
+  <span class="week-label">UNIDAD I · SEMANA 5</span>
+  <h2>Ecuaciones de valor equivalente</h2>
+  <p>Compara deudas, inversiones y planes de pago en una misma fecha.</p>
+ </div>
+ <div class="intro">Para comparar cantidades de fechas distintas, traslada cada flujo a una fecha focal con la misma tasa y convención. Capitaliza los flujos anteriores, descuenta los posteriores e iguala los valores de ambos lados.</div>
+ <div id="s5teoria" class="grid"></div>
+ <p class="small">En las fórmulas, VP es el valor presente, VF el valor futuro, F el importe de un flujo, t su fecha, f la fecha focal, i la tasa efectiva por período y n el número de períodos. Las fechas t y f se expresan en la misma unidad que i.</p>
+ <div class="note"><strong>Convenciones de cálculo</strong>
+  <p>La tasa mensual efectiva se aplica directamente. En una tasa nominal anual j convertible m veces, i = j/m, con j en decimal. Un mes equivale a dos quincenas y un bimestre a dos meses. Los períodos fraccionarios se calculan con el exponente compuesto, como en el ejemplo de Digna Abreu.</p>
+  <p>En el caso diario se cuentan días reales entre fechas y se divide la tasa nominal entre la base elegida (360 por defecto). Los importes se redondean para mostrarlos, después del cálculo.</p>
+ </div>
+ <h3>Ejercicios resueltos</h3>
+ <div id="s5resueltos"></div>
+ <h3>Casos con diagramas</h3>
+ <div id="s5casos"></div>
+ <h3>Tarea</h3>
+ <div id="s5tarea"></div>
+ <dialog id="s5detalle" aria-labelledby="s5detalle-titulo">
+  <div class="s5-dialog-panel">
+   <h3 id="s5detalle-titulo"></h3>
+   <div id="s5detalle-contenido"></div>
+   <button type="button" id="s5detalle-cerrar" autofocus>Cerrar</button>
+  </div>
+ </dialog>
+</section>
+
+<section id="bancoDeberes">
+
+ <div class="week-title">
+
+  <span class="week-label">UNIDAD I · ACTIVIDADES</span>
+
+  <h2>Banco de deberes</h2>
+
+  <p>Ejercicios enviados por la docente para practicar y resolver</p>
+
+ </div>
+
+ <div class="intro">
+
+  En este apartado se reúnen los deberes y ejercicios complementarios de Ingeniería Económica. Puedes modificar los datos de cada problema y utilizar el botón para obtener el procedimiento y el resultado automáticamente.
+
+ </div>
+
+ <h2>1. Valor presente y descuento racional simple</h2>
+
+ <div class="exercise">
+
+  <h3>Ejercicio 1. Valor presente de $1.100</h3>
+
+  <p><strong>Enunciado:</strong> Se pagarán $1.100 dentro de un año. La tasa simple es 10 % anual. Hallar el valor presente (descuento racional simple) y el descuento.</p>
+
+  <p><strong>Fórmulas:</strong></p>
+
+  <div class="formula">VP = F / (1 + i × n)</div>
+
+  <div class="formula">D = F − VP</div>
+
+  <div class="calc-grid">
+
+   <div><label for="bd1f">Valor futuro F ($)</label><input id="bd1f" type="number" value="1100" step="any"></div>
+
+   <div><label for="bd1i">Tasa anual (%)</label><input id="bd1i" type="number" value="10" step="any"></div>
+
+   <div><label for="bd1n">Tiempo (años)</label><input id="bd1n" type="number" value="1" step="any"></div>
+
+  </div>
+
+  <button onclick="deberValorPresente()">Resolver ejercicio 1</button>
+
+  <div class="result" id="rbd1"></div>
+
+  <p class="small">Resultado original: VP = $1.000,00 y D = $100,00.</p>
+
+ </div>
+
+ <h2>2. Rendimiento de una inversión</h2>
+
+ <div class="exercise">
+
+  <h3>Ejercicio 2. Rendimiento con dividendos</h3>
+
+  <p><strong>Enunciado:</strong> Una inversión de $40.000 se vende por $43.500 luego de 1 año, 7 meses y 21 días y, además, pagó dividendos por $1.200. ¿Cuál es su tasa de rendimiento?</p>
+
+  <p><strong>Fórmulas:</strong></p>
+
+  <div class="formula">G = Vf − Vi + D</div>
+
+  <div class="formula">R = G / Vi</div>
+
+  <div class="formula">R anual = R / n</div>
+
+  <div class="calc-grid">
+
+   <div><label for="bd2vi">Valor inicial Vi ($)</label><input id="bd2vi" type="number" value="40000" step="any"></div>
+
+   <div><label for="bd2vf">Valor final Vf ($)</label><input id="bd2vf" type="number" value="43500" step="any"></div>
+
+   <div><label for="bd2div">Dividendos ($)</label><input id="bd2div" type="number" value="1200" step="any"></div>
+
+   <div><label for="bd2a">Años</label><input id="bd2a" type="number" value="1" step="any"></div>
+
+   <div><label for="bd2m">Meses</label><input id="bd2m" type="number" value="7" step="any"></div>
+
+   <div><label for="bd2d">Días</label><input id="bd2d" type="number" value="21" step="any"></div>
+
+  </div>
+
+  <button onclick="deberRendimiento()">Resolver ejercicio 2</button>
+
+  <div class="result" id="rbd2"></div>
+
+  <p class="small">Se utiliza año comercial de 360 días. Resultado original: rendimiento del período 11,75 % y rendimiento anual aproximado 7,16 %.</p>
+
+ </div>
+
+ <h2>3. Cálculo del capital</h2>
+
+ <div class="exercise">
+
+  <h3>Ejercicio 5. Capital que produce $3.500 de intereses</h3>
+
+  <p><strong>Enunciado:</strong> ¿Qué capital produce $3.500 por concepto de intereses en 18 meses al 7,5 % simple anual?</p>
+
+  <div class="formula">C = I / (i × n)</div>
+
+  <div class="calc-grid">
+
+   <div><label for="bd5I">Interés ($)</label><input id="bd5I" type="number" value="3500" step="any"></div>
+
+   <div><label for="bd5i">Tasa anual (%)</label><input id="bd5i" type="number" value="7.5" step="any"></div>
+
+   <div><label for="bd5m">Tiempo (meses)</label><input id="bd5m" type="number" value="18" step="any"></div>
+
+  </div>
+
+  <button onclick="deberCapital()">Resolver ejercicio 5</button>
+
+  <div class="result" id="rbd5"></div>
+
+  <p class="small">Resultado original: C = $31.111,11 y M = $34.611,11.</p>
+
+ </div>
+
+ <h2>4. Cálculo del tiempo en días</h2>
+
+ <div class="exercise">
+
+  <h3>Ejercicio 6. Tiempo para producir $7.000 de interés</h3>
+
+  <p><strong>Enunciado:</strong> ¿En cuántos días un capital de $65.000 produce intereses de $7.000, si se invierte al 8,25 % simple anual?</p>
+
+  <div class="formula">n = I / (C × i)</div>
+
+  <div class="calc-grid">
+
+   <div><label for="bd6c">Capital ($)</label><input id="bd6c" type="number" value="65000" step="any"></div>
+
+   <div><label for="bd6I">Interés ($)</label><input id="bd6I" type="number" value="7000" step="any"></div>
+
+   <div><label for="bd6i">Tasa anual (%)</label><input id="bd6i" type="number" value="8.25" step="any"></div>
+
+   <div><label for="bd6base">Días por año</label><input id="bd6base" type="number" value="360" step="any"></div>
+
+  </div>
+
+  <button onclick="deberTiempoDias()">Resolver ejercicio 6</button>
+
+  <div class="result" id="rbd6"></div>
+
+  <p class="small">Resultado original: 1,3054 años, aproximadamente 469,93 días.</p>
+
+ </div>
+
+ <h2>5. Cálculo de la tasa anual</h2>
+
+ <div class="exercise">
+
+  <h3>Ejercicio 7. Tasa de interés simple anual</h3>
+
+  <p><strong>Enunciado:</strong> ¿Cuál es la tasa de interés simple anual, si un capital de $17.500 genera $750 de intereses en 65 días?</p>
+
+  <div class="formula">i = I / (C × n)</div>
+
+  <div class="calc-grid">
+
+   <div><label for="bd7c">Capital ($)</label><input id="bd7c" type="number" value="17500" step="any"></div>
+
+   <div><label for="bd7I">Interés ($)</label><input id="bd7I" type="number" value="750" step="any"></div>
+
+   <div><label for="bd7d">Tiempo (días)</label><input id="bd7d" type="number" value="65" step="any"></div>
+
+   <div><label for="bd7base">Días por año</label><input id="bd7base" type="number" value="360" step="any"></div>
+
+  </div>
+
+  <button onclick="deberTasa()">Resolver ejercicio 7</button>
+
+  <div class="result" id="rbd7"></div>
+
+  <p class="small">Resultado original: 23,74 % anual aproximadamente.</p>
+
+ </div>
+
+ <h2>6. Tiempo para duplicar un capital</h2>
+
+ <div class="exercise">
+
+  <h3>Ejercicio 8. Duplicación del capital</h3>
+
+  <p><strong>Enunciado:</strong> ¿En cuánto tiempo se duplica un capital que se invierte con un tipo de interés del 11,8 % simple anual?</p>
+
+  <p>Cuando el monto es el doble del capital, el interés generado es igual al capital inicial: I = C.</p>
+
+  <div class="formula">n = 1 / i</div>
+
+  <div class="calc-grid">
+
+   <div><label for="bd8i">Tasa anual (%)</label><input id="bd8i" type="number" value="11.8" step="any"></div>
+
+   <div><label for="bd8base">Días por año</label><input id="bd8base" type="number" value="360" step="any"></div>
+
+  </div>
+
+  <button onclick="deberDuplicacion()">Resolver ejercicio 8</button>
+
+  <div class="result" id="rbd8"></div>
+
+  <p class="small">Resultado original: 8,4746 años, aproximadamente 3.050,85 días.</p>
+
+ </div>
+
+ <h2>7. Monto para cancelar un préstamo</h2>
+
+ <div class="exercise">
+
+  <h3>Ejercicio 9. Cancelación de un préstamo a los siete meses</h3>
+
+  <p><strong>Enunciado:</strong> ¿Con cuánto se cancela a los siete meses un préstamo por $8.250 si se cargan intereses del 17,5 % simple anual?</p>
+
+  <div class="formula">I = C × i × n</div>
+
+  <div class="formula">M = C + I</div>
+
+  <div class="calc-grid">
+
+   <div><label for="bd9c">Capital ($)</label><input id="bd9c" type="number" value="8250" step="any"></div>
+
+   <div><label for="bd9i">Tasa anual (%)</label><input id="bd9i" type="number" value="17.5" step="any"></div>
+
+   <div><label for="bd9m">Tiempo (meses)</label><input id="bd9m" type="number" value="7" step="any"></div>
+
+  </div>
+
+  <button onclick="deberMonto()">Resolver ejercicio 9</button>
+
+  <div class="result" id="rbd9"></div>
+
+  <p class="small">Resultado original: interés $842,19 y monto $9.092,19.</p>
+
+ </div>
+
+ <h2>8. Comparación de tasas de interés</h2>
+
+ <div class="exercise">
+
+  <h3>Ejercicio 10. Tasa anual frente a tasa trimestral</h3>
+
+  <p><strong>Enunciado:</strong> ¿Qué produce más intereses: invertir al 9,76 % simple anual o al 2,44 % trimestral?</p>
+
+  <div class="formula">Tasa anual equivalente = tasa trimestral × 4</div>
+
+  <div class="calc-grid">
+
+   <div><label for="bd10a">Tasa anual (%)</label><input id="bd10a" type="number" value="9.76" step="any"></div>
+
+   <div><label for="bd10t">Tasa trimestral (%)</label><input id="bd10t" type="number" value="2.44" step="any"></div>
+
+   <div><label for="bd10q">Trimestres por año</label><input id="bd10q" type="number" value="4" step="any"></div>
+
+  </div>
+
+  <button onclick="deberCompararTasas()">Resolver ejercicio 10</button>
+
+  <div class="result" id="rbd10"></div>
+
+  <p class="small">Resultado original: ambas alternativas producen el mismo rendimiento anual simple, 9,76 %.</p>
+
+ </div>
+
+ <h2>9. Ecuaciones de valor</h2>
+
+ <div class="exercise">
+
+  <h3>Ejercicio 11. Pago único en una fecha focal</h3>
+
+  <p><strong>Enunciado:</strong> B debe $1.000 por un préstamo con vencimiento en 6 meses, contratado originalmente a 1 año y medio a la tasa de 4 %, y debe además $2.500 con vencimiento en 9 meses, sin intereses. Desea pagar $2.000 de inmediato y liquidar el saldo mediante un pago único dentro de un año. Suponiendo un rendimiento de 5 % y considerando la fecha focal dentro de un año, determinar el pago único.</p>
+
+  <div class="intro">
+
+   <strong>Procedimiento:</strong> primero se calcula el monto del préstamo original. Después se trasladan las dos deudas y el pago inmediato a la fecha focal de un año, utilizando interés simple del 5 %.
+
+  </div>
+
+  <div class="calc-grid">
+
+   <div><label for="bd11c1">Préstamo original ($)</label><input id="bd11c1" type="number" value="1000" step="any"></div>
+
+   <div><label for="bd11ip">Tasa del préstamo (%)</label><input id="bd11ip" type="number" value="4" step="any"></div>
+
+   <div><label for="bd11np">Plazo original (años)</label><input id="bd11np" type="number" value="1.5" step="any"></div>
+
+   <div><label for="bd11m2">Segunda deuda ($)</label><input id="bd11m2" type="number" value="2500" step="any"></div>
+
+   <div><label for="bd11p">Pago inmediato ($)</label><input id="bd11p" type="number" value="2000" step="any"></div>
+
+   <div><label for="bd11i">Rendimiento anual (%)</label><input id="bd11i" type="number" value="5" step="any"></div>
+
+   <div><label for="bd11v1">Vencimiento primera deuda (meses)</label><input id="bd11v1" type="number" value="6" step="any"></div>
+
+   <div><label for="bd11v2">Vencimiento segunda deuda (meses)</label><input id="bd11v2" type="number" value="9" step="any"></div>
+
+   <div><label for="bd11f">Fecha focal (meses)</label><input id="bd11f" type="number" value="12" step="any"></div>
+
+  </div>
+
+  <button onclick="deberEcuacionValor()">Resolver ejercicio 11</button>
+
+  <div class="result" id="rbd11"></div>
+
+  <p class="small">Resultado original: pago único de $1.517,75.</p>
+
+ </div>
+
+</section>
+
+<!-- ================= CALCULADORA GENERAL ================= -->
+
+<section id="calculadoraGeneral">
+
+ <p class="kicker">Herramienta de práctica</p>
+
+ <h2>Calculadora general de interés simple</h2>
+
+ <p>Esta calculadora permite trabajar con capital, tasa anual y diferentes unidades de tiempo.</p>
+
+ <div class="calc-grid">
+
+  <div><label for="gc">Capital (C) en dólares</label><input id="gc" type="number" min="0.01" step="any" value="1000"></div>
+
+  <div><label for="gi">Tasa anual (%)</label><input id="gi" type="number" min="0" step="any" value="12"></div>
+
+  <div><label for="gn">Tiempo</label><input id="gn" type="number" min="0.01" step="any" value="8"></div>
+
+  <div>
+
+   <label for="gu">Unidad de tiempo</label>
+
+   <select id="gu">
+
+    <option value="12">Meses (12 por año)</option>
+
+    <option value="360">Días (año comercial de 360 días)</option>
+
+    <option value="365">Días (año de 365 días)</option>
+
+    <option value="1">Años</option>
+
+   </select>
+
+  </div>
+
+ </div>
+
+ <button onclick="calcularGeneral()">Calcular interés y monto</button>
+
+ <div class="result" id="rgeneral"></div>
+
+ <div class="note">La tasa y el tiempo deben expresarse en unidades compatibles. Esta calculadora utiliza interés simple.</div>
+
+</section>
+
+<section id="fuentes">
+
+ <h2>Material de consulta</h2>
+
+ <h3>Semana 2</h3>
+
+ <p><strong>Universidad Agraria del Ecuador.</strong> Ingeniería Económica. Unidad I: Fundamentos de Ingeniería Económica, interés simple y compuesto. Semana 2. Ing. María del Pilar Avilés V. Material de clase proporcionado para la asignatura.</p>
+
+ <h3>Semana 3</h3>
+
+ <p><strong>Universidad Agraria del Ecuador.</strong> Ingeniería Económica. Unidad I: Fundamentos de Ingeniería Económica, interés simple y compuesto. Semana 3. Ing. María del Pilar Avilés V. Material de clase proporcionado para la asignatura.</p>
+
+ <p class="small">Los conceptos, fórmulas y ejercicios se han organizado a partir de los materiales de clase compartidos para las semanas 2 y 3.</p>
+
+</section>
+
+</main>
+
+<footer>
+
+ <p><strong>UNIVERSIDAD AGRARIA DEL ECUADOR</strong></p>
+
+ <p>Carrera de Computación en Línea – 6SC</p>
+
+ <p>Asignatura: Ingeniería Económica</p>
+
+ <p>Unidad I · Semanas 2 y 3 · Grupo 8</p>
+
+ <p class="small" style="color:#dcebdd">Proyecto académico interactivo</p>
+
+ <div class="integrantes">
+
+  <p><strong>INTEGRANTES DEL GRUPO 8</strong></p>
+
+  <p>Bone Campodonico Maria Belen</p>
+
+  <p>Gallardo Moran Jasmani Leonardo</p>
+
+  <p>Garcia Gomez Jose Miguel</p>
+
+  <p>Moreira Mendoza Henrry Andres</p>
+
+  <p>Sol Mite Joseph Alexander</p>
+
+ </div>
+
+</footer>
+
+<script>
+
+function fechaHora(){
+
+ const ahora=new Date();
+
+ const opciones={timeZone:'America/Guayaquil',day:'2-digit',month:'long',year:'numeric'};
+
+ document.getElementById('fecha').textContent=
+
+  ahora.toLocaleDateString('es-EC',opciones);
+
+ document.getElementById('hora').textContent=
+
+  ahora.toLocaleTimeString('es-EC',{
+
+   timeZone:'America/Guayaquil',
+
+   hour:'2-digit',minute:'2-digit',second:'2-digit',
+
+   hour12:true
+
+  });
+
+}
+
+fechaHora();
+
+setInterval(fechaHora,1000);
+
+function dinero(valor){
+
+ return valor.toLocaleString('es-EC',{
+
+  style:'currency',currency:'USD',
+
+  minimumFractionDigits:2,maximumFractionDigits:2
+
+ });
+
+}
+
+function numero(valor){
+
+ return valor.toLocaleString('es-EC',{maximumFractionDigits:6});
+
+}
+
+function mostrar(id,html){
+
+ const caja=document.getElementById(id);
+
+ caja.innerHTML=html;
+
+ caja.style.display='block';
+
+}
+
+function ocultar(id){
+
+ document.getElementById(id).style.display='none';
+
+}
+
+function datosValidos(valores,permitirCero=false){
+
+ return valores.every(Number.isFinite)&&
+
+  (permitirCero?valores.every(v=>v>=0):valores.every(v=>v>0));
+
+}
+
+function ejercicioSimple(idC,idI,idN,divisor,idR){
+
+ const C=Number(document.getElementById(idC).value);
+
+ const tasa=Number(document.getElementById(idI).value);
+
+ const tiempo=Number(document.getElementById(idN).value);
+
+ if(!datosValidos([C,tasa,tiempo])||tasa<0){
+
+  mostrar(idR,'<p class="error">Verifica los datos ingresados. El capital y el tiempo deben ser mayores que cero y la tasa no puede ser negativa.</p>');
+
+  return;
+
+ }
+
+ const i=tasa/100,n=tiempo/divisor,I=C*i*n,M=C+I;
+
+ mostrar(idR,
+
+  '<p><strong>Procedimiento:</strong></p>'+
+
+  '<p>Conversión del tiempo: n = '+numero(tiempo)+' / '+divisor+' = '+numero(n)+' años.</p>'+
+
+  '<p>I = C × i × n</p>'+
+
+  '<p>I = '+dinero(C)+' × '+numero(i)+' × '+numero(n)+'</p>'+
+
+  '<p>Interés generado: <span class="result-value">'+dinero(I)+'</span></p>'+
+
+  '<p>M = C + I</p>'+
+
+  '<p>Monto final: <span class="result-value">'+dinero(M)+'</span></p>'
+
+ );
+
+}
+
+function compararIntereses(){
+
+ const C=Number(document.getElementById('s2c3').value);
+
+ const tasa=Number(document.getElementById('s2i3').value);
+
+ const n=Number(document.getElementById('s2n3').value);
+
+ if(!datosValidos([C,n])||!Number.isFinite(tasa)||tasa<0){
+
+  mostrar('r2e3','<p class="error">Revisa los valores ingresados.</p>');return;
+
+ }
+
+ const i=tasa/100;
+
+ const simple=C*(1+i*n);
+
+ const compuesto=C*Math.pow(1+i,n);
+
+ mostrar('r2e3',
+
+  '<p><strong>Interés simple:</strong> M = C(1 + i × n)</p>'+
+
+  '<p>M = '+dinero(C)+' × (1 + '+numero(i)+' × '+numero(n)+')</p>'+
+
+  '<p class="result-value">'+dinero(simple)+'</p>'+
+
+  '<hr style="margin:12px 0;border:0;border-top:1px solid #b8dfbf">'+
+
+  '<p><strong>Interés compuesto:</strong> M = C(1 + i)<sup>n</sup></p>'+
+
+  '<p class="result-value">'+dinero(compuesto)+'</p>'+
+
+  '<p>Diferencia entre los montos: <strong>'+dinero(compuesto-simple)+'</strong></p>'
+
+ );
+
+}
+
+function ejercicioDiasComerciales(){
+
+ const C=Number(document.getElementById('s2c4').value);
+
+ const tasa=Number(document.getElementById('s2i4').value);
+
+ const a=Number(document.getElementById('s2a4').value);
+
+ const m=Number(document.getElementById('s2m4').value);
+
+ const d=Number(document.getElementById('s2d4').value);
+
+ if(!datosValidos([C])||!Number.isFinite(tasa)||tasa<0||
+
+ ![a,m,d].every(Number.isFinite)||a<0||m<0||d<0){
+
+  mostrar('r2e4','<p class="error">Revisa los datos ingresados.</p>');return;
+
+ }
+
+ const dias=a*360+m*30+d;
+
+ const n=dias/360;
+
+ const I=C*(tasa/100)*n;
+
+ mostrar('r2e4',
+
+  '<p>1 año = '+(a*360)+' días.</p>'+
+
+  '<p>Meses = '+(m*30)+' días.</p>'+
+
+  '<p>Total de días = '+dias+'.</p>'+
+
+  '<p>n = '+dias+'/360 = '+numero(n)+' años.</p>'+
+
+  '<p>I = C × i × n</p>'+
+
+  '<p>I = '+dinero(C)+' × '+numero(tasa/100)+' × '+numero(n)+'</p>'+
+
+  '<p>Interés generado: <span class="result-value">'+dinero(I)+'</span></p>'
+
+ );
+
+}
+
+function calcularCapital(){
+
+ const I=Number(document.getElementById('s2int5').value);
+
+ const tasa=Number(document.getElementById('s2i5').value);
+
+ const meses=Number(document.getElementById('s2n5').value);
+
+ if(!datosValidos([I,tasa,meses])){
+
+  mostrar('r2e5','<p class="error">Revisa los valores. Deben ser mayores que cero.</p>');return;
+
+ }
+
+ const n=meses/12;
+
+ const C=I/((tasa/100)*n);
+
+ mostrar('r2e5',
+
+  '<p>C = I / (i × n)</p>'+
+
+  '<p>C = '+dinero(I)+' / ('+numero(tasa/100)+' × '+numero(n)+')</p>'+
+
+  '<p>Capital necesario: <span class="result-value">'+dinero(C)+'</span></p>'
+
+ );
+
+}
+
+function semana3Tasa(){
+
+ const C=Number(document.getElementById('w3c1').value);
+
+ const I=Number(document.getElementById('w3i1').value);
+
+ const a=Number(document.getElementById('w3a1').value);
+
+ const m=Number(document.getElementById('w3m1').value);
+
+ if(!datosValidos([C,I])||![a,m].every(Number.isFinite)||a<0||m<0){
+
+  mostrar('rw3e1','<p class="error">Revisa los datos ingresados.</p>');return;
+
+ }
+
+ const n=a+m/12;
+
+ if(n<=0){mostrar('rw3e1','<p class="error">El tiempo debe ser mayor que cero.</p>');return;}
+
+ const i=I/(C*n);
+
+ mostrar('rw3e1',
+
+  '<p>n = '+a+' + '+m+'/12 = '+numero(n)+' años.</p>'+
+
+  '<p>i = I / (C × n)</p>'+
+
+  '<p>i = '+dinero(I)+' / ('+dinero(C)+' × '+numero(n)+')</p>'+
+
+  '<p>Tasa anual: <span class="result-value">'+numero(i*100)+' %</span></p>'
+
+ );
+
+}
+
+function semana3Tiempo(){
+
+ const C=Number(document.getElementById('w3c2').value);
+
+ const I=Number(document.getElementById('w3int2').value);
+
+ const tasa=Number(document.getElementById('w3i2').value);
+
+ if(!datosValidos([C,I,tasa])){
+
+  mostrar('rw3e2','<p class="error">Revisa los datos ingresados. Deben ser mayores que cero.</p>');return;
+
+ }
+
+ const n=I/(C*(tasa/100));
+
+ mostrar('rw3e2',
+
+  '<p>n = I / (C × i)</p>'+
+
+  '<p>n = '+dinero(I)+' / ('+dinero(C)+' × '+numero(tasa/100)+')</p>'+
+
+  '<p>Tiempo de inversión: <span class="result-value">'+numero(n)+' años</span></p>'
+
+ );
+
+}
+
+function calcularMontoSemana3(){
+
+ const C=Number(document.getElementById('w3cm').value);
+
+ const tasa=Number(document.getElementById('w3im').value);
+
+ const n=Number(document.getElementById('w3nm').value);
+
+ if(!datosValidos([C,n])||!Number.isFinite(tasa)||tasa<0){
+
+  mostrar('rw3monto','<p class="error">Revisa los datos ingresados.</p>');return;
+
+ }
+
+ const I=C*(tasa/100)*n;
+
+ const M=C+I;
+
+ mostrar('rw3monto',
+
+  '<p>I = C × i × n = '+dinero(I)+'</p>'+
+
+  '<p>M = C + I</p>'+
+
+  '<p>Monto futuro: <span class="result-value">'+dinero(M)+'</span></p>'
+
+ );
+
+}
+
+function calcularVP(){
+
+ const F=Number(document.getElementById('w3f3').value);
+
+ const tasa=Number(document.getElementById('w3i3').value);
+
+ const meses=Number(document.getElementById('w3n3').value);
+
+ if(!datosValidos([F,meses])||!Number.isFinite(tasa)||tasa<0){
+
+  mostrar('rw3vp','<p class="error">Revisa los datos ingresados.</p>');return;
+
+ }
+
+ const n=meses/12;
+
+ const C=F/(1+(tasa/100)*n);
+
+ const D=F-C;
+
+ mostrar('rw3vp',
+
+  '<p>n = '+meses+'/12 = '+numero(n)+' años.</p>'+
+
+  '<p>C = F / (1 + i × n)</p>'+
+
+  '<p>C = '+dinero(F)+' / (1 + '+numero(tasa/100)+' × '+numero(n)+')</p>'+
+
+  '<p>Valor presente: <span class="result-value">'+dinero(C)+'</span></p>'+
+
+  '<p>Descuento racional: '+dinero(D)+'</p>'
+
+ );
+
+}
+
+/* ================= FUNCIONES EDITABLES DE LOS DOS EJEMPLOS ================= */
+
+/* Ejemplo 1: financiar tres montos futuros */
+
+function s3ej4(){
+
+ const tasa=Number(document.getElementById('s3t4').value);
+
+ const M1=Number(document.getElementById('s3m41').value);
+
+ const d1=Number(document.getElementById('s3d41').value);
+
+ const M2=Number(document.getElementById('s3m42').value);
+
+ const d2=Number(document.getElementById('s3d42').value);
+
+ const M3=Number(document.getElementById('s3m43').value);
+
+ const d3=Number(document.getElementById('s3d43').value);
+
+ if(!datosValidos([M1,d1,M2,d2,M3,d3])||
+
+ !Number.isFinite(tasa)||tasa<0){
+
+  mostrar('rs3ej4','<p class="error">Verifica los datos. Los montos y los días deben ser mayores que cero y la tasa no puede ser negativa.</p>');
+
+  return;
+
+ }
+
+ const i=tasa/100;
+
+ const n1=d1/360;
+
+ const n2=d2/360;
+
+ const n3=d3/360;
+
+ const C1=M1/(1+i*n1);
+
+ const C2=M2/(1+i*n2);
+
+ const C3=M3/(1+i*n3);
+
+ const total=C1+C2+C3;
+
+ mostrar('rs3ej4',
+
+  '<p><strong>Procedimiento: valor presente de cada monto futuro</strong></p>'+
+
+  '<p>Fórmula: C = M / [1 + i(n/360)]</p>'+
+
+  '<hr style="margin:12px 0;border:0;border-top:1px solid #b8dfbf">'+
+
+  '<p><strong>Primer monto:</strong></p>'+
+
+  '<p>n = '+numero(d1)+' / 360 = '+numero(n1)+' años.</p>'+
+
+  '<p>C₁ = '+dinero(M1)+' / [1 + '+numero(i)+' × '+numero(n1)+']</p>'+
+
+  '<p>Valor presente 1: <strong>'+dinero(C1)+'</strong></p>'+
+
+  '<hr style="margin:12px 0;border:0;border-top:1px solid #b8dfbf">'+
+
+  '<p><strong>Segundo monto:</strong></p>'+
+
+  '<p>n = '+numero(d2)+' / 360 = '+numero(n2)+' años.</p>'+
+
+  '<p>C₂ = '+dinero(M2)+' / [1 + '+numero(i)+' × '+numero(n2)+']</p>'+
+
+  '<p>Valor presente 2: <strong>'+dinero(C2)+'</strong></p>'+
+
+  '<hr style="margin:12px 0;border:0;border-top:1px solid #b8dfbf">'+
+
+  '<p><strong>Tercer monto:</strong></p>'+
+
+  '<p>n = '+numero(d3)+' / 360 = '+numero(n3)+' años.</p>'+
+
+  '<p>C₃ = '+dinero(M3)+' / [1 + '+numero(i)+' × '+numero(n3)+']</p>'+
+
+  '<p>Valor presente 3: <strong>'+dinero(C3)+'</strong></p>'+
+
+  '<hr style="margin:12px 0;border:0;border-top:1px solid #b8dfbf">'+
+
+  '<p><strong>Inversión inicial total:</strong></p>'+
+
+  '<p>C = C₁ + C₂ + C₃</p>'+
+
+  '<p>C = '+dinero(C1)+' + '+dinero(C2)+' + '+dinero(C3)+'</p>'+
+
+  '<p class="result-value">Inversión inicial: '+dinero(total)+'</p>'
+
+ );
+
+}
+
+/* Ejemplo 2: depósitos y retiro de Adriana */
+
+function s3ej5(){
+
+ const dep1=Number(document.getElementById('s3dep1').value);
+
+ const dias1=Number(document.getElementById('s3dias1').value);
+
+ const dep2=Number(document.getElementById('s3dep2').value);
+
+ const dias2=Number(document.getElementById('s3dias2').value);
+
+ const retiro=Number(document.getElementById('s3ret').value);
+
+ const dias3=Number(document.getElementById('s3dias3').value);
+
+ const tasa=Number(document.getElementById('s3t5').value);
+
+ if(!datosValidos([dep1,dias1,dep2,dias2,retiro,dias3])||
+
+ !Number.isFinite(tasa)||tasa<0){
+
+  mostrar('rs3ej5','<p class="error">Verifica los datos. Los depósitos, el retiro y los días deben ser mayores que cero y la tasa no puede ser negativa.</p>');
+
+  return;
+
+ }
+
+ const i=tasa/100;
+
+ const n1=dias1/360;
+
+ const n2=dias2/360;
+
+ const n3=dias3/360;
+
+ const montoDep1=dep1*(1+i*n1);
+
+ const montoDep2=dep2*(1+i*n2);
+
+ const totalDepositos=montoDep1+montoDep2;
+
+ const montoRetiro=retiro*(1+i*n3);
+
+ const saldo=totalDepositos-montoRetiro;
+
+ const capitalNeto=dep1+dep2-retiro;
+
+ const interesNeto=saldo-capitalNeto;
+
+ mostrar('rs3ej5',
+
+  '<p><strong>Procedimiento: valoración al 9 de mayo</strong></p>'+
+
+  '<p>Fórmula del monto simple: M = C(1 + i × n)</p>'+
+
+  '<p>Tasa anual: '+numero(tasa)+' % = '+numero(i)+'</p>'+
+
+  '<hr style="margin:12px 0;border:0;border-top:1px solid #b8dfbf">'+
+
+  '<p><strong>1. Acumular el primer depósito:</strong></p>'+
+
+  '<p>n = '+numero(dias1)+' / 360 = '+numero(n1)+' años.</p>'+
+
+  '<p>M₁ = '+dinero(dep1)+' × (1 + '+numero(i)+' × '+numero(n1)+')</p>'+
+
+  '<p>Monto acumulado del primer depósito: <strong>'+dinero(montoDep1)+'</strong></p>'+
+
+  '<hr style="margin:12px 0;border:0;border-top:1px solid #b8dfbf">'+
+
+  '<p><strong>2. Acumular el segundo depósito:</strong></p>'+
+
+  '<p>n = '+numero(dias2)+' / 360 = '+numero(n2)+' años.</p>'+
+
+  '<p>M₂ = '+dinero(dep2)+' × (1 + '+numero(i)+' × '+numero(n2)+')</p>'+
+
+  '<p>Monto acumulado del segundo depósito: <strong>'+dinero(montoDep2)+'</strong></p>'+
+
+  '<p>Total de depósitos acumulados: <strong>'+dinero(totalDepositos)+'</strong></p>'+
+
+  '<hr style="margin:12px 0;border:0;border-top:1px solid #b8dfbf">'+
+
+  '<p><strong>3. Acumular el retiro hasta la fecha focal:</strong></p>'+
+
+  '<p>n = '+numero(dias3)+' / 360 = '+numero(n3)+' años.</p>'+
+
+  '<p>M retiro = '+dinero(retiro)+' × (1 + '+numero(i)+' × '+numero(n3)+')</p>'+
+
+  '<p>Valor equivalente del retiro: <strong>'+dinero(montoRetiro)+'</strong></p>'+
+
+  '<hr style="margin:12px 0;border:0;border-top:1px solid #b8dfbf">'+
+
+  '<p><strong>4. Calcular el saldo disponible:</strong></p>'+
+
+  '<p>Saldo = depósitos acumulados − retiro acumulado</p>'+
+
+  '<p>Saldo = '+dinero(totalDepositos)+' − '+dinero(montoRetiro)+'</p>'+
+
+  '<p class="result-value">Saldo disponible: '+dinero(saldo)+'</p>'+
+
+  '<p><strong>5. Interés neto generado:</strong></p>'+
+
+  '<p>Capital neto = '+dinero(dep1)+' + '+dinero(dep2)+' − '+dinero(retiro)+' = '+dinero(capitalNeto)+'</p>'+
+
+  '<p>Interés neto = saldo disponible − capital neto</p>'+
+
+  '<p class="result-value">Interés neto: '+dinero(interesNeto)+'</p>'
+
+ );
+
+}
+
+/* Diagramas de tiempo dinámicos para los dos ejemplos de la guía */
+
+function formatoDineroDiagrama(valor){
+
+ return new Intl.NumberFormat("es-EC",{style:"currency",currency:"USD",maximumFractionDigits:2}).format(valor);
+
+}
+
+function eventoDiagrama(fecha, monto, dias, tipo, nota, posicion){
+
+ const clase = tipo === "salida" ? "cashflow-event outflow" : "cashflow-event inflow";
+
+ const flecha = tipo === "salida" ? "↓" : "↑";
+
+ return `<div class="${clase}" style="left:${posicion}%"><div class="amount">${monto}</div><div class="arrow">${flecha}</div><div class="dot"></div><div class="date">${fecha}</div><div class="days">${dias}</div><div class="small">${nota}</div></div>`;
+
+}
+
+function posicionarEventos(eventos){
+
+ const valores=eventos.map(e=>e.dia);
+
+ const minimo=Math.min(...valores);
+
+ const maximo=Math.max(...valores);
+
+ const rango=maximo-minimo;
+
+ return eventos.map(e=>({...e,posicion:rango===0?50:((e.dia-minimo)/rango)*100}));
+
+}
+
+function actualizarDiagramaTresMontos(){
+
+ const el=document.getElementById("diagramaTresMontos");
+
+ if(!el) return;
+
+ const tasa=Number(document.getElementById("s3t4").value)||0;
+
+ const m1=Number(document.getElementById("s3m41").value)||0;
+
+ const d1=Math.max(0,Number(document.getElementById("s3d41").value)||0);
+
+ const m2=Number(document.getElementById("s3m42").value)||0;
+
+ const d2=Math.max(0,Number(document.getElementById("s3d42").value)||0);
+
+ const m3=Number(document.getElementById("s3m43").value)||0;
+
+ const d3=Math.max(0,Number(document.getElementById("s3d43").value)||0);
+
+ const i=tasa/100;
+
+ const capital=m1/(1+i*d1/360)+m2/(1+i*d2/360)+m3/(1+i*d3/360);
+
+ const eventos=posicionarEventos([
+
+  {dia:0,fecha:"15 de febrero",monto:formatoDineroDiagrama(capital),dias:"Fecha focal",tipo:"salida",nota:"Capital inicial"},
+
+  {dia:d1,fecha:"9 de mayo",monto:formatoDineroDiagrama(m1),dias:d1+" días",tipo:"entrada",nota:"Monto futuro 1"},
+
+  {dia:d2,fecha:"20 de junio",monto:formatoDineroDiagrama(m2),dias:d2+" días",tipo:"entrada",nota:"Monto futuro 2"},
+
+  {dia:d3,fecha:"23 de diciembre",monto:formatoDineroDiagrama(m3),dias:d3+" días",tipo:"entrada",nota:"Monto futuro 3"}
+
+ ]).sort((a,b)=>a.dia-b.dia);
+
+ el.innerHTML=`<div class="cashflow-track">${eventos.map(e=>eventoDiagrama(e.fecha,e.monto,e.dias,e.tipo,e.nota,e.posicion)).join("")}</div><div class="cashflow-legend"><span>↑ <strong>Entrada / monto futuro</strong></span><span>↓ <strong>Inversión inicial</strong></span><span>Tasa simple anual: <strong>${tasa.toLocaleString("es-EC")}%</strong></span></div>`;
+
+}
+
+function actualizarDiagramaAdriana(){
+
+ const el=document.getElementById("diagramaAdriana");
+
+ if(!el) return;
+
+ const dep1=Number(document.getElementById("s3dep1").value)||0;
+
+ const dias1=Math.max(0,Number(document.getElementById("s3dias1").value)||0);
+
+ const dep2=Number(document.getElementById("s3dep2").value)||0;
+
+ const dias2=Math.max(0,Number(document.getElementById("s3dias2").value)||0);
+
+ const retiro=Number(document.getElementById("s3ret").value)||0;
+
+ const dias3=Math.max(0,Number(document.getElementById("s3dias3").value)||0);
+
+ const tasa=Number(document.getElementById("s3t5").value)||0;
+
+ const i=tasa/100;
+
+ const saldo=dep1*(1+i*dias1/360)+dep2*(1+i*dias2/360)-retiro*(1+i*dias3/360);
+
+ const eventos=posicionarEventos([
+
+  {dia:-dias1,fecha:"15 de diciembre",monto:formatoDineroDiagrama(dep1),dias:dias1+" días hasta la fecha focal",tipo:"entrada",nota:"Primer depósito"},
+
+  {dia:-dias3,fecha:"28 de enero",monto:formatoDineroDiagrama(retiro),dias:dias3+" días hasta la fecha focal",tipo:"salida",nota:"Retiro"},
+
+  {dia:-dias2,fecha:"11 de marzo",monto:formatoDineroDiagrama(dep2),dias:dias2+" días hasta la fecha focal",tipo:"entrada",nota:"Segundo depósito"},
+
+  {dia:0,fecha:"9 de mayo",monto:formatoDineroDiagrama(saldo),dias:"Fecha focal",tipo:"entrada",nota:"Saldo equivalente"}
+
+ ]).sort((a,b)=>a.dia-b.dia);
+
+ el.innerHTML=`<div class="cashflow-track">${eventos.map(e=>eventoDiagrama(e.fecha,e.monto,e.dias,e.tipo,e.nota,e.posicion)).join("")}</div><div class="cashflow-legend"><span>↑ <strong>Depósito / entrada</strong></span><span>↓ <strong>Retiro / salida</strong></span><span>Saldo equivalente al 9 de mayo: <strong>${formatoDineroDiagrama(saldo)}</strong></span></div>`;
+
+}
+
+function actualizarDiagramasTiempo(){
+
+ actualizarDiagramaTresMontos();
+
+ actualizarDiagramaAdriana();
+
+}
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+ actualizarDiagramasTiempo();
+
+ ["s3t4","s3m41","s3d41","s3m42","s3d42","s3m43","s3d43","s3dep1","s3dias1","s3dep2","s3dias2","s3ret","s3dias3","s3t5"].forEach(id=>{
+
+  const campo=document.getElementById(id);
+
+  if(campo) campo.addEventListener("input",actualizarDiagramasTiempo);
+
+ });
+
+});
+
+
+function calcularDescuento(){
+
+ const F=Number(document.getElementById('w3f4').value);
+
+ const tasa=Number(document.getElementById('w3d4').value);
+
+ const meses=Number(document.getElementById('w3n4').value);
+
+ if(!datosValidos([F,meses])||!Number.isFinite(tasa)||tasa<0){
+
+  mostrar('rw3descuento','<p class="error">Revisa los datos ingresados.</p>');return;
+
+ }
+
+ const n=meses/12;
+
+ const d=tasa/100;
+
+ const D=F*d*n;
+
+ const P=F-D;
+
+ const i=P>0?(D/(P*n)):NaN;
+
+ mostrar('rw3descuento',
+
+  '<p>n = '+meses+'/12 = '+numero(n)+' años.</p>'+
+
+  '<p>D = F × d × n</p>'+
+
+  '<p>D = '+dinero(F)+' × '+numero(d)+' × '+numero(n)+'</p>'+
+
+  '<p>Descuento: <span class="result-value">'+dinero(D)+'</span></p>'+
+
+  '<p>P = F − D</p>'+
+
+  '<p>Capital líquido a recibir: <span class="result-value">'+dinero(P)+'</span></p>'+
+
+  (Number.isFinite(i)?'<p>Tasa de interés real equivalente: <strong>'+numero(i*100)+' % anual</strong></p>':'')
+
+ );
+
+}
+
+/* ================= FUNCIONES DEL BANCO DE DEBERES ================= */
+
+function deberValorPresente(){
+
+ const F=Number(document.getElementById('bd1f').value);
+
+ const tasa=Number(document.getElementById('bd1i').value);
+
+ const n=Number(document.getElementById('bd1n').value);
+
+ if(!datosValidos([F,n])||!Number.isFinite(tasa)||tasa<0){
+
+  mostrar('rbd1','<p class="error">Revisa los datos ingresados.</p>');return;
+
+ }
+
+ const i=tasa/100;
+
+ const VP=F/(1+i*n);
+
+ const D=F-VP;
+
+ mostrar('rbd1',
+
+  '<p><strong>Datos:</strong> F = '+dinero(F)+', i = '+numero(i)+', n = '+numero(n)+' años.</p>'+
+
+  '<p>VP = F / (1 + i × n)</p>'+
+
+  '<p>VP = '+dinero(F)+' / (1 + '+numero(i)+' × '+numero(n)+')</p>'+
+
+  '<p>Valor presente: <span class="result-value">'+dinero(VP)+'</span></p>'+
+
+  '<p>D = F − VP</p>'+
+
+  '<p>D = '+dinero(F)+' − '+dinero(VP)+'</p>'+
+
+  '<p>Descuento racional: <span class="result-value">'+dinero(D)+'</span></p>'
+
+ );
+
+}
+
+function deberRendimiento(){
+
+ const Vi=Number(document.getElementById('bd2vi').value);
+
+ const Vf=Number(document.getElementById('bd2vf').value);
+
+ const dividendos=Number(document.getElementById('bd2div').value);
+
+ const a=Number(document.getElementById('bd2a').value);
+
+ const m=Number(document.getElementById('bd2m').value);
+
+ const d=Number(document.getElementById('bd2d').value);
+
+ if(!datosValidos([Vi])||![Vf,dividendos,a,m,d].every(Number.isFinite)||
+
+ Vf<0||dividendos<0||a<0||m<0||d<0){
+
+  mostrar('rbd2','<p class="error">Revisa los datos ingresados.</p>');return;
+
+ }
+
+ const dias=a*360+m*30+d;
+
+ const n=dias/360;
+
+ if(n<=0){
+
+  mostrar('rbd2','<p class="error">El tiempo debe ser mayor que cero.</p>');return;
+
+ }
+
+ const G=Vf-Vi+dividendos;
+
+ const R=G/Vi;
+
+ const anual=R/n;
+
+ mostrar('rbd2',
+
+  '<p><strong>Conversión del tiempo:</strong></p>'+
+
+  '<p>Días = ('+a+' × 360) + ('+m+' × 30) + '+d+' = '+numero(dias)+' días.</p>'+
+
+  '<p>n = '+numero(dias)+' / 360 = '+numero(n)+' años.</p>'+
+
+  '<p><strong>Ganancia:</strong> G = Vf − Vi + D</p>'+
+
+  '<p>G = '+dinero(Vf)+' − '+dinero(Vi)+' + '+dinero(dividendos)+'</p>'+
+
+  '<p>G = <strong>'+dinero(G)+'</strong></p>'+
+
+  '<p><strong>Rendimiento del período:</strong> R = G / Vi</p>'+
+
+  '<p>R = '+dinero(G)+' / '+dinero(Vi)+'</p>'+
+
+  '<p>R = <span class="result-value">'+numero(R*100)+' %</span></p>'+
+
+  '<p><strong>Rendimiento anual:</strong> R anual = R / n</p>'+
+
+  '<p>R anual = '+numero(R*100)+' % / '+numero(n)+'</p>'+
+
+  '<p>Rendimiento anual: <span class="result-value">'+numero(anual*100)+' %</span></p>'
+
+ );
+
+}
+
+function deberCapital(){
+
+ const I=Number(document.getElementById('bd5I').value);
+
+ const tasa=Number(document.getElementById('bd5i').value);
+
+ const meses=Number(document.getElementById('bd5m').value);
+
+ if(!datosValidos([I,tasa,meses])){
+
+  mostrar('rbd5','<p class="error">Revisa los datos ingresados. Deben ser mayores que cero.</p>');return;
+
+ }
+
+ const i=tasa/100;
+
+ const n=meses/12;
+
+ const C=I/(i*n);
+
+ const M=C+I;
+
+ mostrar('rbd5',
+
+  '<p>n = '+meses+' / 12 = '+numero(n)+' años.</p>'+
+
+  '<p>C = I / (i × n)</p>'+
+
+  '<p>C = '+dinero(I)+' / ('+numero(i)+' × '+numero(n)+')</p>'+
+
+  '<p>Capital: <span class="result-value">'+dinero(C)+'</span></p>'+
+
+  '<p>M = C + I</p>'+
+
+  '<p>Monto final: <span class="result-value">'+dinero(M)+'</span></p>'
+
+ );
+
+}
+
+function deberTiempoDias(){
+
+ const C=Number(document.getElementById('bd6c').value);
+
+ const I=Number(document.getElementById('bd6I').value);
+
+ const tasa=Number(document.getElementById('bd6i').value);
+
+ const base=Number(document.getElementById('bd6base').value);
+
+ if(!datosValidos([C,I,tasa,base])){
+
+  mostrar('rbd6','<p class="error">Revisa los datos ingresados. Todos deben ser mayores que cero.</p>');return;
+
+ }
+
+ const n=I/(C*(tasa/100));
+
+ const dias=n*base;
+
+ mostrar('rbd6',
+
+  '<p>n = I / (C × i)</p>'+
+
+  '<p>n = '+dinero(I)+' / ('+dinero(C)+' × '+numero(tasa/100)+')</p>'+
+
+  '<p>Tiempo en años: <span class="result-value">'+numero(n)+' años</span></p>'+
+
+  '<p>Días = n × '+numero(base)+'</p>'+
+
+  '<p>Tiempo en días: <span class="result-value">'+numero(dias)+' días</span></p>'
+
+ );
+
+}
+
+function deberTasa(){
+
+ const C=Number(document.getElementById('bd7c').value);
+
+ const I=Number(document.getElementById('bd7I').value);
+
+ const dias=Number(document.getElementById('bd7d').value);
+
+ const base=Number(document.getElementById('bd7base').value);
+
+ if(!datosValidos([C,I,dias,base])){
+
+  mostrar('rbd7','<p class="error">Revisa los datos ingresados. Todos deben ser mayores que cero.</p>');return;
+
+ }
+
+ const n=dias/base;
+
+ const i=I/(C*n);
+
+ mostrar('rbd7',
+
+  '<p>n = '+dias+' / '+base+' = '+numero(n)+' años.</p>'+
+
+  '<p>i = I / (C × n)</p>'+
+
+  '<p>i = '+dinero(I)+' / ('+dinero(C)+' × '+numero(n)+')</p>'+
+
+  '<p>Tasa anual: <span class="result-value">'+numero(i*100)+' %</span></p>'
+
+ );
+
+}
+
+function deberDuplicacion(){
+
+ const tasa=Number(document.getElementById('bd8i').value);
+
+ const base=Number(document.getElementById('bd8base').value);
+
+ if(!datosValidos([tasa,base])){
+
+  mostrar('rbd8','<p class="error">La tasa y los días por año deben ser mayores que cero.</p>');return;
+
+ }
+
+ const i=tasa/100;
+
+ const n=1/i;
+
+ const dias=n*base;
+
+ mostrar('rbd8',
+
+  '<p>Para duplicar el capital, el interés debe ser igual al capital inicial.</p>'+
+
+  '<p>n = 1 / i</p>'+
+
+  '<p>n = 1 / '+numero(i)+'</p>'+
+
+  '<p>Tiempo: <span class="result-value">'+numero(n)+' años</span></p>'+
+
+  '<p>Días = '+numero(n)+' × '+base+'</p>'+
+
+  '<p>Tiempo en días: <span class="result-value">'+numero(dias)+' días</span></p>'
+
+ );
+
+}
+
+function deberMonto(){
+
+ const C=Number(document.getElementById('bd9c').value);
+
+ const tasa=Number(document.getElementById('bd9i').value);
+
+ const meses=Number(document.getElementById('bd9m').value);
+
+ if(!datosValidos([C,tasa,meses])){
+
+  mostrar('rbd9','<p class="error">Revisa los datos ingresados. Deben ser mayores que cero.</p>');return;
+
+ }
+
+ const i=tasa/100;
+
+ const n=meses/12;
+
+ const I=C*i*n;
+
+ const M=C+I;
+
+ mostrar('rbd9',
+
+  '<p>n = '+meses+' / 12 = '+numero(n)+' años.</p>'+
+
+  '<p>I = C × i × n</p>'+
+
+  '<p>I = '+dinero(C)+' × '+numero(i)+' × '+numero(n)+'</p>'+
+
+  '<p>Interés: <span class="result-value">'+dinero(I)+'</span></p>'+
+
+  '<p>M = C + I</p>'+
+
+  '<p>M = '+dinero(C)+' + '+dinero(I)+'</p>'+
+
+  '<p>Monto para cancelar: <span class="result-value">'+dinero(M)+'</span></p>'
+
+ );
+
+}
+
+function deberCompararTasas(){
+
+ const anual=Number(document.getElementById('bd10a').value);
+
+ const trimestral=Number(document.getElementById('bd10t').value);
+
+ const trimestres=Number(document.getElementById('bd10q').value);
+
+ if(!Number.isFinite(anual)||!Number.isFinite(trimestral)||
+
+ !Number.isFinite(trimestres)||anual<0||trimestral<0||trimestres<=0){
+
+  mostrar('rbd10','<p class="error">Revisa las tasas y el número de trimestres.</p>');return;
+
+ }
+
+ const tasaEquivalente=trimestral*trimestres;
+
+ const diferencia=anual-tasaEquivalente;
+
+ let conclusion='';
+
+ if(Math.abs(diferencia)<0.0000001){
+
+  conclusion='Las dos alternativas producen el mismo rendimiento anual simple.';
+
+ }else if(diferencia>0){
+
+  conclusion='La inversión con tasa anual directa produce más intereses.';
+
+ }else{
+
+  conclusion='La inversión con tasa trimestral produce más intereses.';
+
+ }
+
+ mostrar('rbd10',
+
+  '<p>Tasa anual de la primera alternativa: <strong>'+numero(anual)+' %</strong>.</p>'+
+
+  '<p>Tasa anual equivalente de la segunda alternativa:</p>'+
+
+  '<p>i anual = '+numero(trimestral)+' % × '+numero(trimestres)+'</p>'+
+
+  '<p>i anual = <strong>'+numero(tasaEquivalente)+' %</strong></p>'+
+
+  '<p>Diferencia: <strong>'+numero(diferencia)+' puntos porcentuales</strong>.</p>'+
+
+  '<p class="result-value">'+conclusion+'</p>'
+
+ );
+
+}
+
+function deberEcuacionValor(){
+
+ const C1=Number(document.getElementById('bd11c1').value);
+
+ const iPrestamo=Number(document.getElementById('bd11ip').value);
+
+ const nPrestamo=Number(document.getElementById('bd11np').value);
+
+ const deuda2=Number(document.getElementById('bd11m2').value);
+
+ const pago=Number(document.getElementById('bd11p').value);
+
+ const tasa=Number(document.getElementById('bd11i').value);
+
+ const v1=Number(document.getElementById('bd11v1').value);
+
+ const v2=Number(document.getElementById('bd11v2').value);
+
+ const focal=Number(document.getElementById('bd11f').value);
+
+ if(!datosValidos([C1,nPrestamo,deuda2,focal])||
+
+ ![iPrestamo,pago,tasa,v1,v2].every(Number.isFinite)||
+
+ iPrestamo<0||pago<0||tasa<0||v1<0||v2<0||
+
+ focal<v1||focal<v2||focal<=0){
+
+  mostrar('rbd11','<p class="error">Verifica los datos. La fecha focal debe ser posterior o igual a los vencimientos de las deudas.</p>');return;
+
+ }
+
+ const montoPrestamo=C1*(1+(iPrestamo/100)*nPrestamo);
+
+ const meses1=focal-v1;
+
+ const meses2=focal-v2;
+
+ const valor1=montoPrestamo*(1+(tasa/100)*(meses1/12));
+
+ const valor2=deuda2*(1+(tasa/100)*(meses2/12));
+
+ const valorPago=pago*(1+(tasa/100)*(focal/12));
+
+ const X=valor1+valor2-valorPago;
+
+ mostrar('rbd11',
+
+  '<p><strong>1. Calcular el monto de la primera deuda al vencimiento:</strong></p>'+
+
+  '<p>M = C × (1 + i × n)</p>'+
+
+  '<p>M = '+dinero(C1)+' × (1 + '+numero(iPrestamo/100)+' × '+numero(nPrestamo)+')</p>'+
+
+  '<p>Monto de la primera deuda: <strong>'+dinero(montoPrestamo)+'</strong></p>'+
+
+  '<hr style="margin:12px 0;border:0;border-top:1px solid #b8dfbf">'+
+
+  '<p><strong>2. Llevar la primera deuda a la fecha focal:</strong></p>'+
+
+  '<p>Tiempo desde el vencimiento hasta la fecha focal: '+numero(meses1)+' meses.</p>'+
+
+  '<p>Valor focal = '+dinero(montoPrestamo)+' × (1 + '+numero(tasa/100)+' × '+numero(meses1)+'/12)</p>'+
+
+  '<p>Valor focal de la primera deuda: <strong>'+dinero(valor1)+'</strong></p>'+
+
+  '<hr style="margin:12px 0;border:0;border-top:1px solid #b8dfbf">'+
+
+  '<p><strong>3. Llevar la segunda deuda a la fecha focal:</strong></p>'+
+
+  '<p>Tiempo desde el vencimiento hasta la fecha focal: '+numero(meses2)+' meses.</p>'+
+
+  '<p>Valor focal = '+dinero(deuda2)+' × (1 + '+numero(tasa/100)+' × '+numero(meses2)+'/12)</p>'+
+
+  '<p>Valor focal de la segunda deuda: <strong>'+dinero(valor2)+'</strong></p>'+
+
+  '<hr style="margin:12px 0;border:0;border-top:1px solid #b8dfbf">'+
+
+  '<p><strong>4. Llevar el pago inmediato a la fecha focal:</strong></p>'+
+
+  '<p>Valor focal del pago = '+dinero(pago)+' × (1 + '+numero(tasa/100)+' × '+numero(focal)+'/12)</p>'+
+
+  '<p>Valor focal del pago: <strong>'+dinero(valorPago)+'</strong></p>'+
+
+  '<hr style="margin:12px 0;border:0;border-top:1px solid #b8dfbf">'+
+
+  '<p><strong>5. Calcular el pago único:</strong></p>'+
+
+  '<p>X = valor focal de las deudas − valor focal del pago inmediato</p>'+
+
+  '<p>X = '+dinero(valor1)+' + '+dinero(valor2)+' − '+dinero(valorPago)+'</p>'+
+
+  '<p>Pago único: <span class="result-value">'+dinero(X)+'</span></p>'
+
+ );
+
+}
+
+function calcularGeneral(){
+
+ const C=Number(document.getElementById('gc').value);
+
+ const tasa=Number(document.getElementById('gi').value);
+
+ const tiempo=Number(document.getElementById('gn').value);
+
+ const divisor=Number(document.getElementById('gu').value);
+
+ if(!datosValidos([C,tiempo])||!Number.isFinite(tasa)||tasa<0){
+
+  mostrar('rgeneral','<p class="error">Revisa los datos: capital y tiempo deben ser mayores que cero y la tasa no puede ser negativa.</p>');return;
+
+ }
+
+ const n=tiempo/divisor;
+
+ const I=C*(tasa/100)*n;
+
+ const M=C+I;
+
+ mostrar('rgeneral',
+
+  '<p>Tiempo convertido a años: <strong>'+numero(n)+'</strong></p>'+
+
+  '<p>Interés generado: <span class="result-value">'+dinero(I)+'</span></p>'+
+
+  '<p>Monto final: <span class="result-value">'+dinero(M)+'</span></p>'+
+
+  '<p>I = C × i × n = '+dinero(C)+' × '+numero(tasa/100)+' × '+numero(n)+'</p>'
+
+ );
+
+}
+
+// Presentación de plazos en las semanas 4 y 5. Los cálculos conservan el valor original.
+const periodoVisual = (() => {
+ const format = new Intl.NumberFormat('es-EC',{maximumFractionDigits:2});
+ return (value, unit = '') => (Number(value.toFixed(2))===value?'':'aprox. ')+
+  format.format(value)+(unit?' '+unit:'');
+})();
+const importeDiagrama = value => dinero(value===0?0:value).replace('$-', '−$');
+
+/* ================= SEMANA 4 · INTERÉS COMPUESTO ================= */
+(() => {
+ const capital = value => ['capital', 'Capital inicial (USD)', value, 'positive'];
+ const monto = value => ['monto', 'Monto final (USD)', value, 'positive'];
+ const tasa = value => ['tasa', 'Tasa nominal anual (%)', value];
+ const meses = value => ['plazo', 'Plazo (meses)', value, 'positive'];
+ const anios = value => ['plazo', 'Plazo (años)', value, 'positive'];
+ const anticipo = value => ['anticipo', 'Anticipo (%)', value, 'percent'];
+ const fecha = (key, label, value) => [key, label + ' (dd/mm)', value, 'date'];
+
+ const ejemplos = [
+  {
+   id:'trimestres', titulo:'Capitalización trimestral',
+   enunciado:'Obtenga el monto que se acumula en 1 año, si un capital de $ 100 se invierte al 10% compuesto trimestralmente',
+   campos:[capital(100), tasa(10), anios(1)],
+   resolver:v => acumular(v, 4, 1, 'Monto acumulado', true)
+  },
+  {
+   id:'inversion', titulo:'Inversión de un capital para monto preestablecido',
+   enunciado:'a) ¿Qué capital debe invertirse ahora al 12.69% anual capitalizable por bimestre para tener $40,000 en 10 meses?\nb) ¿A cuánto ascienden los intereses?',
+   campos:[monto(40000), tasa(12.69), meses(10)],
+   resolver:v => descontar(v, 6, 12, true)
+  },
+  {
+   id:'semestres', titulo:'Monto que se acumula al invertir un capital',
+   enunciado:'Obtenga el monto que se acumula en tres años, si un capital de $65,000 se invierte al 10% compuesto por semestre.',
+   campos:[capital(65000), tasa(10), anios(3)],
+   resolver:v => acumular(v, 2, 1, 'Monto acumulado', true)
+  },
+  {
+   id:'equivalencia', titulo:'Tasas equivalentes',
+   enunciado:'¿Cuál es la tasa anual capitalizable por semestre equivalente al 12.96% anual compuesto por mes?',
+   campos:[tasa(12.96), ['origen','Capitalizaciones por año de la tasa original',12,'frequency'],
+    ['destino','Capitalizaciones por año de la tasa equivalente',2,'frequency']],
+   resolver:v => {
+    const j = equivalente(v.tasa, v.origen, v.destino);
+    return resultado(j, 'Tasa nominal anual equivalente', [
+     'j₂ = m₂[(1 + j₁/m₁)<sup>m₁/m₂</sup> − 1]',
+     'j₂ = '+numero(v.destino)+' × [(1 + '+numero(v.tasa)+' % / '+numero(v.origen)+')<sup>'+numero(v.origen)+'/'+numero(v.destino)+'</sup> − 1]',
+     'Tasa efectiva anual común: '+porcentaje(equivalente(v.tasa, v.origen, 1))
+    ], porcentaje);
+   }
+  },
+  {
+   id:'gomez', titulo:'Toma de decisiones al invertir un capital',
+   enunciado:'Para invertir un capital, el arquitecto Gómez tiene las siguientes opciones:\na) Inversión a plazo fijo con interés del 21.5% capitalizable por semestre.\nb) Certificados que abonan el 20.6% capitalizable cada semana.\nc) Bonos que le dan a ganar el 20.68% compuesto por mes.',
+   campos:[['a','Opción a · tasa anual nominal semestral (%)',21.5],
+    ['b','Opción b · tasa anual nominal semanal (%)',20.6],
+    ['c','Opción c · tasa anual nominal mensual (%)',20.68]],
+   resolver:comparar
+  }
+ ];
+
+ const ejercicios = [
+  {
+   id:'5', titulo:'5. Capital inicial',
+   enunciado:'¿Qué capital debe invertir en una cuenta que paga el 13.6% anual capitalizable por mes, para disponer de $13,000 en 7 meses?',
+   campos:[monto(13000), tasa(13.6), meses(7)],
+   resolver:v => descontar(v, 12, 12)
+  },
+  {
+   id:'6', titulo:'6. Monto en una cuenta de ahorros',
+   enunciado:'¿Cuánto se acumula en una cuenta de ahorros que reditúa el 18.6% anual capitalizable por bimestre en un plazo de 2 años, si se invierten $35,000?',
+   campos:[capital(35000), tasa(18.6), anios(2)],
+   resolver:v => acumular(v, 6, 1, 'Monto acumulado', true)
+  },
+  {
+   id:'7', titulo:'7. Tiempo para duplicar un capital',
+   enunciado:'¿En cuánto tiempo se duplica un capital que se invierte al 11.2% anual compuesto por semana?',
+   campos:[tasa(11.2), ['factor','Factor de crecimiento (M/C)',2,'positive']],
+   resolver:v => plazo(v.factor, 1, v.tasa, 52, 'semanas', [], 'M/C = '+numero(v.factor))
+  },
+  {
+   id:'8', titulo:'8. Tasa para alcanzar un crecimiento',
+   enunciado:'¿Con qué tasa de interés anual compuesto por quincena un capital crece 45% en dos años?',
+   campos:[['crecimiento','Crecimiento acumulado (%)',45], anios(2)],
+   resolver:v => tasaNominal(1+v.crecimiento/100, 1, v.plazo, 24, 1, 'M/C = 1 + '+numero(v.crecimiento)+' %')
+  },
+  {
+   id:'9', titulo:'9. Valor nominal de un pagaré',
+   enunciado:'El 3 de marzo se firma un pagaré por un préstamo de $35,000 con vencimiento al 3 de junio siguiente. ¿Cuál es el valor nominal si se tienen intereses del 15.3% anual compuesto por mes?',
+   campos:[capital(35000), tasa(15.3), fecha('inicio','Fecha de firma','03/03'), fecha('fin','Vencimiento','03/06')],
+   nota:'Para fechas editadas, el plazo mensual se calcula con meses de 30 días. Si el vencimiento precede a la firma en el calendario, se interpreta como el año siguiente.',
+   resolver:pagare
+  },
+  {
+   id:'10', titulo:'10. Plazo para liquidar un crédito',
+   enunciado:'¿En cuánto tiempo se liquidará un crédito de $175,000 con intereses del 24.96% compuesto por quincena y un pago al final de $230,000?',
+   campos:[capital(175000), monto(230000), tasa(24.96)],
+   resolver:v => plazo(v.monto, v.capital, v.tasa, 24, 'quincenas')
+  },
+  {
+   id:'11', titulo:'11. Precio de contado de una computadora',
+   enunciado:'Se compra una computadora con $5,600 de anticipo y un pago por $10,000 a los 2 meses de la compra. ¿Cuál es el precio de contado si se tienen cargos del 18.72% compuesto por mes?',
+   campos:[['entrada','Anticipo (USD)',5600], monto(10000), meses(2), tasa(18.72)],
+   resolver:computadora
+  },
+  {
+   id:'12', titulo:'12. Tasa de financiación de un televisor',
+   enunciado:'Un televisor cuyo precio es de $4,500 se liquida con $5,200 a los cinco meses. ¿Cuál es la tasa de interés anual capitalizable por quincena?',
+   campos:[['capital','Precio de contado (USD)',4500,'positive'], monto(5200), meses(5)],
+   resolver:v => tasaNominal(v.monto, v.capital, v.plazo, 24, 12)
+  },
+  {
+   id:'13', titulo:'13. Fecha de cancelación de un crédito',
+   enunciado:'¿Qué día se cancela con $21,000 un crédito de $18,750, concedido el 5 de junio con cargos del 16.72% compuesto por día?',
+   campos:[capital(18750), monto(21000), tasa(16.72), fecha('inicio','Fecha del crédito','05/06'),
+    ['base','Días de la base anual',360,'base']],
+   nota:'Se parte de la base comercial de 360 días. Para estimar la fecha se redondea al día más cercano y se suman días de calendario, con febrero de 28 días.',
+   resolver:fechaCancelacion
+  },
+  {
+   id:'14', titulo:'14. Precio de contado de las impresoras',
+   enunciado:'¿Cuál es el precio de 5 impresoras que se pagan con un anticipo del 30% y dos abonos de $7,000 y $9,000, respectivamente, a 2 y 3 meses de la compra? Suponga intereses del 9.6% anual con capitalización quincenal.',
+   campos:[['cantidad','Cantidad de impresoras',5,'integer'], anticipo(30),
+    ['abono1','Primer abono (USD)',7000,'positive'], ['mes1','Plazo del primer abono (meses)',2,'positive'],
+    ['abono2','Segundo abono (USD)',9000,'positive'], ['mes2','Plazo del segundo abono (meses)',3,'positive'], tasa(9.6)],
+   resolver:impresoras
+  },
+  {
+   id:'15', titulo:'15. Plazo del pago de un refrigerador',
+   enunciado:'Se compra un refrigerador que de contado cuesta $7,850, el cual se paga con un anticipo del 35% y un pago adicional de $5,650. ¿Cuánto tiempo después de la compra se hace este pago, si se pagan intereses del 18.6% capitalizable por semana?',
+   campos:[['precio','Precio de contado (USD)',7850,'positive'], anticipo(35), monto(5650), tasa(18.6)],
+   resolver:refrigerador
+  }
+ ];
+
+ const porcentaje = value => numero(value) + ' %';
+ const nominal = (rate, frequency) => rate / (100 * frequency);
+ const equivalente = (rate, from, to) => 100 * to * Math.expm1(from / to * Math.log1p(nominal(rate, from)));
+ const periodos = (time, frequency, divisor) => time * (frequency / divisor);
+ const factor = (rate, periods) => Math.exp(periods * Math.log1p(rate));
+ const basePeriodos = (time, frequency, divisor) =>
+  'N = ('+numero(time)+' / '+divisor+') × '+frequency+' = '+periodoVisual(periodos(time, frequency, divisor),'períodos')+'.';
+ const tasaPeriodica = (rate, frequency) =>
+  'i = ('+numero(rate)+' / 100) / '+frequency+' = '+numero(nominal(rate, frequency))+' por período.';
+
+ function resultado(value, label, steps, format = dinero, diagram = null) {
+  if (!Number.isFinite(value)) throw new RangeError('El resultado supera el rango numérico. Reduce los valores ingresados.');
+  return {value, html:steps.map(step => '<p>'+step+'</p>').join('')+
+   '<p>'+label+' <span class="result-value">'+format(value)+'</span></p>', diagram};
+ }
+
+ function acumular(v, frequency, divisor, label = 'Monto acumulado', showBalances = false) {
+  const i = nominal(v.tasa, frequency);
+  const n = periodos(v.plazo, frequency, divisor);
+  const m = v.capital * factor(i, n);
+  let diagram;
+  if (showBalances && Number.isFinite(m)) {
+   const sample = n <= 6
+    ? Array.from({length:Math.floor(n)+1}, (_, index) => index)
+    : Array.from({length:6}, (_, index) => Math.floor((n/6)*index));
+   diagram = {
+    unit:'períodos de capitalización',
+    perspective:'Inversionista · saldos de la inversión.',
+    points:[...new Set([...sample,n])].map(k => [k, 'Período '+periodoVisual(k), v.capital * factor(i,k),
+     k===0?'Capital inicial':k===n?'Monto acumulado':'Saldo acumulado']),
+    summary:['Monto final',m],
+    sampled:n > 6
+   };
+  }
+  return resultado(m, label, [
+   tasaPeriodica(v.tasa, frequency), basePeriodos(v.plazo, frequency, divisor),
+   'M = C(1 + i)<sup>N</sup>',
+   'M = '+dinero(v.capital)+' × (1 + '+numero(i)+')<sup>'+numero(n)+'</sup>',
+   'Interés generado I = M − C = '+dinero(m)+' − '+dinero(v.capital)+' = '+dinero(m-v.capital)
+  ], dinero, diagram);
+ }
+
+ function descontar(v, frequency, divisor, showInterest = false) {
+  const i = nominal(v.tasa, frequency);
+  const n = periodos(v.plazo, frequency, divisor);
+  const c = v.monto * factor(i, -n);
+  const steps = [
+   tasaPeriodica(v.tasa, frequency), basePeriodos(v.plazo, frequency, divisor),
+   'C = M / (1 + i)<sup>N</sup>',
+   'C = '+dinero(v.monto)+' / (1 + '+numero(i)+')<sup>'+numero(n)+'</sup>'
+  ];
+  if (showInterest) steps.push('I = M − C = '+dinero(v.monto)+' − '+dinero(c)+' = <strong>'+dinero(v.monto-c)+'</strong>');
+  return resultado(c, 'Capital que debe invertirse', steps, dinero, {
+   unit:'períodos de capitalización', discount:true,
+   perspective:'Inversionista · valor del capital en dos fechas.',
+   points:[[0,'Hoy',c,'Valor presente'],[n,'Período '+periodoVisual(n),v.monto,'Monto futuro']],
+   summary:['Valor presente',c]
+  });
+ }
+
+ function comparar(v) {
+  const options = [['a',v.a,2],['b',v.b,52],['c',v.c,12]].map(([name, rate, frequency]) =>
+   [name, rate, frequency, equivalente(rate, frequency, 12), equivalente(rate, frequency, 1)]
+  );
+  const best = Math.max(...options.map(option => option[4]));
+  const winners = options.filter(option => Math.abs(option[4]-best) < 1e-10).map(option => option[0]);
+  return resultado(best, winners.length === 1 ? 'Mayor rendimiento anual · opción '+winners[0] : 'Empate · opciones '+winners.join(', '), [
+   'Se igualan los factores anuales. j₁₂ = 12[(1 + j/m)<sup>m/12</sup> − 1].',
+   ...options.map(([name,rate,frequency,j,eff]) =>
+    'Opción '+name+') j₁₂ = 12[(1 + '+porcentaje(rate)+' / '+frequency+')<sup>'+frequency+'/12</sup> − 1] = <strong>'+porcentaje(j)+'</strong> nominal mensualizable. Tasa efectiva anual: '+porcentaje(eff)+'.')
+  ], porcentaje);
+ }
+
+ function plazo(m, c, rate, frequency, unit, steps = [], ratioText = dinero(m)+' / '+dinero(c)) {
+  const i = nominal(rate, frequency);
+  if (i === 0) throw new RangeError(m === c
+   ? 'Con tasa cero e importes iguales, cualquier plazo satisface la ecuación.'
+   : 'Con tasa cero, el capital permanece constante y no alcanza ese monto.');
+  if (m < c) throw new RangeError('El monto final debe ser al menos igual al capital cuando la tasa es positiva.');
+  const n = (Math.log(m) - Math.log(c)) / Math.log1p(i);
+  return resultado(n, 'Plazo', [
+   ...steps, tasaPeriodica(rate, frequency),
+   'N = ln(M/C) / ln(1 + i)',
+   'N = ln('+ratioText.replace('M/C = ', '')+') / ln(1 + '+numero(i)+')',
+   't = N / '+frequency+' = '+periodoVisual(n/frequency,'años')+'.'
+  ], value => periodoVisual(value,unit));
+ }
+
+ function tasaNominal(m, c, time, frequency, divisor, ratioText = dinero(m)+' / '+dinero(c)) {
+  const n = periodos(time, frequency, divisor);
+  const i = Math.expm1((Math.log(m) - Math.log(c)) / n);
+  return resultado(100*frequency*i, 'Tasa nominal anual capitalizable por quincena', [
+   basePeriodos(time, frequency, divisor),
+   'i = (M/C)<sup>1/N</sup> − 1',
+   'i = ('+ratioText.replace('M/C = ', '')+')<sup>1/'+numero(n)+'</sup> − 1 = '+porcentaje(i*100)+' por quincena.',
+   'j = m × i = '+frequency+' × '+porcentaje(i*100)
+  ], porcentaje);
+ }
+
+ function pagare(v) {
+  const start = (v.inicio.getUTCMonth()*30)+Math.min(v.inicio.getUTCDate(),30);
+  const end = (v.fin.getUTCMonth()*30)+Math.min(v.fin.getUTCDate(),30);
+  const wrap = v.fin < v.inicio ? 360 : 0;
+  const days = end + wrap - start;
+  const answer = acumular({...v, plazo:days/30}, 12, 12, 'Valor nominal al vencimiento');
+  const date = d => new Intl.DateTimeFormat('es-EC',{day:'numeric',month:'long',timeZone:'UTC'}).format(d);
+  answer.html = '<p>Plazo entre el '+date(v.inicio)+' y el '+date(v.fin)+
+   (wrap ? ' del año siguiente' : '')+': '+days+' días comerciales / 30 = '+periodoVisual(days/30,'meses')+'.</p>'+answer.html;
+  answer.diagram = {
+   unit:'meses desde la firma', cashFlow:true, perspective:'Prestatario · préstamo recibido y pago al vencimiento.',
+   points:[[0,date(v.inicio),v.capital,'Préstamo recibido'],
+    [days/30,date(v.fin)+(wrap?' · año siguiente':''),-answer.value,'Pago al vencimiento']],
+   summary:['Valor nominal',answer.value]
+  };
+  return answer;
+ }
+
+ function fechaCancelacion(v) {
+  const answer = plazo(v.monto, v.capital, v.tasa, v.base, 'días');
+  const rounded = Math.round(answer.value);
+  // Avanza en un calendario sin año explícito, con 365 días por ciclo.
+  const dayIndex = (v.inicio.getTime()-Date.UTC(2001,0,1))/86400000;
+  const date = new Date(Date.UTC(2001,0,1+((dayIndex+rounded)%365)));
+  const label = new Intl.DateTimeFormat('es-EC',{day:'numeric',month:'long',timeZone:'UTC'}).format(date);
+  const cycles = Math.floor((dayIndex+rounded)/365);
+  const year = cycles === 1 ? ' del año siguiente' : cycles > 1 ? ' · '+numero(cycles)+' años después del año de inicio' : '';
+  answer.html += '<p>Se suman '+numero(rounded)+' días de calendario a la fecha del crédito.</p>'+
+   '<p>Fecha estimada <span class="result-value">'+label+year+'</span></p>';
+  return answer;
+ }
+
+ function computadora(v) {
+  const i = nominal(v.tasa,12);
+  const vp = v.monto * factor(i,-v.plazo);
+  return resultado(v.entrada+vp, 'Precio de contado', [
+   tasaPeriodica(v.tasa,12), basePeriodos(v.plazo,12,12),
+   'VP = M / (1 + i)<sup>N</sup> = '+dinero(v.monto)+' / (1 + '+numero(i)+')<sup>'+numero(v.plazo)+'</sup> = '+dinero(vp),
+   'Precio = anticipo + VP = '+dinero(v.entrada)+' + '+dinero(vp)
+  ], dinero, {
+   unit:'meses desde la compra', discount:true, cashFlow:true, perspective:'Comprador · desembolsos de la compra.',
+   points:[[0,'Hoy',-v.entrada,'Anticipo'],[v.plazo,'Mes '+periodoVisual(v.plazo),-v.monto,'Pago']],
+   summary:['Precio de contado',v.entrada+vp]
+  });
+ }
+
+ function impresoras(v) {
+  const i = nominal(v.tasa,24);
+  const n1 = periodos(v.mes1,24,12);
+  const n2 = periodos(v.mes2,24,12);
+  const vp1 = v.abono1*factor(i,-n1);
+  const vp2 = v.abono2*factor(i,-n2);
+  const total = (vp1+vp2)/(1-v.anticipo/100);
+  return resultado(total, 'Precio total de contado', [
+   tasaPeriodica(v.tasa,24), basePeriodos(v.mes1,24,12), basePeriodos(v.mes2,24,12),
+   'VP₁ = '+dinero(v.abono1)+' / (1 + '+numero(i)+')<sup>'+numero(n1)+'</sup> = '+dinero(vp1),
+   'VP₂ = '+dinero(v.abono2)+' / (1 + '+numero(i)+')<sup>'+numero(n2)+'</sup> = '+dinero(vp2),
+   'P = anticipo × P + VP₁ + VP₂',
+   'P = (VP₁ + VP₂) / (1 − anticipo) = ('+dinero(vp1)+' + '+dinero(vp2)+') / (1 − '+porcentaje(v.anticipo)+')',
+   'Precio unitario = P / '+numero(v.cantidad)+' = <strong>'+dinero(total/v.cantidad)+'</strong>.'
+  ], dinero, {
+   unit:'meses desde la compra', discount:true, cashFlow:true, perspective:'Comprador · desembolsos de la compra.',
+   points:[[0,'Hoy',-total*v.anticipo/100,'Anticipo'],
+    [v.mes1,'Mes '+periodoVisual(v.mes1),-v.abono1,'Primer abono'],
+    [v.mes2,'Mes '+periodoVisual(v.mes2),-v.abono2,'Segundo abono']],
+   summary:['Precio de contado',total]
+  });
+ }
+
+ function refrigerador(v) {
+  const advance = v.precio*v.anticipo/100;
+  const c = v.precio-advance;
+  const answer = plazo(v.monto, c, v.tasa, 52, 'semanas', [
+   'Anticipo = '+dinero(v.precio)+' × '+porcentaje(v.anticipo)+' = '+dinero(advance),
+   'Saldo financiado C = '+dinero(v.precio)+' − '+dinero(advance)+' = '+dinero(c)
+  ]);
+  answer.diagram = {
+   unit:'semanas desde la compra', cashFlow:true, perspective:'Comprador · desembolsos de la compra.',
+   points:[[0,'Hoy',-advance,'Anticipo'],[answer.value,'Semana '+periodoVisual(answer.value),-v.monto,'Pago final']],
+   summary:['Importe del pago final',v.monto]
+  };
+  return answer;
+ }
+
+ function leerCampo(input, [key,label,initial,rule]) {
+  const raw = input.value.trim();
+  if (!raw) throw new RangeError('Completa el campo «'+label+'».');
+  if (rule === 'date') {
+   const match = raw.match(/^(\d{1,2})\/(\d{1,2})$/);
+   if (match) {
+    const day = Number(match[1]), month = Number(match[2]);
+    const date = new Date(Date.UTC(2001,month-1,day));
+    if (date.getUTCDate() === day && date.getUTCMonth() === month-1) return date;
+   }
+   throw new RangeError('Ingresa una fecha válida en «'+label+'» (febrero tiene 28 días en este ejercicio).');
+  }
+  const value = Number(raw);
+  if (!Number.isFinite(value) || value < 0) throw new RangeError('«'+label+'» debe ser un número finito y no negativo.');
+  if (rule === 'positive' && value === 0) throw new RangeError('«'+label+'» debe ser mayor que cero.');
+  if ((rule === 'integer' || rule === 'frequency') && (!Number.isSafeInteger(value) || value === 0)) {
+   throw new RangeError('«'+label+'» debe ser un número entero positivo.');
+  }
+  if (rule === 'percent' && value >= 100) throw new RangeError('El anticipo debe ser menor que 100 %.');
+  return value;
+ }
+
+ function campo(exerciseId, [key,label,initial,rule]) {
+  const id = 's4'+exerciseId+'-'+key;
+  const control = rule === 'date'
+   ? '<input id="'+id+'" type="text" placeholder="dd/mm" value="'+initial+'">'
+   : rule === 'base'
+    ? '<select id="'+id+'"><option value="360">360 días</option><option value="365">365 días</option></select>'
+    : '<input id="'+id+'" type="number" step="'+(rule === 'integer' || rule === 'frequency' ? '1' : 'any')+'" min="0" value="'+initial+'">';
+  return '<div><label for="'+id+'">'+label+'</label>'+control+'</div>';
+ }
+
+ function lineaDeTiempo(id, {unit, points, summary, discount, perspective, sampled, cashFlow}) {
+  const groups = [];
+  for (const [time, label, amount, detail] of [...points].sort((a,b)=>a[0]-b[0])) {
+   if (groups.at(-1)?.time !== time) groups.push({time, label, values:[]});
+   groups.at(-1).values.push({label, amount, detail});
+  }
+  const range = groups.at(-1).time - groups[0].time;
+  // Give each label its own column and distribute extra space by elapsed time.
+  const columns = groups.flatMap(({time}, index) => index === 0 ? ['minmax(8.25rem,1fr)'] :
+   ['minmax(0,calc(var(--s4-spread) * '+((time-groups[index-1].time)/range)+'))', 'minmax(8.25rem,1fr)']);
+  const events = groups.map(({label,values}, index) => {
+   const column = 2*index+1;
+   const cash = values.map(({label:pointLabel,amount,detail})=>{
+    const outflow = cashFlow && amount < 0;
+    const direction = !cashFlow?'':outflow?'Salida · ':amount>0?'Entrada · ':'Sin movimiento · ';
+    return '<span class="s4-flow-value'+(outflow ? ' s4-outflow' : '')+'">'+
+     '<small>'+direction+detail+(pointLabel===label?'':' · '+pointLabel)+'</small><br>'+
+     (cashFlow&&amount>0?'+':'')+importeDiagrama(amount)+'</span>';
+   }).join('');
+   return '<li class="s4-event'+(index===groups.length-1?' s4-final':'')+'" style="grid-column:'+column+'">'+
+    '<div class="s4-event-values">'+cash+'</div><span class="s4-marker" aria-hidden="true"></span>'+
+    '<span class="s4-event-label">'+label+'</span></li>';
+  }).join('');
+  const gaps = groups.slice(1).map((_, index)=>
+   '<li class="s4-gap" aria-hidden="true" style="grid-column:'+(2*index+2)+'"></li>').join('');
+  return '<figure class="timeline-card s4-timeline">'+
+   '<figcaption id="s4'+id+'-timeline"><strong>Línea de tiempo financiera</strong> · '+unit+'</figcaption>'+
+   (discount ? '<p class="s4-discount">← Descontar del futuro al presente</p>' : '')+
+   '<p class="small">Perspectiva: '+perspective+' '+
+   (cashFlow?' + Entrada · − Salida. Los resultados se expresan como importes.':'Importes expresados como magnitudes financieras.')+'</p>'+
+   '<div class="s4-flow" tabindex="0" role="region" aria-labelledby="s4'+id+'-timeline">'+
+   '<ol class="s4-track" style="--s4-count:'+groups.length+';--s4-columns:'+columns.join(' ')+'">'+events+gaps+'</ol></div>'+
+   (sampled ? '<p class="small">Se muestran períodos seleccionados hasta el vencimiento.</p>' : '')+
+   '<p class="small">Separación ajustada para facilitar la lectura. Si hay desplazamiento, usa las flechas del teclado sobre el diagrama.</p>'+
+   '<p class="s4-flow-summary">'+summary[0]+' <strong>'+dinero(summary[1])+'</strong></p></figure>';
+ }
+
+ function montar(container, items) {
+  for (const exercise of items) {
+   const {id,titulo,enunciado,campos,nota,resolver} = exercise;
+   const form = document.createElement('form');
+   const resultId = 's4'+id+'-resultado';
+   form.className = 'exercise';
+   form.noValidate = true;
+   form.innerHTML = '<h4 id="s4'+id+'-titulo">'+titulo+'</h4>'+
+    '<p>'+enunciado.replace(/\n/g,'<br>')+'</p>'+
+    (nota ? '<p class="small">'+nota+'</p>' : '')+
+    '<div class="calc-grid">'+campos.map(field=>campo(id,field)).join('')+'</div>'+
+    '<button type="submit">Resolver</button><button type="reset">Restablecer valores</button>'+
+    '<div aria-live="polite"><div id="'+resultId+'" class="result"></div></div>';
+   form.setAttribute('aria-labelledby','s4'+id+'-titulo');
+   container.append(form);
+   const inputs = campos.map(([key])=>document.getElementById('s4'+id+'-'+key));
+   const diagram = document.createElement('div');
+   diagram.hidden = true;
+   form.append(diagram);
+   const clear = () => {
+    ocultar(resultId);
+    diagram.hidden = true;
+   };
+   function solve(preview) {
+    try {
+     const values = Object.fromEntries(campos.map((field,index)=>[field[0],leerCampo(inputs[index],field)]));
+     const answer = resolver(values);
+     diagram.hidden = !answer.diagram;
+     diagram.innerHTML = answer.diagram ? lineaDeTiempo(id, answer.diagram) : '';
+     if (!preview) mostrar(resultId,answer.html);
+    } catch (error) {
+     if (!(error instanceof RangeError)) throw error;
+     diagram.hidden = true;
+     diagram.replaceChildren();
+     if (!preview) mostrar(resultId,'<p class="error">'+error.message+'</p>');
+    }
+   }
+   form.addEventListener('submit',event=>{
+    event.preventDefault();
+    solve(false);
+   });
+   form.addEventListener('input',()=>{
+    clear();
+    solve(true);
+   });
+   form.addEventListener('reset',event=>{
+    event.preventDefault();
+    inputs.forEach((input,index)=>{input.value = campos[index][2];});
+    clear();
+    solve(true);
+   });
+   solve(true);
+  }
+ }
+ const temas = {
+  capitalizacion:[
+   'Cada capitalización incorpora al saldo el interés del período. La frecuencia determina cuántas veces sucede en un año.',
+   'Una tasa nominal del 12 % anual capitalizable por mes equivale al 1 % por mes. En seis meses hay seis capitalizaciones.',
+   'Tres períodos sucesivos con saldos crecientes',
+   '<path d="M28 112h224M40 98l80-20 90-35"/><circle cx="40" cy="98" r="6"/><circle cx="120" cy="78" r="6"/><circle cx="210" cy="43" r="6"/><text x="40" y="135">0</text><text x="120" y="135">1</text><text x="210" y="135">2</text>'
+  ],
+  monto:[
+   'El monto reúne el capital inicial y todos los intereses acumulados hasta el vencimiento.',
+   'USD 100 al 10 % por período se convierten en USD 121 después de dos períodos.',
+   'Comparación entre un capital de 100 dólares y un monto de 121 dólares',
+   '<rect x="48" y="62" width="58" height="48" rx="4"/><rect x="172" y="38" width="58" height="72" rx="4"/><path d="M117 75h42m-9-7 9 7-9 7"/><text x="77" y="134">100</text><text x="201" y="134">121</text>'
+  ],
+  presente:[
+   'Descontar un pago permite calcular cuánto vale hoy a una tasa y un plazo determinados.',
+   'USD 121 que se recibirán en dos períodos equivalen hoy a USD 100 si la tasa es del 10 % por período.',
+   'Flecha que lleva 121 dólares futuros hacia 100 dólares hoy',
+   '<path d="M43 105h194M218 54H60m12-9-12 9 12 9"/><circle cx="61" cy="105" r="6"/><circle cx="218" cy="105" r="6"/><text x="61" y="87">100</text><text x="218" y="87">121</text><text x="61" y="133">Hoy</text><text x="218" y="133">Futuro</text>'
+  ],
+  interes:[
+   'Al restar el capital original del monto final se obtiene el interés acumulado durante todo el plazo.',
+   'Si USD 100 se convierten en USD 121, el interés generado es USD 21.',
+   'Monto de 121 dólares dividido en 100 de capital y 21 de interés',
+   '<rect x="32" y="48" width="166" height="42" rx="4"/><rect x="198" y="48" width="50" height="42" rx="4" style="fill:#f5d77e"/><text x="115" y="75">100</text><text x="223" y="75">21</text><text x="140" y="122">Capital + interés</text>'
+  ],
+  efectiva:[
+   'La tasa efectiva anual mide cuánto crece el capital durante un año al aplicar todas sus capitalizaciones.',
+   'Una tasa nominal del 12 % con capitalización mensual produce una tasa efectiva anual de aproximadamente 12,68 %.',
+   'Conversión de una tasa nominal del 12 por ciento a una tasa efectiva de 12,68 por ciento',
+   '<circle cx="67" cy="74" r="38"/><circle cx="213" cy="74" r="40"/><path d="M114 74h49m-9-7 9 7-9 7"/><text x="67" y="80">12 %</text><text x="213" y="80">12,68 %</text><text x="67" y="136">Nominal</text><text x="213" y="136">Efectiva</text>'
+  ],
+  equivalentes:[
+   'Para convertir entre tasas nominales con distinta frecuencia, se iguala el factor de crecimiento anual.',
+   'El 12 % nominal con capitalización mensual equivale aproximadamente al 12,30 % nominal con capitalización semestral.',
+   'Dos trayectorias con distinta frecuencia que llegan al mismo monto',
+   '<path d="M36 110l40-18 43-16 43-18 42-19h32M36 110h80l88-71" /><circle cx="36" cy="110" r="6"/><circle cx="119" cy="76" r="5"/><circle cx="116" cy="110" r="5"/><circle cx="204" cy="39" r="7"/><text x="140" y="139">Mismo monto final</text>'
+  ]
+ };
+ const week = document.getElementById('s4semana');
+ const dialog = document.getElementById('s4detalle');
+ const close = document.getElementById('s4detalle-cerrar');
+ let trigger;
+ week.querySelectorAll('[data-s4-topic]').forEach(button=>{
+  button.addEventListener('click',()=>{
+   trigger = button;
+   const [explanation, example, illustrationLabel, art] = temas[button.dataset.s4Topic];
+   const formula = button.closest('.s4-card').querySelector('.formula').outerHTML;
+   document.getElementById('s4detalle-titulo').textContent = button.textContent;
+   document.getElementById('s4detalle-contenido').innerHTML =
+    '<p>'+explanation+'</p>'+formula+'<p><strong>Ejemplo.</strong> '+example+'</p>'+
+    '<svg class="s4-illustration" viewBox="0 0 280 150" role="img" aria-label="'+illustrationLabel+'">'+art+'</svg>';
+   dialog.showModal();
+   close.focus();
+  });
+ });
+ close.addEventListener('click',()=>dialog.close());
+ dialog.addEventListener('click',event=>{
+  if (event.target === dialog) dialog.close();
+ });
+ dialog.addEventListener('close',()=>trigger?.focus());
+
+ montar(document.getElementById('s4ejemplos'), ejemplos);
+ montar(document.getElementById('s4ejercicios'), ejercicios);
+})();
+
+/* ================= SEMANA 5 · ECUACIONES DE VALOR EQUIVALENTE ================= */
+(() => {
+ const week = document.getElementById('semana5');
+ const amount = (key,label,value) => ({key,label:label+' (USD)',value,kind:'positive'});
+ const month = (key,label,value) => ({key,label:label+' (meses)',value});
+ const date = (key,label,value) => ({key,label,value,kind:'date'});
+ const rate = (value,label='Tasa efectiva mensual (%)') => ({key:'r',label,value});
+ const focal = value => month('f','Fecha focal',value);
+ const flow = (time,value,label,weight=1) => ({time,value,label,weight});
+ const monthly = (v,debt,pay,extra={}) => ({i:v.r/100, focal:v.f, debt, pay, ...extra});
+ const dateFmt = new Intl.DateTimeFormat('es-EC',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'});
+ const fmt = value => value !== 0 && Math.abs(value)<1e-6 ? value.toExponential(4) : numero(value);
+ const notation = (period, unit) => (unit === 'año' ? 'Año ' : 'Mes ')+periodoVisual(period);
+
+ function single({id,title,statement,value,months,r,present=false,note,view='value'}) {
+  return {id,title,statement,note,fields:[
+   amount('c',present?'Monto futuro':'Capital inicial',value),
+   month('n','Plazo',months),rate(r)
+  ], model:v=>present
+   ? monthly({...v,f:0},[flow(v.n,v.c,'Monto futuro')],[flow(0,null,'Valor presente')],{label:'Valor presente',view})
+   : monthly({...v,f:v.n},[flow(0,v.c,'Capital inicial')],[flow(v.n,null,'Monto acumulado (VF)')],
+    {label:'Valor futuro',interest:'inversion',view})};
+ }
+
+ function replacement(id,title,statement,c1,c2,t2,p,t,r) {
+  return {id,title,statement,fields:[
+   amount('d1','Deuda de hoy',c1),amount('d2','Segunda deuda',c2),month('t2','Vencimiento de la segunda deuda',t2),
+   amount('p','Pago de hoy',p),month('t','Fecha del pago X',t),rate(r),focal(t)
+  ],model:v=>monthly(v,[flow(0,v.d1,'Primera deuda'),flow(v.t2,v.d2,'Segunda deuda')],
+   [flow(0,v.p,'Primer pago'),flow(v.t,null,'Pago final')],{label:'Pago final X'})};
+ }
+
+ const solved = [
+  single({id:'e1',title:'1. Valor futuro',statement:'Se depositan $2.000 al 3% efectivo mensual durante 6 meses. ¿Cuál es el monto?',value:2000,months:6,r:3}),
+  single({id:'e2',title:'2. Valor presente',statement:'¿Cuánto se debe invertir hoy para obtener $5.000 dentro de 10 meses al 2% mensual?',value:5000,months:10,r:2,present:true,
+   note:'Con la fórmula de la diapositiva, el resultado es USD 4.101,74. La diapositiva indica USD 4.101,62.'}),
+  replacement('e3','3. Ecuación de valor','Una deuda de $3.000 vence hoy y otra de $2.000 vence en 2 meses. Se propone pagar $2.000 hoy y X en 3 meses. Tasa: 2% mensual. Fecha focal: mes 3.',3000,2000,2,2000,3,2)
+ ];
+
+ const cases = [
+  {
+   id:'simbolos',title:'Traslado de flujos A, B y C',
+   statement:'El diagrama ubica A en t = 0, −B en t = 2 y +C en t = 3, con fecha focal en t = 5.',
+   fields:[month('a','Fecha de A',0),month('b','Fecha de B',2),month('c','Fecha de C',3),focal(5)],
+   calculate:v=>symbolic(v.f,[[v.a,'A'],[v.b,'B',true],[v.c,'C']])
+  },
+  {
+   id:'digna',title:'Digna Abreu · último pago e interés total',
+   statement:'Digna Abreu recibió $78,000.00 prestados con intereses al 24% anual convertible mensual, comprometiéndose a liquidar dicha deuda mediante 3 pagos: $18,000.00 al cabo de 1½ meses, $30,000.00 dentro de 4 meses y un último pago al cabo de 8 meses. Determine la cuantía del tercer pago y el interés total pagado.\nResuelva nuevamente el Ejemplo anterior situando la fecha focal (FF) a los 4 meses.',
+   fields:[amount('d','Préstamo inicial',78000),amount('p1','Primer pago',18000),month('t1','Fecha del primer pago',1.5),
+    amount('p2','Segundo pago',30000),month('t2','Fecha del segundo pago',4),month('t3','Fecha del último pago',8),
+    rate(24,'Tasa nominal anual convertible mensualmente (%)'),
+    {key:'choice',label:'Fecha focal',value:'t3',options:[['t3','Último pago (original: mes 8)'],['t2','Segundo pago (original: mes 4)'],['custom','Otra fecha focal']]},
+    {...focal(8),when:'choice'}],
+   model:v=>monthly({...v,f:v.choice==='custom'?v.f:v[v.choice]},[flow(0,v.d,'Préstamo inicial')],
+    [flow(v.t1,v.p1,'Primer pago'),flow(v.t2,v.p2,'Segundo pago'),flow(v.t3,null,'Último pago')],
+    {i:v.r/1200,conversion:'i = ('+fmt(v.r)+' / 100) / 12',label:'Tercer pago',interest:'prestamo',view:'borrower'})
+  },
+  {
+   id:'diario',title:'Liquidación de dos obligaciones con capitalización diaria',
+   statement:'Un señor contrae una deuda que debe saldar mediante dos pagos: $30,000.00 en fecha 12 de junio y $45,000.00 el 10 de diciembre. Si el primer pago no se efectuó en la fecha acordada, ¿qué cantidad debería pagar en fecha 5 de noviembre para liquidar completamente la deuda, tomando en cuenta que la tasa de interés acordada era del 54% anual capitalizable diariamente?',
+   note:'El enunciado no indica año. Las fechas iniciales usan 2001 como año de referencia sin bisiesto y pueden editarse. La base anual de 360 días reproduce la tasa diaria de la diapositiva.',
+   fields:[amount('d1','Primera obligación',30000),date('t1','Vencimiento de la primera obligación','2001-06-12'),
+    amount('d2','Segunda obligación',45000),date('t2','Vencimiento de la segunda obligación','2001-12-10'),
+    date('t','Fecha del pago único','2001-11-05'),rate(54,'Tasa nominal anual capitalizable diariamente (%)'),
+    {key:'base',label:'Base anual para la tasa diaria',value:'360',options:[['360','360 días'],['365','365 días']]},
+    {...date('f','Fecha focal (vacío = fecha del pago)','2001-11-05'),optional:true}],
+   model:v=>({i:v.r/(100*Number(v.base)),focal:v.f??v.t,unit:'día',timeLabel:t=>dateFmt.format(t*86400000),
+    conversion:'i = ('+fmt(v.r)+' / 100) / '+v.base,label:'Pago único',
+    debt:[flow(v.t1,v.d1,'Primera obligación'),flow(v.t2,v.d2,'Segunda obligación')],pay:[flow(v.t,null,'Pago único')]})
+  }
+ ];
+
+ const sum = values => values.reduce((total,value)=>total+value,0);
+ const move = (time,focal,scale) => (focal-time)*scale;
+ const growth = (i,n) => Math.exp(n*Math.log1p(i));
+ const equation = (i,n) => '(1 + '+fmt(i)+')<sup>'+fmt(n)+'</sup>';
+ const movement = n => n>0?'→ Capitalizar':n<0?'← Descontar':'En fecha focal';
+ const paragraph = (label,body) => '<p><strong>'+label+'</strong> '+body+'</p>';
+ const answer = (label,value) => '<p>'+label+' <span class="result-value">'+value+'</span></p>';
+ const box = content => '<p class="s5-equation">'+content+'</p>';
+ const checked = (...values) => {
+  if (!values.every(Number.isFinite)) throw new RangeError('Los valores exceden el rango de cálculo. Reduce los importes, plazos o tasas.');
+ };
+
+ const diagramViews = {
+  value:{perspective:'Inversionista · capital y valor equivalente.', left:'Valor de partida', right:'Valor equivalente'},
+  obligationValue:{perspective:'Deudor · valor de la obligación en dos fechas.',left:'Valor al vencimiento',right:'Valor presente'},
+  plans:{perspective:'Deudor · comparación de obligaciones y pagos equivalentes.',
+   left:'Obligaciones originales',right:'Pagos equivalentes',rightType:'plan',
+   legend:'Verde: obligación original. Azul: pago equivalente. Ambos lados se expresan como importes.'},
+  borrower:{perspective:'Deudora · efectivo recibido y desembolsos del préstamo.',
+   left:'Préstamo recibido',right:'Pagos',leftType:'in',rightType:'out'},
+  account:{perspective:'Cuenta bancaria · movimientos que aumentan o reducen el saldo.',
+   left:'Depósitos',right:'Retiros',leftType:'in',rightType:'out'},
+  offers:{perspective:'Persona que recibe las ofertas · importes de dos alternativas.',
+   legend:'Los importes son alternativas que se comparan en la misma fecha.'},
+  amounts:{perspective:'Persona que recibe ambos importes · valor del dinero en dos fechas.'},
+  symbols:{perspective:'Titular del flujo · entradas y salidas del ejemplo simbólico.',leftType:'in',rightType:'out'}
+ };
+
+ function solveValue(model) {
+  const {i,focal,debt,pay,unit='mes',scale=1,period=unit,timeLabel=t=>notation(t,unit),view='plans'} = model;
+  const {left:leftLabel,right:rightLabel,leftType,rightType} = diagramViews[view];
+  const relocate = item=>{
+   const n = move(item.time,focal,scale);
+   const multiplier = growth(i,n);
+   const base = item.value ?? item.weight;
+   const value = base*multiplier;
+   checked(n,multiplier,value);
+   if (multiplier === 0 || value === 0) throw new RangeError('El factor de traslado es demasiado pequeño para representarlo.');
+   const expression = item.value === null ? (item.weight===1?'X':fmt(item.weight)+'X') : dinero(item.value);
+   return {...item,n,valueAtFocal:value,term:expression+' × '+equation(i,n)};
+  };
+  const obligations = debt.map(relocate);
+  const payments = pay.map(relocate);
+  const known = payments.filter(item=>item.value!==null);
+  const unknown = payments.filter(item=>item.value===null);
+  const left = sum(obligations.map(item=>item.valueAtFocal));
+  const right = sum(known.map(item=>item.valueAtFocal));
+  const coefficient = sum(unknown.map(item=>item.valueAtFocal));
+  checked(left,right,coefficient);
+  const residual = left-right;
+  const tolerance = Math.max(left,right)*Number.EPSILON*8;
+  if (residual < -tolerance) throw new RangeError('Los pagos conocidos superan las obligaciones en la fecha focal. El pago restante sería negativo.');
+  const x = Math.max(0,residual)/coefficient;
+  checked(x);
+  const flows = [...obligations.map(item=>({...item,type:leftType})),
+   ...payments.map(item=>({...item,side:'pay',type:rightType,amount:item.value??item.weight*x}))];
+  checked(...flows.map(item=>item.amount??item.value));
+  const debtData = obligations.map(item=>item.label+' '+dinero(item.value)+' ('+timeLabel(item.time)+')').join('; ');
+  const payData = payments.map(item=>item.label+' '+(item.value===null?(item.weight===1?'X':fmt(item.weight)+'X'):dinero(item.value))+' ('+timeLabel(item.time)+')').join('; ');
+  const verified = right+coefficient*x;
+  checked(verified);
+  const steps = [
+   paragraph('Datos.', debtData+'. '+payData+'. Fecha focal: '+timeLabel(focal)+'.'),
+   paragraph('Tasa por período.', (model.conversion?model.conversion+' = ':'i = ')+fmt(i)+' por '+period+'.'),
+   paragraph('Fórmula.', 'V<sub>f</sub> = F(1 + i)<sup>n</sup>, con n = (f − t)'+(scale===1?'':' × '+fmt(scale))+' en períodos de la tasa.'),
+   paragraph('Ecuación de valor.', leftLabel+' = '+rightLabel.toLowerCase()+' en la fecha focal.'),
+   ...(rightType==='out'?[paragraph('Convención.', 'La ecuación iguala importes en lados opuestos. En el diagrama, sumar las entradas y restar las salidas trasladadas da cero.')]:[]),
+   box(obligations.map(item=>item.term).join(' + ')+' = '+payments.map(item=>item.term).join(' + ')),
+   paragraph('Despeje.', 'X = (total del lado izquierdo − importes conocidos del lado derecho) / coeficiente de X.'),
+   box('X = ('+dinero(left)+' − '+dinero(right)+') / '+fmt(coefficient)),
+   answer(model.label,dinero(x)),
+   paragraph('Comprobación en '+timeLabel(focal)+'.', dinero(left)+' ≈ '+dinero(verified)+'. Los pasos muestran valores redondeados; el cálculo usa la precisión completa.')
+  ];
+  if (model.interest === 'inversion') {
+   steps.push(paragraph('Interés generado.', 'VF − VP = '+dinero(x)+' − '+dinero(debt[0].value)+' = '+dinero(x-debt[0].value)+'.'));
+  }
+  if (model.interest === 'prestamo') {
+   const total = sum(flows.filter(item=>item.side==='pay').map(item=>item.amount));
+   checked(total);
+   steps.push(paragraph('Interés total pagado.', 'Suma de pagos − préstamo = '+dinero(total)+' − '+dinero(debt[0].value)+' = '+dinero(total-debt[0].value)+'.'));
+  }
+  if (model.listPayments) {
+   steps.push(paragraph('Cuantía de los cuatro abonos.',flows.filter(item=>item.side==='pay').map(item=>
+    item.label+' ('+fmt(item.weight)+' × X) = '+dinero(item.amount)).join('; ')+'.'));
+  }
+  if (model.interest==='inversion') {
+   const end = pay[0].time;
+   // Add a readable sample of whole months without changing the valuation equation.
+   const stride = Math.max(1,Math.ceil(end/6));
+   for (let index=1;index<=5 && index*stride<end;index++) {
+    const time = index*stride;
+    flows.push({time,label:'Saldo acumulado',value:debt[0].value*growth(i,time)});
+   }
+  }
+  return {html:steps.join(''),focal,timeLabel,flows,view,summary:model.label+' '+dinero(x)};
+ }
+
+ function compare(v) {
+  const i = v.r/100;
+  const a = v.a*growth(i,v.f);
+  const b = v.b*growth(i,v.f-v.n);
+  const today = v.b*growth(i,-v.n);
+  checked(a,b,today);
+  if (a===0 || b===0 || today===0) throw new RangeError('El factor de traslado es demasiado pequeño para representarlo.');
+  const tolerance = Math.max(a,b)*Number.EPSILON*8;
+  const label = Math.abs(a-b)<=tolerance?'Las ofertas son equivalentes':(a>b?'La oferta A':'La oferta B')+' tiene mayor valor equivalente';
+  return {focal:v.f,view:'offers',flows:[{time:0,value:v.a,label:'Oferta A',n:v.f},{time:v.n,value:v.b,label:'Oferta B',n:v.f-v.n}],
+   summary:label,
+   html:paragraph('Datos.', 'A = '+dinero(v.a)+' hoy; B = '+dinero(v.b)+' en el mes '+periodoVisual(v.n)+'; i = '+fmt(i)+' mensual.')+
+    paragraph('Fórmula.', 'V<sub>f</sub> = F(1 + i)<sup>f − t</sup>.')+
+    box('A<sub>f</sub> = '+dinero(v.a)+' × '+equation(i,v.f)+' = '+dinero(a)+'<br>B<sub>f</sub> = '+dinero(v.b)+' × '+equation(i,v.f-v.n)+' = '+dinero(b))+
+    paragraph('Comparación hoy.', 'A = '+dinero(v.a)+'; B = '+dinero(v.b)+' / '+equation(i,v.n)+' = '+dinero(today)+'.')+
+    answer('Conclusión',label+'.')};
+ }
+
+ function impliedRate(v) {
+  const i = Math.expm1((Math.log(v.b)-Math.log(v.a))/v.n);
+  checked(i,i*100);
+  if (i<=-1) throw new RangeError('La tasa se aproxima demasiado al −100 % para representarla.');
+  return {focal:v.n,view:'value',flows:[{time:0,value:v.a,label:'Capital inicial',n:v.n},{time:v.n,value:v.b,label:'Monto final',n:0}],
+   summary:'Tasa efectiva mensual '+fmt(i*100)+' %',
+   html:paragraph('Datos.', 'VP = '+dinero(v.a)+'; VF = '+dinero(v.b)+'; n = '+periodoVisual(v.n,'meses')+'.')+
+    paragraph('Ecuación de valor.', 'VF = VP(1 + i)<sup>n</sup>.')+
+    box(dinero(v.b)+' = '+dinero(v.a)+' × (1 + i)<sup>'+fmt(v.n)+'</sup>')+
+    paragraph('Despeje.', 'i = (VF / VP)<sup>1/n</sup> − 1.')+
+    box('i = ('+dinero(v.b)+' / '+dinero(v.a)+')<sup>1/'+fmt(v.n)+'</sup> − 1')+
+    answer('Tasa efectiva mensual',fmt(i*100)+' %')};
+ }
+
+ function symbolic(focal,entries,unit='mes') {
+  const flows = entries.map(([time,expression,negative])=>({
+   time,expression,label:'',type:unit==='año'?undefined:negative?'out':'in',n:focal-time
+  }));
+  const expression = flows.map(({expression,n,type},index)=>
+   (type==='out'?' − ':index?' + ':'')+expression+(n===0?'':'(1 + i)<sup>'+fmt(n)+'</sup>')).join('');
+  return {focal,flows,view:unit==='año'?'amounts':'symbols',timeLabel:t=>notation(t,unit),summary:'Valor equivalente en '+notation(focal,unit).toLowerCase(),
+   html:paragraph('Traslado.', 'Cada cantidad se expresa en la fecha focal con una misma tasa efectiva por '+unit+'.')+
+    box(expression)+paragraph('Interpretación.', unit==='año'
+     ? 'Los USD 1.000 de hoy y los USD 1.200 futuros representan poder de compra en fechas distintas. La suma adquiere significado financiero cuando ambos importes se expresan en la misma fecha.'
+     : 'El exponente indica cuántos períodos se capitalizan o descuentan. El signo de B indica una salida.')};
+ }
+
+ function timeline(id,{focal,flows,summary,view,timeLabel=t=>notation(t,'mes')}) {
+  const {perspective,legend,leftType} = diagramViews[view];
+  const times = [...new Set([focal,...flows.map(item=>item.time)])].sort((a,b)=>a-b);
+  return '<figure class="timeline-card s5-timeline">'+
+   '<figcaption id="s5'+id+'-timeline"><strong>Línea de tiempo financiera</strong> · '+summary+'</figcaption>'+
+   '<p class="small">Perspectiva: '+perspective+' '+
+   (legend??(leftType==='in'?'+ Entrada · − Salida.':'Importes expresados como magnitudes financieras.'))+'</p>'+
+   '<div class="s5-scroll" tabindex="0" role="region" aria-labelledby="s5'+id+'-timeline">'+
+   '<ol class="s5-track" style="--s5-count:'+times.length+'">'+times.map(time=>{
+    const cash = flows.filter(item=>item.time===time).map(item=>{
+     const value = item.amount??item.value;
+     const outflow = item.type==='out' && value!==0;
+     const inflow = item.type==='in' && value!==0;
+     const direction = outflow?'Salida':inflow?'Entrada':item.type==='out'||item.type==='in'?'Sin movimiento':'';
+     const detail = [direction,item.label].filter(Boolean).join(' · ');
+     const amount = item.expression ? (outflow?'− ':inflow?'+ ':'')+item.expression :
+      (inflow?'+':'')+importeDiagrama(outflow?-value:value);
+     return '<span class="s5-amount'+(outflow?' s5-payment':item.type==='plan'?' s5-plan':'')+'">'+
+      (detail?detail+'<br>':'')+amount+
+      (item.n===undefined?'':'<br><small>'+movement(item.n)+'</small>')+'</span>';
+    }).join('');
+    return '<li class="s5-point'+(time===focal?' s5-focal':'')+'">'+
+     '<div class="s5-amounts">'+cash+'</div><span class="s5-marker" aria-hidden="true"></span>'+
+     '<span class="s5-time">'+timeLabel(time)+(time===focal?'<small>Fecha focal</small>':'')+'</span></li>';
+   }).join('')+'</ol></div>'+
+   '<p class="small">Fechas en orden cronológico, con separación uniforme. Si la línea no cabe, desliza o usa las flechas del teclado sobre el diagrama.</p></figure>';
+ }
+
+ function control(id,field) {
+  const key = 's5'+id+'-'+field.key;
+  const widget = field.options
+   ? '<select id="'+key+'">'+field.options.map(([value,label])=>'<option value="'+value+'"'+(field.value===value?' selected':'')+'>'+label+'</option>').join('')+'</select>'
+   : '<input id="'+key+'" type="'+(field.kind==='date'?'date':'number')+'" value="'+field.value+'"'+
+    (field.kind==='date'?'':' step="any" min="0"')+'>';
+  return '<div'+(field.when?' hidden':'')+'><label for="'+key+'">'+field.label+'</label>'+widget+'</div>';
+ }
+
+ function read(input,field) {
+  const raw = input.value.trim();
+  if (!raw) {
+   if (field.optional && !input.validity.badInput) return null;
+   throw new RangeError('Completa «'+field.label+'» con un dato válido.');
+  }
+  if (field.options) {
+   if (!field.options.some(([value])=>value===raw)) throw new RangeError('Selecciona una opción válida.');
+   return raw;
+  }
+  if (field.kind==='date') {
+   const date = new Date(raw+'T00:00:00Z');
+   if (!/^\d{4}-\d{2}-\d{2}$/.test(raw) || !Number.isFinite(date.getTime()) || date.toISOString().slice(0,10)!==raw) {
+    throw new RangeError('Ingresa una fecha de calendario válida en «'+field.label+'».');
+   }
+   return date.getTime()/86400000;
+  }
+  const value = input.valueAsNumber;
+  if (!Number.isFinite(value) || value<0 || (field.kind==='positive' && value===0)) {
+   throw new RangeError('«'+field.label+'» debe ser '+(field.kind==='positive'?'mayor que cero':'un número no negativo')+'.');
+  }
+  return value;
+ }
+
+ function mount(container,items) {
+  for (const {id,title,statement,note,fields,model,calculate,concept} of items) {
+   const form = document.createElement('form');
+   const resultId = 's5'+id+'-resultado';
+   form.className = 'exercise';
+   form.noValidate = true;
+   form.setAttribute('aria-labelledby','s5'+id+'-titulo');
+   form.innerHTML = '<h4 id="s5'+id+'-titulo">'+title+'</h4><p>'+statement.replace(/\n/g,'<br>')+'</p>'+
+    (note?'<p class="note">'+note+'</p>':'')+'<div class="calc-grid">'+fields.map(field=>control(id,field)).join('')+'</div>'+
+    (concept?'':'<button type="submit">Resolver</button><button type="reset">Restablecer valores</button>')+
+    '<div class="s5-figure"></div><div aria-live="polite"><div id="'+resultId+'" class="result"></div></div>';
+   container.append(form);
+   const figure = form.querySelector('.s5-figure');
+   const inputs = fields.map(field=>document.getElementById('s5'+id+'-'+field.key));
+   let showSteps = Boolean(concept);
+
+   function update() {
+    const values = {};
+    try {
+     fields.forEach((field,index)=>{
+      const input = inputs[index];
+      if (field.when) {
+       input.disabled = values[field.when]!=='custom';
+       input.parentElement.hidden = input.disabled;
+       if (input.disabled) return;
+      }
+      values[field.key] = read(input,field);
+     });
+     const output = calculate ? calculate(values) : solveValue(model(values));
+     const scroll = figure.querySelector('.s5-scroll')?.scrollLeft ?? 0;
+     figure.innerHTML = timeline(id,output);
+     figure.querySelector('.s5-scroll').scrollLeft = scroll;
+     if (showSteps) mostrar(resultId,output.html);
+     else ocultar(resultId);
+    } catch (error) {
+     if (!(error instanceof RangeError)) throw error;
+     figure.replaceChildren();
+     if (showSteps) mostrar(resultId,'<p class="error">'+error.message+'</p>');
+     else ocultar(resultId);
+    }
+   }
+   form.addEventListener('input',update);
+   form.addEventListener('submit',event=>{
+    event.preventDefault();
+    showSteps = true;
+    update();
+   });
+   form.addEventListener('reset',event=>{
+    event.preventDefault();
+    inputs.forEach((input,index)=>{input.value = fields[index].value;});
+    showSteps = Boolean(concept);
+    update();
+   });
+   update();
+  }
+ }
+
+ const homework = [
+  {
+   id:'t1',title:'1. Retiros iguales',
+   statement:'Pedro Olivo hizo un depósito inicial de $25,000.00 en una cuenta bancaria que paga el 0.75% quincenal. A los 2 y 6 meses efectuó 2 retiros iguales, a los 9 meses depositó $20,000.00 y a los 12 meses extrajo el balance total de la cuenta que era de $24,894.97. Calcular el valor de los 2 retiros iguales.',
+   fields:[amount('d1','Depósito inicial',25000),month('t1','Fecha del primer retiro',2),month('t2','Fecha del segundo retiro',6),
+    amount('d2','Segundo depósito',20000),month('td','Fecha del segundo depósito',9),amount('p','Retiro del saldo total',24894.97),
+    month('tp','Fecha de retiro del saldo total',12),rate(.75,'Tasa efectiva quincenal (%)'),focal(12)],
+   model:v=>{
+    if (v.tp<Math.max(v.t1,v.t2,v.td)) throw new RangeError('El retiro del saldo total debe quedar al final.');
+    return monthly(v,[flow(0,v.d1,'Depósito inicial'),flow(v.td,v.d2,'Segundo depósito')],
+     [flow(v.t1,null,'Primer retiro'),flow(v.t2,null,'Segundo retiro'),flow(v.tp,v.p,'Retiro del saldo total')],
+     {scale:2,period:'quincena',label:'Importe de cada retiro',view:'account'});
+   }
+  },
+  {
+   id:'t2',title:'2. Cuatro abonos semestrales',
+   statement:'Una deuda pagadera en 2 partidas iguales de $180,000.00, con vencimiento en 4 y 8 meses, se decide liquidar mediante 4 abonos semestrales, comenzando a pagar inmediatamente. Si los pagos Nos. 2 y 3 son iguales al doble del primero y, el cuarto, el triple del primero, determine la cuantía de los pagos, si la tasa de interés es del 18% anual convertible bimestralmente.',
+   fields:[amount('d','Importe de cada partida original',180000),month('t1','Vencimiento de la primera partida',4),
+    month('t2','Vencimiento de la segunda partida',8),{...month('gap','Intervalo entre abonos',6),kind:'positive'},
+    {key:'k2',label:'Factor de los abonos 2 y 3 respecto al primero',value:2,kind:'positive'},
+    {key:'k4',label:'Factor del abono 4 respecto al primero',value:3,kind:'positive'},
+    rate(18,'Tasa nominal anual convertible bimestralmente (%)'),focal(0)],
+   model:v=>monthly(v,[flow(v.t1,v.d,'Primera partida'),flow(v.t2,v.d,'Segunda partida')],
+    [flow(0,null,'Abono 1'),flow(v.gap,null,'Abono 2',v.k2),flow(2*v.gap,null,'Abono 3',v.k2),flow(3*v.gap,null,'Abono 4',v.k4)],
+    {i:v.r/600,scale:.5,period:'bimestre',conversion:'i = ('+fmt(v.r)+' / 100) / 6',label:'Primer abono X',listPayments:true})
+  },
+  single({id:'t3',title:'3. Valor futuro de una inversión',statement:'Se invierten $1.500 al 1,5% efectivo mensual durante 8 meses. Calcule el valor futuro.',value:1500,months:8,r:1.5}),
+  single({id:'t4',title:'4. Valor actual de una obligación',statement:'Una obligación de $4.800 vence en 12 meses. Halle su valor actual al 1,2% mensual.',value:4800,months:12,r:1.2,present:true,view:'obligationValue'}),
+  replacement('t5','5. Sustitución de pagos','Una deuda de $2.500 vence hoy y otra de $1.800 en 4 meses. Se propone pagar $2.000 hoy y X en 6 meses. Tasa: 1,8% mensual. Use fecha focal en el mes 6.',2500,1800,4,2000,6,1.8),
+  {
+   id:'t6',title:'6. Comparar importes de fechas distintas',
+   statement:'Explique por qué no es correcto sumar directamente $1.000 hoy con $1.200 dentro de un año.',
+   fields:[{key:'f',label:'Lleva ambos importes a',value:'0',options:[['0','Hoy'],['1','Dentro de un año']]}],
+   concept:true,
+   calculate:v=>symbolic(Number(v.f),[[0,dinero(1000)],[1,dinero(1200)]],'año')
+  },
+  {
+   id:'t7',title:'7. Comparación de ofertas',
+   statement:'Compare dos ofertas: A) $3.600 hoy; B) $4.000 dentro de 9 meses. Tasa efectiva mensual: 1,1%. ¿Cuál tiene mayor valor equivalente hoy?',
+   fields:[amount('a','Oferta A de hoy',3600),amount('b','Oferta B futura',4000),month('n','Fecha de la oferta B',9),rate(1.1),focal(0)],
+   calculate:compare
+  },
+  {
+   id:'t8',title:'8. Tasa efectiva mensual',
+   statement:'Una inversión de $2.200 se convierte en $2.600 en 10 meses. Determine la tasa efectiva mensual.',
+   fields:[amount('a','Inversión inicial',2200),amount('b','Monto final',2600),{...month('n','Plazo',10),kind:'positive'}],
+   calculate:impliedRate
+  },
+  {
+   id:'t9',title:'9. Valor equivalente de tres pagos',
+   statement:'Diseñe una línea de tiempo para una deuda con tres pagos: $700 en 2 meses, $900 en 5 meses y $1.100 en 8 meses. Exprese el valor equivalente en el mes 8 al 1% mensual.',
+   fields:[amount('d1','Primer pago original',700),month('t1','Fecha del primer pago',2),
+    amount('d2','Segundo pago original',900),month('t2','Fecha del segundo pago',5),
+    amount('d3','Tercer pago original',1100),month('t3','Fecha del tercer pago',8),rate(1),focal(8)],
+   model:v=>monthly(v,[flow(v.t1,v.d1,'Primer pago original'),flow(v.t2,v.d2,'Segundo pago original'),flow(v.t3,v.d3,'Tercer pago original')],
+    [flow(v.f,null,'Pago equivalente')],{label:'Valor equivalente en la fecha focal'})
+  }
+ ];
+
+ const topics = [
+  ['Valor presente','VP = VF / (1 + i)<sup>n</sup>',
+   'Importe equivalente hoy de una cantidad futura.',
+   'Descontar un monto futuro permite compararlo con una inversión de hoy.',
+   'USD 110 dentro de un período equivalen a USD 100 hoy al 10 %.',
+   'Una flecha lleva 110 dólares del futuro a 100 dólares hoy',
+   '<path d="M225 45H55m10-9-10 9 10 9M55 95h170"/><circle cx="55" cy="95" r="7"/><circle cx="225" cy="95" r="7"/><text x="55" y="124">Hoy · 100</text><text x="225" y="124">Futuro · 110</text>'],
+  ['Valor futuro','VF = VP(1 + i)<sup>n</sup>',
+   'Importe que resulta de acumular intereses hasta la fecha futura.',
+   'El monto futuro contiene el capital inicial y el interés generado durante el plazo.',
+   'USD 200 crecen a USD 242 en dos períodos al 10 %.',
+   'Una curva de crecimiento desde 200 hasta 242 dólares',
+   '<path d="M36 109h208M49 91q90 0 183-57"/><circle cx="49" cy="91" r="6"/><circle cx="232" cy="34" r="6"/><text x="49" y="133">200</text><text x="232" y="133">242</text>'],
+  ['Ecuación de valor','∑ V<sub>f</sub>(deudas) = ∑ V<sub>f</sub>(pagos)',
+   'Iguala obligaciones y pagos después de trasladarlos a una misma fecha.',
+   'Cada término tiene su propio exponente. Trasladar primero permite sumar y despejar el pago desconocido.',
+   'Una deuda de USD 110 en el mes 1 se sustituye por X hoy al 10 % mensual. En el mes 1, 110 = 1,10 × X.',
+   'Dos lados de una igualdad financiera',
+   '<path d="M40 76h67M173 76h67M124 65h32m-32 20h32"/><circle cx="74" cy="76" r="9"/><circle cx="206" cy="76" r="9"/><text x="74" y="114">Deudas</text><text x="206" y="114">Pagos</text>'],
+  ['Fecha focal','n = f − t',
+   'Fecha de referencia a la que se lleva cada flujo para compararlo.',
+   'Una fecha focal entre dos vencimientos exige capitalizar el flujo anterior y descontar el posterior.',
+   'Con fecha focal en el mes 3, un flujo del mes 1 se capitaliza dos meses y uno del mes 4 se descuenta un mes.',
+   'Dos flechas convergen en la fecha focal del mes 3',
+   '<path d="M33 98h214M52 52h77m-9-7 9 7-9 7M233 52h-77m9-7-9 7 9 7M142 31v68"/><circle cx="52" cy="98" r="5"/><circle cx="142" cy="98" r="9"/><circle cx="233" cy="98" r="5"/><text x="52" y="126">Mes 1</text><text x="142" y="126">Focal</text><text x="233" y="126">Mes 4</text>'],
+  ['Equivalencia de obligaciones','V<sub>f</sub>(plan A) = V<sub>f</sub>(plan B)',
+   'Dos planes son equivalentes si tienen el mismo valor a la misma tasa y fecha.',
+   'En interés compuesto, al cambiar la fecha focal ambos lados se multiplican por el mismo factor. El pago equivalente conserva su importe.',
+   'USD 100 hoy y USD 121 en dos períodos son planes equivalentes al 10 % por período.',
+   'Dos planes parten de fechas distintas y llegan al mismo punto de comparación',
+   '<path d="M46 46h75l67 28h44M46 103h75l67-29"/><circle cx="46" cy="46" r="6"/><circle cx="46" cy="103" r="6"/><circle cx="188" cy="74" r="8"/><text x="63" y="31">Plan A</text><text x="63" y="128">Plan B</text><text x="208" y="104">Equivalencia</text>'],
+  ['Capitalización','V<sub>f</sub> = F(1 + i)<sup>f − t</sup>, f &gt; t',
+   'Traslada un flujo hacia adelante incorporando interés en cada período.',
+   'El saldo de un período se convierte en la base sobre la que se calcula el interés del siguiente.',
+   'Al 5 % por período, USD 800 pasan a USD 840 y luego a USD 882.',
+   'Tres escalones representan el aumento de 800 a 882 dólares',
+   '<path d="M28 108h65V79h74V46h79"/><circle cx="49" cy="108" r="5"/><circle cx="119" cy="79" r="5"/><circle cx="207" cy="46" r="5"/><text x="49" y="132">800</text><text x="119" y="105">840</text><text x="207" y="72">882</text>'],
+  ['Descuento compuesto','V<sub>f</sub> = F / (1 + i)<sup>t − f</sup>, f &lt; t',
+   'Traslada un flujo hacia atrás dividiendo por el factor de acumulación.',
+   'El descuento revierte la capitalización. Con una tasa positiva, el equivalente anterior es menor que el pago futuro.',
+   'USD 1.210 dentro de dos períodos equivalen a USD 1.000 hoy al 10 % por período.',
+   'Una flecha retrocede dos períodos desde 1210 hasta 1000 dólares',
+   '<path d="M237 42H43m10-9-10 9 10 9M43 96h194"/><circle cx="43" cy="96" r="7"/><circle cx="140" cy="96" r="5"/><circle cx="237" cy="96" r="7"/><text x="43" y="124">1.000</text><text x="237" y="124">1.210</text>']
+ ];
+ const theory = document.getElementById('s5teoria');
+ theory.innerHTML = topics.map(([title,formula,brief],index)=>
+  '<div class="tile s5-card"><strong><button type="button" data-s5-topic="'+index+'" aria-haspopup="dialog" aria-controls="s5detalle">'+
+  title+'</button></strong><div class="formula">'+formula+'</div>'+brief+
+  '<span class="small s5-card-action" aria-hidden="true">Ver explicación</span></div>').join('');
+ const dialog = document.getElementById('s5detalle');
+ const close = document.getElementById('s5detalle-cerrar');
+ let trigger;
+ theory.addEventListener('click',event=>{
+  const button = event.target.closest('[data-s5-topic]');
+  if (!button) return;
+  const [title,formula,,detail,example,alt,art] = topics[Number(button.dataset.s5Topic)];
+  trigger = button;
+  document.getElementById('s5detalle-titulo').textContent = title;
+  document.getElementById('s5detalle-contenido').innerHTML = '<p>'+detail+'</p><div class="formula">'+formula+
+   '</div>'+paragraph('Ejemplo.',example)+'<svg class="s5-illustration" viewBox="0 0 280 150" role="img" aria-label="'+alt+'">'+art+'</svg>';
+  dialog.showModal();
+  close.focus();
+ });
+ close.addEventListener('click',()=>dialog.close());
+ dialog.addEventListener('click',event=>{
+  if (event.target===dialog) dialog.close();
+ });
+ dialog.addEventListener('close',()=>trigger?.focus());
+
+ mount(week.querySelector('#s5resueltos'),solved);
+ mount(week.querySelector('#s5casos'),cases);
+ mount(week.querySelector('#s5tarea'),homework);
+})();
+
+</script>
+

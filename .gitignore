@@ -1,0 +1,19 @@
+# Material académico de referencia
+material_referencia/
+
+# Archivos auxiliares de Codex
+.s4-review/
+.s5-review/
+.s4s5-update.py
+.s4s5-test.cjs
+
+# Archivos temporales
+*.tmp
+*.log
+
+# Dependencias locales
+node_modules/
+
+# Copias de seguridad
+*.bak
+*_backup.html
