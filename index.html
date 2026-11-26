@@ -14,7 +14,7 @@
 
 :root{
 --green:#176b3a;
--dark:#104b2b;
+--dark:#104b2b;
 --gold:#d5a62e;
 --light:#f2f8f2;
  --ink:#26352c;
@@ -128,36 +128,80 @@ font-size:14px;
 
 }
 
-nav{
- background:white;
-padding:13px 15px;
+.page-layout{
+ display:grid;
+ grid-template-columns:210px minmax(0,1150px);
+ gap:24px;
+ max-width:1432px;
+ margin:0 auto;
+ padding:24px 18px 0;
+}
+.sidebar{
+ position:sticky;
+ top:16px;
+ align-self:start;
+ max-height:calc(100dvh - 32px);
+ overflow:auto;
+ padding:14px;
+ background:var(--white);
+ border:1px solid var(--line);
+ border-radius:14px;
+ box-shadow:0 5px 20px #163c2010;
+}
+.section-nav{display:grid;gap:4px;padding:4px}
+.section-nav a{
+ display:block;
+ padding:8px 10px;
+ border-radius:8px;
+ color:var(--dark);
+ font-weight:700;
+ font-size:14px;
+ text-decoration:none;
+}
+.section-nav a:hover{background:var(--light)}
+.section-nav a[aria-current="location"]{background:var(--green);color:var(--white)}
+.mobile-nav-bar{display:none}
+.mobile-nav-bar button,.section-drawer button{margin:0}
+.section-drawer{
+ position:fixed;
+ inset:0 auto 0 0;
+ width:min(84vw,320px);
+ height:100dvh;
+ max-width:none;
+ max-height:none;
+ padding:16px;
+ border:0;
+ color:var(--ink);
+ background:var(--white);
+ overflow:auto;
+}
+.section-drawer::backdrop{background:#14291dbb}
+body:has(.section-drawer[open]){overflow:hidden}
+.drawer-heading{
  display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:10px 22px;
-position:sticky;
-top:0;
- z-index:10;
- box-shadow:0 3px 14px #00000012;
-
+ justify-content:space-between;
+ align-items:center;
+ gap:12px;
+ margin:0 4px 12px;
 }
+main{min-width:0}
 
-nav a{
-text-decoration:none;
-color:var(--dark);
-font-weight:700;
-font-size:13px;
-
+@media(max-width:900px){
+ .page-layout{display:block;padding-top:16px}
+ .sidebar{position:static;max-height:none;margin-bottom:16px}
+ .nav-ready .sidebar{display:none}
+ .nav-ready .mobile-nav-bar{
+  display:block;
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:var(--bg);
+  border-bottom:1px solid var(--line);
+  padding:8px 18px;
+ }
+ .nav-ready main > section{scroll-margin-top:76px}
 }
-
-nav a:hover{color:#bd8b12}
-
-main{
- max-width:1150px;
- margin:30px auto;
-padding:0 18px;
-
-}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 section{
 background:white;
@@ -165,7 +209,7 @@ padding:28px;
 margin-bottom:25px;
 border-radius:15px;
 box-shadow:0 5px 20px #163c2010;
- scroll-margin-top:85px;
+ scroll-margin-top:16px;
 
 }
 
@@ -338,7 +382,8 @@ transition:.2s;
 
 }
 
-button:hover{background:var(--dark);transform:translateY(-1px)}
+button:is(:hover,:focus,:active){background:var(--dark);color:var(--white)}
+button:focus-visible,.section-nav a:focus-visible{outline:3px solid var(--dark);outline-offset:3px}
 
 .result{
 display:none;
@@ -544,8 +589,6 @@ footer p{margin:5px}
 
 @media(max-width:650px){
 section{padding:19px}
-nav{position:relative}
-nav a{font-size:12px}
 header{padding:27px 14px}
 table{font-size:12px}
 th,td{padding:7px}
@@ -841,6 +884,13 @@ body:has(#s5detalle[open]){overflow:hidden}
 @media(prefers-reduced-motion:reduce){#semana5 .s5-card{transition:none;transform:none}}
 
 </style>
+<style>html.s6-reload { scroll-behavior: auto; }</style>
+<script>
+if (location.hash === '#semana6' && performance.getEntriesByType('navigation')[0]?.type === 'reload') {
+ document.documentElement.classList.add('s6-reload');
+ window.addEventListener('hashchange', () => document.documentElement.classList.remove('s6-reload'), {once: true});
+}
+</script>
 </head>
 <body>
 <header>
@@ -862,17 +912,29 @@ body:has(#s5detalle[open]){overflow:hidden}
 </div>
 </header>
 
-<nav>
-<a href="#inicio">Inicio</a>
-<a href="#semana2">Unidad 1 – Fundamentos del interés simple</a>
-<a href="#semana3">Aplicaciones del interés simple</a>
-<a href="#s4semana">Semana 4 – Interés compuesto</a>
-<a href="#semana5">Semana 5 – Ecuaciones de valor equivalente</a>
-<a href="#bancoDeberes">Banco de deberes</a>
-<a href="#calculadoraGeneral">Calculadora general</a>
-<a href="#fuentes">Material de consulta</a>
-
-</nav>
+<div class="mobile-nav-bar">
+ <button type="button" id="menu-abrir" aria-haspopup="dialog" aria-expanded="false" aria-controls="menu-lateral">Menú de secciones</button>
+</div>
+<dialog class="section-drawer" id="menu-lateral" aria-labelledby="menu-titulo">
+ <div class="drawer-heading">
+  <strong id="menu-titulo">Secciones</strong>
+  <button type="button" id="menu-cerrar" autofocus>Cerrar</button>
+ </div>
+</dialog>
+<div class="page-layout">
+ <aside class="sidebar" id="menu-escritorio">
+  <nav class="section-nav" aria-label="Secciones de Ingeniería Económica">
+   <a href="#inicio" aria-current="location">Inicio</a>
+   <a href="#semana2">Semana 2 · Fundamentos</a>
+   <a href="#semana3">Semana 3 · Aplicaciones</a>
+   <a href="#s4semana">Semana 4 · Interés compuesto</a>
+   <a href="#semana5">Semana 5 · Ecuaciones de valor equivalente</a>
+   <a href="#semana6">Semana 6 · Anualidades</a>
+   <a href="#semana7">Semana 7 · Gradientes</a>
+   <a href="#bancoDeberes">Banco de deberes</a>
+   <a href="#calculadoraGeneral">Calculadora general</a>
+  </nav>
+ </aside>
 <main>
 <section id="inicio">
 <p class="kicker">Presentación del contenido</p>
@@ -1686,6 +1748,188 @@ body:has(#s5detalle[open]){overflow:hidden}
  </dialog>
 </section>
 
+<style>
+ #semana6 .timeline-line > .s6-period { position: relative; padding-top: 9px; }
+ #semana6 .s6-period::before {
+  content: ""; position: absolute; top: -2px; left: 0; transform: translateY(-50%);
+  width: 10px; height: 10px; border: 2px solid var(--green);
+  border-radius: 50%; background: white;
+ }
+ #semana6 .s6-period.s6-final::before { background: var(--gold); width: 13px; height: 13px; }
+</style>
+<section id="semana6">
+ <div class="week-title">
+  <span class="week-label">UNIDAD II · SEMANA 6</span>
+  <h2>Anualidades y su aplicación</h2>
+  <p>Definición, tipos y ejercicios de anualidad general.</p>
+ </div>
+ <div class="intro">Las anualidades permiten calcular cuánto se acumula con depósitos periódicos o cuánto valen hoy varias cuotas futuras. Cuando la frecuencia de capitalización difiere de la frecuencia de pago, primero se obtiene una tasa equivalente por intervalo de pago.</div>
+ <div class="grid">
+  <div class="tile"><strong>¿Qué es una anualidad?</strong><div>Serie de pagos o depósitos iguales realizados a intervalos regulares. El intervalo puede ser mensual, trimestral o de otra duración.</div><button class="s6-explicar" type="button" data-s6-example="0" aria-haspopup="dialog" aria-controls="s6-detalle">Ver explicación</button></div>
+  <div class="tile"><strong>Según la certeza</strong><div>Cierta si las fechas se conocen de antemano. Eventual si depende de un suceso incierto.</div><button class="s6-explicar" type="button" data-s6-example="1" aria-haspopup="dialog" aria-controls="s6-detalle">Ver explicación</button></div>
+  <div class="tile"><strong>Según el momento del pago</strong><div>Vencida si el pago se hace al final del período y anticipada si se hace al principio.</div><button class="s6-explicar" type="button" data-s6-example="2" aria-haspopup="dialog" aria-controls="s6-detalle">Ver explicación</button></div>
+  <div class="tile"><strong>Según el inicio</strong><div>Inmediata si la serie empieza en el primer período y diferida si empieza después de un plazo de espera.</div><button class="s6-explicar" type="button" data-s6-example="3" aria-haspopup="dialog" aria-controls="s6-detalle">Ver explicación</button></div>
+  <div class="tile"><strong>Según las frecuencias</strong><div>Simple si coinciden el intervalo de pago y el de capitalización. General si son distintos.</div><button class="s6-explicar" type="button" data-s6-example="4" aria-haspopup="dialog" aria-controls="s6-detalle">Ver explicación</button></div>
+  <div class="tile"><strong>Tasa equivalente por pago</strong><div><div class="formula">j = (1 + i/p)<sup>p/m</sup> − 1</div>i es la tasa nominal anual en decimal, p las capitalizaciones al año y m los pagos al año.</div><button class="s6-explicar" type="button" data-s6-example="5" aria-haspopup="dialog" aria-controls="s6-detalle">Ver explicación</button></div>
+  <div class="tile"><strong>Monto de una anualidad vencida</strong><div><div class="formula">M = R × [(1 + j)<sup>n</sup> − 1] / j</div>Valor al final del último período.</div><button class="s6-explicar" type="button" data-s6-example="6" aria-haspopup="dialog" aria-controls="s6-detalle">Ver explicación</button></div>
+  <div class="tile"><strong>Valor presente de una anualidad vencida</strong><div><div class="formula">C = R × [1 − (1 + j)<sup>−n</sup>] / j</div>Valor un período antes del primer pago. R es la renta y n el número de pagos. Si j = 0, ambos valores son R × n.</div><button class="s6-explicar" type="button" data-s6-example="7" aria-haspopup="dialog" aria-controls="s6-detalle">Ver explicación</button></div>
+ </div>
+ <div class="note"><strong>Aplicaciones</strong><p>Ahorros mensuales con capitalización trimestral, créditos con cuotas mensuales y capitalización quincenal, o compras con pagos semanales y capitalización mensual.</p></div>
+ <h3 id="s6-comparacion">Anualidad simple y anualidad general</h3>
+ <div class="grid">
+  <div class="tile"><strong>Anualidad simple</strong><p>Depositas cada mes y el banco capitaliza cada mes. Como los períodos coinciden, usas la tasa mensual en la fórmula.</p></div>
+  <div class="tile"><strong>Anualidad general</strong><p>Depositas cada mes y el banco capitaliza cada trimestre. Como los períodos son distintos, conviertes la tasa trimestral en su equivalente mensual antes de aplicar la fórmula.</p></div>
+ </div>
+ <h3>¿Cómo elegir la fórmula?</h3>
+ <div class="grid">
+  <div class="tile"><strong>Monto acumulado</strong><p>Si te preguntan cuánto tendrás al final, calcula el monto. En el primer ejercicio, cada depósito se lleva hasta el final del último período.</p></div>
+  <div class="tile"><strong>Valor presente</strong><p>Si te preguntan cuánto valen hoy las cuotas futuras, calcula el valor presente. En el segundo ejercicio, cada cuota se descuenta hasta el período 0.</p></div>
+ </div>
+ <h3>Taller del Grupo 8 · Anualidad general</h3>
+ <p>Los pagos son vencidos. El período 0 representa hoy y el primer pago ocurre al final del período 1.</p>
+ <form class="exercise" data-s6-calculo="monto">
+  <h4>Ejercicio 1. Ahorro mensual</h4>
+  <p>Una persona deposita $200 al final de cada mes durante un año. La cuenta paga 12 % nominal anual capitalizable trimestralmente. ¿Cuánto acumula?</p>
+  <div class="calc-grid">
+   <label>Pago periódico ($)<input name="r" type="number" min="0" step="any" value="200" required></label>
+   <label>Tasa nominal anual (%)<input name="i" type="number" min="0" step="any" value="12" required></label>
+   <label>Capitalizaciones al año<input name="p" type="number" min="1" step="1" value="4" required></label>
+   <label>Pagos al año<input name="m" type="number" min="1" step="1" value="12" required></label>
+   <label>Número de pagos<input name="n" type="number" min="1" step="1" value="12" required></label>
+  </div>
+  <div class="timeline" data-s6-linea></div>
+  <button type="submit">Resolver</button>
+  <button type="reset">Restablecer valores</button>
+  <div class="result" id="s6-monto-resultado" aria-live="polite"></div>
+ </form>
+ <form class="exercise" data-s6-calculo="presente">
+  <h4>Ejercicio 2. Valor presente de cuotas</h4>
+  <p>Un equipo se paga con siete cuotas mensuales vencidas de $30.000. La tasa nominal anual es 9,6 % capitalizable quincenalmente. ¿Cuál es el valor presente?</p>
+  <div class="calc-grid">
+   <label>Pago periódico ($)<input name="r" type="number" min="0" step="any" value="30000" required></label>
+   <label>Tasa nominal anual (%)<input name="i" type="number" min="0" step="any" value="9.6" required></label>
+   <label>Capitalizaciones al año<input name="p" type="number" min="1" step="1" value="24" required></label>
+   <label>Pagos al año<input name="m" type="number" min="1" step="1" value="12" required></label>
+   <label>Número de pagos<input name="n" type="number" min="1" step="1" value="7" required></label>
+  </div>
+  <div class="timeline" data-s6-linea></div>
+  <button type="submit">Resolver</button>
+  <button type="reset">Restablecer valores</button>
+  <div class="result" id="s6-presente-resultado" aria-live="polite"></div>
+ </form>
+ <p class="small">Material de consulta: Ingeniería Económica, Unidad II, guía de la semana 6 de la Ing. María del Pilar Avilés V. y presentación G8-GENERAL del Grupo 8.</p>
+ <dialog id="s6-detalle" aria-labelledby="s6-detalle-titulo">
+  <h3 id="s6-detalle-titulo"></h3>
+  <div data-s6-detalle-contenido></div>
+  <figure data-s6-visual hidden></figure>
+  <form method="dialog"><button autofocus>Cerrar</button></form>
+ </dialog>
+ <style>
+  #semana6 .tile:has(.s6-explicar):is(:hover, :focus-within) { border-color: var(--green); box-shadow: 0 5px 15px #164d2920; }
+  #semana6 .s6-explicar { background: transparent; color: var(--green); padding: 0; text-decoration: underline; }
+  #s6-detalle { position: fixed; inset: 0; margin: auto; height: fit-content; max-height: calc(100dvh - 2rem); overflow: auto; width: min(560px, calc(100% - 2rem)); box-sizing: border-box; padding: 26px; border: 0; border-radius: 16px; color: inherit; box-shadow: 0 12px 36px #0004; }
+  #s6-detalle figure { margin: 12px 0; padding: 12px; background: #eef6ef; border-radius: 10px; }
+  #s6-detalle figcaption { font-weight: 700; color: var(--green); }
+  #s6-detalle figure ul { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 8px 0 0; list-style: none; }
+  #s6-detalle figure li { border-left: 3px solid var(--green); border-radius: 4px; background: white; padding: 6px 9px; }
+  #s6-detalle::backdrop { background: rgba(18, 41, 27, .74); }
+ </style>
+</section>
+
+<section id="semana7">
+ <div class="week-title"><span class="week-label">UNIDAD II · SEMANA 7</span><h2>Gradientes financieros y su aplicación</h2><p>Series de pagos que cambian siguiendo un patrón.</p></div>
+ <div class="intro">En una anualidad uniforme los pagos son iguales. En un gradiente financiero cambian de un período al siguiente: por un importe fijo o por un porcentaje fijo.</div>
+ <div class="grid">
+  <div class="tile"><strong>Gradiente aritmético</strong><div class="formula">A<sub>t</sub> = A<sub>1</sub> + (t − 1)G</div><p>La diferencia entre pagos consecutivos es G.</p><button type="button" data-s7-topic="0">Ver explicación</button></div>
+  <div class="tile"><strong>Gradiente geométrico</strong><div class="formula">A<sub>t</sub> = A<sub>1</sub>(1 + g)<sup>t − 1</sup></div><p>Cada pago cambia en el mismo porcentaje g.</p><button type="button" data-s7-topic="1">Ver explicación</button></div>
+  <div class="tile"><strong>Valor presente y valor futuro</strong><div class="formula">VP = Σ A<sub>t</sub>/(1 + i)<sup>t</sup><br>VF = Σ A<sub>t</sub>(1 + i)<sup>n − t</sup></div><p>Compara todos los pagos en una misma fecha.</p><button type="button" data-s7-topic="2">Ver explicación</button></div>
+ </div>
+ <p class="note"><strong>Elementos.</strong> A<sub>1</sub> es el primer pago, G es el cambio fijo, g es el cambio porcentual en decimal, i es la tasa efectiva por período y n es el número de pagos. En estos ejemplos el primer pago vence al final del período 1.</p>
+ <h3>Aplicaciones</h3><p>Un presupuesto de mantenimiento que aumenta $200 al año sigue un gradiente aritmético. Si una licencia sube 5 % cada año, sigue un gradiente geométrico. Ambos pueden ser crecientes o decrecientes.</p>
+ <h3>Resumen para resolver ejercicios</h3>
+ <div class="note"><p>En un gradiente lineal, resta dos pagos consecutivos para encontrar G. Si G es positivo, la serie crece. Si es negativo, disminuye. El primer pago es A₁ y el cambio empieza en el segundo período.</p>
+ <p>Dibuja la línea con el primer pago en el período 1 y usa una tasa efectiva del mismo período. Para el valor presente, descuenta cada pago al período 0. Para el valor futuro, lleva cada pago al último período. En Excel puedes usar una fila por pago y sumar por separado las columnas de valor presente y valor futuro.</p></div>
+ <h3>Ejemplo de clase · Actualización de equipos</h3>
+ <form class="exercise" id="s7-ejemplo" data-s7-unit="año">
+  <p>Una empresa invierte $1.000 al finalizar el primer año y aumenta su inversión $200 cada año durante cinco años. Si la tasa efectiva anual es del 10 %, ¿cuánto valen estos desembolsos hoy y al final del quinto año?</p>
+  <div class="calc-grid">
+   <label>Primer pago ($)<input name="first" type="number" min="0" step="any" value="1000" required></label>
+   <label>Cambio anual ($)<input name="change" type="number" step="any" value="200" required></label>
+   <label>Número de pagos<input name="count" type="number" min="1" max="120" step="1" value="5" required></label>
+   <label>Tasa anual (%)<input name="rate" type="number" min="0" step="any" value="10" required></label>
+  </div>
+  <div class="timeline" id="s7-linea"></div>
+  <button type="submit">Resolver</button><button type="reset">Restablecer valores</button>
+  <div class="result" id="s7-resultado" aria-live="polite"></div>
+ </form>
+ <h3>Ejemplo del capítulo · Gradiente lineal decreciente</h3>
+ <form class="exercise" id="s7-decreciente" data-s7-unit="mes">
+  <p>Según el ejemplo 6.18 del capítulo de consulta, el primer depósito es de 600.000 pesos y cada mes disminuye 15.000 pesos. La tasa es del 2,5 % mensual. ¿Cuánto se acumula al finalizar el mes 12?</p>
+  <div class="calc-grid">
+   <label>Primer depósito (pesos)<input name="first" type="number" min="0" step="any" value="600000" required></label>
+   <label>Cambio mensual (pesos)<input name="change" type="number" step="any" value="-15000" required></label>
+   <label>Número de pagos<input name="count" type="number" min="1" max="120" step="1" value="12" required></label>
+   <label>Tasa mensual (%)<input name="rate" type="number" min="0" step="any" value="2.5" required></label>
+  </div>
+  <div class="timeline" id="s7-linea-decreciente"></div>
+  <button type="submit">Resolver</button><button type="reset">Restablecer valores</button>
+  <div class="result" id="s7-resultado-decreciente" aria-live="polite"></div>
+ </form>
+ <h3>Práctica adicional</h3>
+ <p>Usa el enunciado como guía y pulsa Resolver para comprobar ambos valores en la tabla.</p>
+ <h4>3. Licencias de software · Creciente</h4>
+ <form class="exercise" id="s7-licencias" data-s7-unit="año">
+  <p>El primer pago anual de una licencia es de $800 y aumenta $120 cada año durante cuatro años. Con una tasa del 8 % anual, calcula cuánto valen hoy los pagos.</p>
+  <div class="calc-grid">
+   <label>Primer pago ($)<input name="first" type="number" min="0" step="any" value="800" required></label>
+   <label>Cambio anual ($)<input name="change" type="number" step="any" value="120" required></label>
+   <label>Número de pagos<input name="count" type="number" min="1" max="120" step="1" value="4" required></label>
+   <label>Tasa anual (%)<input name="rate" type="number" min="0" step="any" value="8" required></label>
+  </div>
+  <div class="timeline" id="s7-linea-licencias"></div>
+  <button type="submit">Resolver</button><button type="reset">Restablecer valores</button>
+  <div class="result" id="s7-resultado-licencias" aria-live="polite"></div>
+ </form>
+ <h4>4. Ahorro para renovar equipos · Creciente</h4>
+ <form class="exercise" id="s7-ahorro" data-s7-unit="año">
+  <p>El primer depósito anual es de $500 y cada depósito siguiente aumenta $75. Si se hacen seis depósitos y la tasa es del 6 % anual, calcula cuánto se acumula al final.</p>
+  <div class="calc-grid">
+   <label>Primer pago ($)<input name="first" type="number" min="0" step="any" value="500" required></label>
+   <label>Cambio anual ($)<input name="change" type="number" step="any" value="75" required></label>
+   <label>Número de pagos<input name="count" type="number" min="1" max="120" step="1" value="6" required></label>
+   <label>Tasa anual (%)<input name="rate" type="number" min="0" step="any" value="6" required></label>
+  </div>
+  <div class="timeline" id="s7-linea-ahorro"></div>
+  <button type="submit">Resolver</button><button type="reset">Restablecer valores</button>
+  <div class="result" id="s7-resultado-ahorro" aria-live="polite"></div>
+ </form>
+ <h4>5. Soporte técnico · Decreciente</h4>
+ <form class="exercise" id="s7-soporte" data-s7-unit="año">
+  <p>El primer pago anual es de $1.200 y baja $150 por año durante cinco años. Con una tasa del 9 % anual, calcula el valor presente de los pagos.</p>
+  <div class="calc-grid">
+   <label>Primer pago ($)<input name="first" type="number" min="0" step="any" value="1200" required></label>
+   <label>Cambio anual ($)<input name="change" type="number" step="any" value="-150" required></label>
+   <label>Número de pagos<input name="count" type="number" min="1" max="120" step="1" value="5" required></label>
+   <label>Tasa anual (%)<input name="rate" type="number" min="0" step="any" value="9" required></label>
+  </div>
+  <div class="timeline" id="s7-linea-soporte"></div>
+  <button type="submit">Resolver</button><button type="reset">Restablecer valores</button>
+  <div class="result" id="s7-resultado-soporte" aria-live="polite"></div>
+ </form>
+ <dialog id="s7-detalle" aria-labelledby="s7-titulo"><h3 id="s7-titulo"></h3><div data-s7-detail></div><form method="dialog"><button autofocus>Cerrar</button></form></dialog>
+ <style>
+  #semana7 .tile:has([data-s7-topic]):is(:hover,:focus-within) { border-color: var(--green); box-shadow: 0 5px 15px #164d2920; }
+  #semana7 [data-s7-topic] { background: transparent; color: var(--green); padding: 0; text-decoration: underline; }
+  #s7-detalle { position: fixed; inset: 0; margin: auto; width: min(560px, calc(100% - 2rem)); box-sizing: border-box; max-height: calc(100dvh - 2rem); padding: 26px; border: 0; border-radius: 16px; }
+  #s7-detalle::backdrop { background: rgba(18, 41, 27, .74); }
+  #semana7 .s7-period { position: relative; padding-top: 9px; }
+  #semana7 .s7-period::before { content: ""; position: absolute; top: -2px; left: 0; transform: translateY(-50%); width: 10px; height: 10px; border: 2px solid var(--green); border-radius: 50%; background: white; }
+  #semana7 .s7-period.s7-final::before { background: var(--gold); }
+  #semana7 .result { overflow-x: auto; }
+ </style>
+ <p class="small">Material de clase: S7-U2_IE_2C.pdf, Ing. María del Pilar Avilés V. Lectura complementaria: EXTR-GRADIENTES.pdf, capítulo 6.</p>
+</section>
+
 <section id="bancoDeberes">
 
  <div class="week-title">
@@ -2042,23 +2286,8 @@ body:has(#s5detalle[open]){overflow:hidden}
 
 </section>
 
-<section id="fuentes">
-
- <h2>Material de consulta</h2>
-
- <h3>Semana 2</h3>
-
- <p><strong>Universidad Agraria del Ecuador.</strong> Ingeniería Económica. Unidad I: Fundamentos de Ingeniería Económica, interés simple y compuesto. Semana 2. Ing. María del Pilar Avilés V. Material de clase proporcionado para la asignatura.</p>
-
- <h3>Semana 3</h3>
-
- <p><strong>Universidad Agraria del Ecuador.</strong> Ingeniería Económica. Unidad I: Fundamentos de Ingeniería Económica, interés simple y compuesto. Semana 3. Ing. María del Pilar Avilés V. Material de clase proporcionado para la asignatura.</p>
-
- <p class="small">Los conceptos, fórmulas y ejercicios se han organizado a partir de los materiales de clase compartidos para las semanas 2 y 3.</p>
-
-</section>
-
 </main>
+</div>
 
 <footer>
 
@@ -4293,3 +4522,253 @@ const importeDiagrama = value => dinero(value===0?0:value).replace('$-', '−$')
 
 </script>
 
+
+<script>
+(() => {
+ const usd = new Intl.NumberFormat('es-EC', {style: 'currency', currency: 'USD'});
+ const decimal = new Intl.NumberFormat('es-EC', {maximumFractionDigits: 10});
+ const dialog = document.getElementById('s6-detalle');
+ const diagrams = [["Depósitos iguales","Mes 1 · $200","Mes 2 · $200","Mes 3 · $200","…","Mes 12 · $200"],["Cierta y eventual","Cierta · 12 fechas pactadas","Eventual · depende de un suceso"],["Un mismo período","Inicio · pago anticipado","Fin · pago vencido"],["Primer pago vencido","Inmediata · mes 1","Diferida · mes 4"],["Pagos mensuales","Simple · capitaliza cada mes","General · capitaliza cada 3 meses"]];
+ const examples = ["Si depositas $200 al final de cada mes durante un año, tienes 12 depósitos iguales a intervalos regulares.","Un crédito con 12 fechas de pago pactadas es cierto. Una pensión pagadera mientras viva la persona depende de un hecho incierto.","Una cuota que se paga el último día del mes es vencida. Un arriendo pagado al comenzar el mes es anticipado.","Si el primer pago vencido se hace al terminar el primer mes, la anualidad es inmediata. Si se hace al terminar el cuarto mes, hay tres meses de diferimiento.","Con pagos mensuales, la capitalización mensual da una anualidad simple y la trimestral da una general.","Para 12 % nominal con capitalización trimestral y pagos mensuales, i = 0,12, p = 4 y m = 12. La tasa equivalente mensual es aproximadamente 0,99016 %.","Con 12 depósitos vencidos de $200 y una tasa mensual equivalente de aproximadamente 0,99016 %, el saldo después del último depósito es $2.535,11.","Siete cuotas vencidas de $30.000 a una tasa mensual de 0,8016 % equivalen hoy a $203.425,30."];
+ let trigger;
+ for (const button of document.querySelectorAll('#semana6 [data-s6-example]')) {
+  button.addEventListener('click', () => {
+   const card = button.closest('.tile');
+   dialog.querySelector('h3').textContent = card.querySelector('strong').textContent;
+   const content = dialog.querySelector('[data-s6-detalle-contenido]');
+   const example = document.createElement('p');
+   example.className = 'note';
+   example.textContent = 'Ejemplo. ' + examples[Number(button.dataset.s6Example)];
+   content.replaceChildren(card.querySelector('strong + div').cloneNode(true), example);
+   const visual = dialog.querySelector('[data-s6-visual]');
+   const diagram = diagrams[Number(button.dataset.s6Example)];
+   visual.hidden = !diagram;
+   visual.replaceChildren();
+   if (diagram) {
+    const [caption, ...labels] = diagram;
+    const title = document.createElement('figcaption');
+    title.textContent = caption;
+    const list = document.createElement('ul');
+    for (const label of labels) {
+     const item = document.createElement('li');
+     item.textContent = label;
+     list.append(item);
+    }
+    visual.append(title, list);
+   }
+   trigger = button;
+   dialog.showModal();
+  });
+ }
+ dialog.addEventListener('close', () => trigger?.focus());
+ for (const form of document.querySelectorAll('#semana6 form[data-s6-calculo]')) {
+  const line = form.querySelector('[data-s6-linea]');
+  const present = form.dataset.s6Calculo === 'presente';
+  const resultId = 's6-' + form.dataset.s6Calculo + '-resultado';
+
+  function update(showSolution = false) {
+   const [r, percent, p, m, n] = ['r', 'i', 'p', 'm', 'n'].map(
+    name => form.elements.namedItem(name).valueAsNumber
+   );
+   if (!form.checkValidity() || ![r, percent, p, m, n].every(Number.isFinite)) {
+    line.replaceChildren();
+    ocultar(resultId);
+    return;
+   }
+   const i = percent / 100;
+   const logGrowth = Math.log1p(i / p) * (p / m);
+   const j = Math.expm1(logGrowth);
+   function valueAt(period) {
+    if (r === 0 || period === 0) return 0;
+    if (j === 0) return r * period;
+    const growth = Math.expm1((present ? -period : period) * logGrowth);
+    return r * (present ? -growth : growth) / j;
+   }
+   const total = valueAt(n);
+   const periods = n <= 5 ? Array.from({length: n + 1}, (_, index) => index) : [0, 1, 2, '…', n - 1, n];
+   const duration = new Intl.NumberFormat('es-EC', {maximumSignificantDigits: 5});
+   line.innerHTML = '<strong>Línea de tiempo financiera</strong><p class="small">' +
+    'Plazo: ' + duration.format(n / m) + ' años · Tasa equivalente por pago: ' + duration.format(j * 100) +
+    ' % · Capitalizaciones al año: ' + p + '</p><div class="timeline-line">' +
+    periods.map(period => {
+     if (period === '…') return '<div>…</div>';
+     const balance = valueAt(present ? n - period : period);
+     const label = present ? (period === 0 ? 'Valor presente' : 'Saldo pendiente') :
+      (period === 0 ? 'Saldo inicial' : period === n ? 'Monto final' : 'Saldo acumulado');
+     return '<div class="s6-period' + (period === n ? ' s6-final' : '') + '">Período ' + period + (period > 0 ? '<br>Pago: ' + usd.format(r) : '') +
+      '<br>' + label + '<br><strong>' + (Number.isFinite(balance) ? usd.format(balance) : 'Fuera de rango') +
+      '</strong></div>';
+    }).join('') + '</div><p class="small">Los saldos se muestran después del pago de cada período.' +
+    (n > 5 ? ' Se muestran períodos seleccionados.' : '') + '</p>';
+   if (!showSolution) {
+    ocultar(resultId);
+    return;
+   }
+   if (!Number.isFinite(total) || !Number.isFinite(j)) {
+    mostrar(resultId, '<p class="error">El resultado supera el rango de cálculo. Reduce el plazo o la tasa.</p>');
+    return;
+   }
+   const rate = decimal.format(j);
+   const payment = usd.format(r);
+   const expression = j === 0 ? payment + ' × ' + n : present ?
+    payment + ' × [1 − (1 + ' + rate + ')<sup>−' + n + '</sup>] / ' + rate :
+    payment + ' × [(1 + ' + rate + ')<sup>' + n + '</sup> − 1] / ' + rate;
+   mostrar(resultId, '<p><strong>1. Tasa equivalente por pago</strong></p>' +
+    '<div class="formula">j = (1 + ' + decimal.format(i) + '/' + p + ')<sup>' + p + '/' + m +
+    '</sup> − 1 ≈ ' + decimal.format(j * 100) + ' %</div>' +
+    '<p><strong>2. ' + (present ? 'Valor presente' : 'Monto acumulado') + '</strong></p>' +
+    '<div class="formula">' + expression + ' ≈ ' + usd.format(total) + '</div>' +
+    '<p class="small">El cálculo conserva la precisión de la tasa hasta obtener el resultado.</p>');
+  }
+
+  form.addEventListener('submit', event => {
+   event.preventDefault();
+   update(true);
+  });
+  form.addEventListener('input', () => update());
+  form.addEventListener('reset', () => requestAnimationFrame(() => update()));
+  update(false);
+ }
+})();
+</script>
+
+<script>
+(() => {
+ const nav = document.querySelector('.section-nav');
+ const sidebar = document.getElementById('menu-escritorio');
+ const drawer = document.getElementById('menu-lateral');
+ const openButton = document.getElementById('menu-abrir');
+ const closeButton = document.getElementById('menu-cerrar');
+ const mobileBar = openButton.parentElement;
+ const mobile = matchMedia('(max-width:900px)');
+ document.documentElement.classList.add('nav-ready');
+
+ openButton.addEventListener('click', () => {
+  drawer.append(nav);
+  drawer.showModal();
+  openButton.setAttribute('aria-expanded', 'true');
+  closeButton.focus();
+ });
+ closeButton.addEventListener('click', () => drawer.close());
+ drawer.addEventListener('click', event => {
+  if (event.target !== drawer) return;
+  const bounds = drawer.getBoundingClientRect();
+  if (event.clientX < bounds.left || event.clientX >= bounds.right ||
+      event.clientY < bounds.top || event.clientY >= bounds.bottom) drawer.close();
+ });
+ drawer.addEventListener('close', () => {
+  if (drawer.open) return;
+  sidebar.append(nav);
+  openButton.setAttribute('aria-expanded', 'false');
+  if (!mobile.matches && document.activeElement === document.body) {
+   nav.querySelector('[aria-current="location"]')?.focus({preventScroll:true});
+  }
+ });
+ mobile.addEventListener('change', () => {
+  if (!mobile.matches && drawer.open) drawer.close();
+ });
+
+ const items = Array.from(nav.querySelectorAll('a[href^="#"]'), link => ({
+  link, section: document.getElementById(link.hash.slice(1))
+ })).filter(item => item.section);
+ for (const {link, section} of items) {
+  link.addEventListener('click', event => {
+   if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+   if (drawer.open) drawer.close();
+   section.tabIndex = -1;
+   section.focus({preventScroll:true});
+  });
+ }
+ let pending = false;
+ function update() {
+  pending = false;
+  const boundary = (mobile.matches ? mobileBar.offsetHeight : 0) + 24;
+  let active = items[0];
+  for (const item of items) {
+   if (item.section.getBoundingClientRect().top <= boundary) active = item;
+  }
+  const page = document.documentElement;
+  if (window.scrollY > 0 && window.scrollY + window.innerHeight >= page.scrollHeight - 2) {
+   active = items.at(-1);
+  }
+  for (const item of items) {
+   if (item === active) item.link.setAttribute('aria-current', 'location');
+   else item.link.removeAttribute('aria-current');
+  }
+ }
+ function schedule() {
+  if (pending) return;
+  pending = true;
+  requestAnimationFrame(update);
+ }
+ window.addEventListener('scroll', schedule, {passive: true});
+ window.addEventListener('resize', schedule);
+ window.addEventListener('hashchange', schedule);
+ window.addEventListener('load', schedule);
+ schedule();
+})();
+</script>
+
+<script>
+(() => {
+ const week = document.getElementById('semana7');
+ const dialog = week.querySelector('dialog');
+ const examples = [
+  'Cada año se suman $200: $1.000 → $1.200 → $1.400 → $1.600.',
+  'Cada año se multiplica por 1,05: $1.000 → $1.050 → $1.102,50 → $1.157,63.',
+  'Con una tasa del 10 %, un pago de $1.100 al final del año 1 equivale a $1.000 hoy o a $1.210 al final del año 2.'
+ ];
+ week.querySelectorAll('[data-s7-topic]').forEach(button => button.addEventListener('click', () => {
+  const card = button.closest('.tile');
+  dialog.querySelector('h3').textContent = card.querySelector('strong').textContent;
+  const example = document.createElement('p');
+  example.textContent = examples[Number(button.dataset.s7Topic)];
+  dialog.querySelector('[data-s7-detail]').replaceChildren(card.querySelector('.formula').cloneNode(true), example);
+  dialog.showModal();
+ }));
+ for (const form of week.querySelectorAll('[data-s7-unit]')) {
+ const unit = form.dataset.s7Unit;
+ const label = unit === 'mes' ? 'Mes' : 'Año';
+ const line = form.querySelector('.timeline');
+ const id = form.querySelector('.result').id;
+ const money = unit === 'mes' ? new Intl.NumberFormat('es-EC', {minimumFractionDigits: 2, maximumFractionDigits: 2}) : new Intl.NumberFormat('es-EC', {style: 'currency', currency: 'USD'});
+ function update(solve = false) {
+  ocultar(id);
+  line.replaceChildren();
+  if (!form.checkValidity()) return;
+  const [first, change, count, rate] = ['first','change','count','rate'].map(name => form.elements.namedItem(name).valueAsNumber);
+  const i = rate / 100;
+  const rows = Array.from({length: count}, (_, k) => {
+   const t = k + 1;
+   const payment = first + k * change;
+   return [t, payment, payment / (1 + i) ** t, payment * (1 + i) ** (count - t)];
+  });
+  const vp = rows.reduce((sum, row) => sum + row[2], 0);
+  const vf = rows.reduce((sum, row) => sum + row[3], 0);
+  if (rows.some(row => row[1] < 0) || !Number.isFinite(vp) || !Number.isFinite(vf)) {
+   line.textContent = 'Ajusta los datos para obtener pagos no negativos y valores dentro del rango de cálculo.';
+   return;
+  }
+  const points = count <= 6 ? rows : [...rows.slice(0, 2), null, ...rows.slice(-2)];
+  const movement = count === 1 ? 'Solo hay un pago.' : change === 0 ? 'Todos los pagos son iguales.' :
+   'Cada pago ' + (change > 0 ? 'aumenta ' : 'disminuye ') + money.format(Math.abs(change)) + ' respecto al anterior.';
+  line.innerHTML = '<strong>Línea de tiempo financiera' + (unit === 'mes' ? ' · importes en pesos' : '') +
+   '</strong><div class="timeline-line"><div class="s7-period">' + label + ' 0<br>Hoy</div>' +
+   points.map(row => row ? '<div class="s7-period' + (row[0] === count ? ' s7-final' : '') + '">' + label + ' ' + row[0] +
+    '<br><strong>' + money.format(row[1]) + '</strong></div>' : '<div>…</div>').join('') +
+   '</div><p class="small">El primer pago es de ' + money.format(first) + ' y ocurre al final del ' + unit + ' 1. ' +
+   movement + ' El último pago es de ' + money.format(rows.at(-1)[1]) + '.' +
+   (count > 6 ? ' La línea muestra algunos períodos.' : '') + '</p>';
+  if (!solve) return;
+  mostrar(id, '<p>Calcula cada pago con Aₜ = A₁ + (t − 1)G. Descuenta cada flujo al período 0 para el VP y capitalízalo hasta el último período para el VF.</p>' +
+   '<table><thead><tr><th>' + label + '</th><th>Pago</th><th>Valor presente</th><th>Valor futuro</th></tr></thead><tbody>' +
+   rows.map(([t,p,v,f]) => '<tr><td>' + t + '</td><td>' + money.format(p) + '</td><td>' + money.format(v) + '</td><td>' + money.format(f) + '</td></tr>').join('') +
+   '</tbody><tfoot><tr><th colspan="2">Total</th><td>' + money.format(vp) + '</td><td>' + money.format(vf) + '</td></tr></tfoot></table>');
+ }
+ form.addEventListener('submit', event => { event.preventDefault(); update(true); });
+ form.addEventListener('input', () => update());
+ form.addEventListener('reset', () => requestAnimationFrame(() => update()));
+ update();
+ }
+})();
+</script>
